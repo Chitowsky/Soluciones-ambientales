@@ -1,0 +1,379 @@
+.formato-raee th {
+  border: 2px solid #000000;
+  background: #5d913b;
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Ajustes generales para todas las celdas */
+.formato-raee td {
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  background: #fff;
+  height: 2em;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.formato-raee input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.formato-raee td[rowspan] {
+  background: #a8d08d;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.formato-raee {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.formato-encuadre {
+  border: 2px solid #222;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 1400px;
+  margin: 10rem auto 2rem auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Réplica del encuadre con nombre diferente */
+.formato-encuadre-replica {
+  border: 2px solid #222;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 1100px;
+  margin: 10rem auto 2rem auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Sección Datos del Usuario */
+.datos-usuario-section {
+  margin-bottom: 1.5rem;
+}
+
+.datos-usuario-header {
+  background: #a8d08d;
+  border: 2px solid #222;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.datos-usuario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.datos-usuario-table td {
+  border: 1.5px solid #222;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.label-cell {
+  background: #d9d9d9;
+  font-weight: 500;
+  width: 25%;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.input-cell {
+  width: 25%;
+  background: #fff;
+  font-size: 1.1rem;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  background: #f9f9f9;
+}
+
+/* Encabezado del Formato */
+.formato-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  background: #fff;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.header-left {
+  flex: 1;
+  padding: 3rem 1rem 1rem 1rem;
+}
+
+.formato-titulo {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  margin-top: -0.4rem;
+  margin-bottom: 1cm;
+  color: #000;
+}
+
+.header-right {
+  width: 254px;
+  text-align: center;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #000000;
+  border-bottom: none;
+  background: #fff;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right::after {
+  display: none;
+}
+
+.header-right::before {
+  display: none;
+}
+
+.logo-space {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem;
+}
+
+.formato-logo {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  padding: 1rem;
+  padding-bottom: 0.1rem;
+}
+
+.nit-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+/* Información del documento */
+.documento-info {
+  display: table;
+  width: 100%;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #000000;
+  border-bottom: none;
+  padding: 0.5rem 0;
+  background: #fff;
+  font-size: 0.9rem;
+  margin-top: 0;
+  position: relative;
+}
+
+.doc-left {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  padding: 0 1rem;
+  border-right: 2px solid #000000;
+  vertical-align: middle;
+}
+
+.doc-right {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  padding: 0 1rem;
+  vertical-align: middle;
+}
+
+.doc-field {
+  font-weight: 500;
+}
+
+/* Control de ancho de la columna Categoría */
+.formato-raee th:nth-child(1),
+.formato-raee td:nth-child(1) {
+  width: 270px !important;
+  padding: 0.3em;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Subcategoría - ajustada */
+.formato-raee th:nth-child(2),
+.formato-raee td:nth-child(2) {
+  width: 30% !important;
+  padding: 0.3em;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Columnas Cantidad y Peso - muy estrechas */
+.formato-raee th:nth-child(3),
+.formato-raee td:nth-child(3),
+.formato-raee th:nth-child(4),
+.formato-raee td:nth-child(4) {
+  width: 8%;
+  white-space: nowrap;
+  text-align: center;
+  padding: 0.2em;
+  height: 2em;
+}
+
+.formato-raee td:nth-child(3) input,
+.formato-raee td:nth-child(4) input {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  margin: 0;
+  text-align: center;
+}
+
+.formato-raee td:nth-child(3) input::-webkit-outer-spin-button,
+.formato-raee td:nth-child(3) input::-webkit-inner-spin-button,
+.formato-raee td:nth-child(4) input::-webkit-outer-spin-button,
+.formato-raee td:nth-child(4) input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Columna Observaciones - ajustada */
+.formato-raee th:nth-child(5),
+.formato-raee td:nth-child(5) {
+  width: 30% !important;
+  padding: 0.5em;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.formato-raee td:nth-child(5) input {
+  width: 100%;
+  font-size: 0.9em;
+  padding: 0.2em;
+}
+
+.input-observaciones {
+  max-width: 100%;
+  font-family: inherit;
+}
+
+/* Forzar el ancho de la tabla completa */
+.formato-raee {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Estilos para la tabla de firmas */
+.tabla-firmas {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+.tabla-firmas td {
+  width: 50%;
+  text-align: center;
+  padding: 0.5rem;
+  background: #a8d08d;
+  border: 1.5px solid #000;
+  font-weight: bold;
+}
+
+.tabla-firmas .firma-espacio {
+  height: 100px;
+  background: white;
+  border-bottom: none;
+}
+
+/* Estilos para el total independiente (vista normal) */
+.tabla-total {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.formato-total {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  table-layout: fixed;
+}
+
+.total-label {
+  background: #a8d08d;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.total-cantidad,
+.total-peso {
+  background: #fff;
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  font-size: 0.9em;
+  text-align: center;
+  width: 8%;
+}
+
+.total-observaciones {
+  background: #fff;
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  font-size: 0.9em;
+  width: 30%;
+}
+
+.input-cantidad-total,
+.input-peso-total {
+  border: none;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: bold;
+}
+
+

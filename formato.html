@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMATO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="formato.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Agrega Chart.js CDN en el head -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Estilos para impresión -->
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 0.5in;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                box-sizing: border-box !important;
+            }
+            
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                font-family: Arial, sans-serif !important;
+                font-size: 11px !important;
+                line-height: 1.2 !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+            
+            body * {
+                visibility: hidden;
+            }
+            
+            .formato-encuadre, .formato-encuadre * {
+                visibility: visible;
+            }
+            
+            .formato-encuadre {
+                position: static !important;
+                left: auto !important;
+                top: auto !important;
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                background: white !important;
+                transform: none !important;
+            }
+            
+            /* Ocultar elementos no necesarios */
+            #downloadPDF, .navbar, div[style*="text-align: center; margin: 20px 0;"] {
+                display: none !important;
+            }
+            
+            /* Encabezado */
+            .formato-header {
+                display: table !important;
+                width: 100% !important;
+                border: 2px solid #000000 !important;
+                border-collapse: collapse !important;
+                background: #fff !important;
+                margin: 0 !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .header-left {
+                display: table-cell !important;
+                width: calc(100% - 254px) !important;
+                padding: 15px 10px !important;
+                vertical-align: middle !important;
+                border-right: 2px solid #000000 !important;
+            }
+            
+            .formato-titulo {
+                font-size: 20px !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                margin: 0 !important;
+                color: #000 !important;
+                line-height: 1.1 !important;
+            }
+            
+            .header-right {
+                display: table-cell !important;
+                width: 254px !important;
+                text-align: center !important;
+                padding: 8px !important;
+                vertical-align: middle !important;
+                background: #fff !important;
+            }
+            
+            .logo-space {
+                display: block !important;
+                text-align: center !important;
+            }
+            
+            .formato-logo {
+                max-width: 120px !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 auto 5px auto !important;
+            }
+            
+            .nit-text {
+                font-size: 10px !important;
+                font-weight: bold !important;
+                color: #000 !important;
+                text-align: center !important;
+                margin: 0 !important;
+            }
+            
+            /* Información del documento */
+            .documento-info {
+                display: table !important;
+                width: 100% !important;
+                border-left: 2px solid #000000 !important;
+                border-right: 2px solid #000000 !important;
+                border-bottom: 2px solid #000000 !important;
+                border-top: 2px solid #000000 !important;
+                padding: 6px 0 !important;
+                background: #fff !important;
+                font-size: 10px !important;
+                page-break-inside: avoid !important;
+                margin: 0 !important;
+                position: relative !important;
+            }
+            
+            .doc-left {
+                display: table-cell !important;
+                width: 50% !important;
+                text-align: center !important;
+                padding: 0 10px !important;
+                border-right: 2px solid #000000 !important;
+            }
+            
+            .doc-right {
+                display: table-cell !important;
+                width: 50% !important;
+                text-align: center !important;
+                padding: 0 10px !important;
+            }
+            
+            .doc-field {
+                font-weight: 500 !important;
+            }
+            
+            /* Datos del usuario */
+            .datos-usuario-section {
+                margin: 10px 0 !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .datos-usuario-header {
+                background: #a8d08d !important;
+                border: 2px solid #000 !important;
+                padding: 6px !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                font-size: 12px !important;
+                margin: 0 !important;
+            }
+            
+            .datos-usuario-table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 0 !important;
+            }
+            
+            .datos-usuario-table tr {
+                page-break-inside: avoid !important;
+            }
+            
+            .datos-usuario-table td {
+                border: 1.5px solid #000 !important;
+                padding: 4px 6px !important;
+                font-size: 10px !important;
+                vertical-align: middle !important;
+                height: 25px !important;
+            }
+            
+            .label-cell {
+                background: #d9d9d9 !important;
+                font-weight: 500 !important;
+                width: 25% !important;
+            }
+            
+            .input-cell {
+                width: 25% !important;
+                background: #fff !important;
+            }
+            
+            .form-input {
+                width: 100% !important;
+                border: none !important;
+                background: transparent !important;
+                padding: 1px !important;
+                font-size: 10px !important;
+                margin: 0 !important;
+            }
+            
+            /* Tabla RAEE */
+            .formato-raee {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 0 !important;
+                page-break-inside: auto !important;
+            }
+            
+            .formato-raee thead tr {
+                page-break-inside: avoid !important;
+            }
+            
+            .formato-raee th {
+                border: 2px solid #000000 !important;
+                background: #5d913b !important;
+                color: white !important;
+                padding: 6px 3px !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                font-size: 10px !important;
+                vertical-align: middle !important;
+            }
+            
+            .formato-raee td {
+                border: 1.5px solid #000000 !important;
+                padding: 3px !important;
+                background: #fff !important;
+                font-size: 9px !important;
+                vertical-align: middle !important;
+                height: 20px !important;
+            }
+            
+            .formato-raee td[rowspan] {
+                background: #a8d08d !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+                padding: 3px !important;
+            }
+            
+            .formato-raee input {
+                border: none !important;
+                width: 100% !important;
+                background: transparent !important;
+                padding: 1px !important;
+                font-size: 9px !important;
+                text-align: center !important;
+                margin: 0 !important;
+            }
+            
+            /* Tabla principal sin tfoot */
+            .formato-raee {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 0 !important;
+                page-break-inside: auto !important;
+                table-layout: fixed !important;
+            }
+            
+            /* Estilos para el total independiente */
+            .tabla-total {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            
+            .formato-total {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 0 !important;
+                table-layout: fixed !important;
+            }
+            
+            .total-label {
+                background: #a8d08d !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                border: 2px solid #000000 !important;
+                padding: 6px 3px !important;
+                font-size: 10px !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .total-cantidad,
+            .total-peso {
+                background: #fff !important;
+                border: 1.5px solid #000000 !important;
+                padding: 3px !important;
+                font-size: 9px !important;
+                text-align: center !important;
+                width: 8% !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .total-observaciones {
+                background: #fff !important;
+                border: 1.5px solid #000000 !important;
+                padding: 3px !important;
+                font-size: 9px !important;
+                width: 30% !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .input-cantidad-total,
+            .input-peso-total {
+                border: none !important;
+                width: 100% !important;
+                background: transparent !important;
+                padding: 1px !important;
+                font-size: 9px !important;
+                text-align: center !important;
+                margin: 0 !important;
+                font-weight: bold !important;
+            }
+            
+            /* Tabla de firmas */
+            .tabla-firmas {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin: 15px 0 !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .tabla-firmas tr {
+                page-break-inside: avoid !important;
+            }
+            
+            .tabla-firmas td {
+                border: 1.5px solid #000 !important;
+                padding: 25px 8px 8px 8px !important;
+                text-align: center !important;
+                font-size: 10px !important;
+                font-weight: bold !important;
+                width: 50% !important;
+            }
+            
+            .firma-espacio {
+                height: 35px !important;
+                border-bottom: none !important;
+            }
+            
+            /* Información de contacto */
+            .contacto-info {
+                display: table !important;
+                width: 100% !important;
+                margin: 10px 0 !important;
+                font-size: 9px !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .contacto-info > div {
+                display: table-cell !important;
+                width: 33.33% !important;
+                text-align: center !important;
+                padding: 0 5px !important;
+            }
+            
+            /* Nota */
+            div[style*="margin-top: 20px; padding: 10px;"] {
+                margin: 10px 0 !important;
+                padding: 8px !important;
+                font-size: 8px !important;
+                line-height: 1.2 !important;
+                text-align: justify !important;
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <img src="imagenes/extras/logoo.png" alt="DG SOLUCIONES AMBIENTALES SAS Logo" class="logo-image">
+                </div>
+                <span class="brand-text">FORMATO</span>
+            </div>
+
+            <!-- Navegación Desktop -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" style="background: #5d913b; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none;">
+                    <i class="fas fa-arrow-left"></i> Volver al Inicio
+                </a>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-nav-link" style="background: #5d913b; color: white; text-decoration: none;">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+    
+<div class="formato-encuadre">
+  <!-- Sección de Encabezado con espacio para imagen y título -->
+  <div class="formato-header">
+    <div class="header-left">
+      <h1 class="formato-titulo">CONSTANCIA DE RECIBO DE RAEE</h1>
+    </div>
+    <div class="header-right" style="border-bottom: 0; margin-bottom: -2px;">
+      <div class="logo-space">
+        <img src="imagenes/extras/logoo.png" alt="Logo" class="formato-logo">
+        <div class="nit-text">NIT: 901778363-6</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Información del documento -->
+  <div class="documento-info">
+    <div class="doc-left">
+      <span class="doc-field">DG-FC-2025-F02-No:</span>
+    </div>
+    <div class="doc-right">
+      <span class="doc-field">Licencia Ambiental N° PS-GJ 1.2.6.23.2588 del 2023</span>
+    </div>
+  </div>
+
+  <!-- Sección de Datos del Usuario -->
+  <div class="datos-usuario-section">
+    <div class="datos-usuario-header">1. DATOS DEL USUARIO</div>
+    <table class="datos-usuario-table">
+      <tr>
+        <td class="label-cell">Nombre o Razón Social</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+        <td class="label-cell">Fecha</td>
+        <td class="input-cell"><input type="date" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Nit o identificación</td>
+        <td class="input-cell"><input type="number" class="form-input" min="0" onkeydown="return event.keyCode !== 69"></td>
+        <td class="label-cell">Ciudad</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Dirección</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+        <td class="label-cell">Celular</td>
+        <td class="input-cell"><input type="number" class="form-input" min="0" onkeydown="return event.keyCode !== 69"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Correo</td>
+        <td class="input-cell"><input type="email" class="form-input"></td>
+        <td class="label-cell">Cargo</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Persona responsable</td>
+        <td class="input-cell" colspan="3"><input type="text" class="form-input"></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Tabla RAEE -->
+  <table class="formato-raee">
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Subcategoría</th>
+        <th>Cantidad</th>
+        <th>Peso (kg)</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="10">1. Aparatos electrodomésticos</td>
+        <td>1.1. Cocinas y hornos</td>
+        <td><input type="number" class="input-cantidad" min="0" step="1" onkeydown="return event.keyCode !== 69"></td>
+        <td><input type="number" class="input-peso" min="0" step="0.01" onkeydown="return event.keyCode !== 69"></td>
+        <td><input type="text" class="input-observaciones" maxlength="50"></td>
+      </tr>
+      <tr><td>1.2. Enseres de audio y video</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.3. Enseres mayores del Hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.4. Enseres menores de calentamiento</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.5. Enseres menores de cocina</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.6. Enseres menores de hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.7. Enseres menores de personales</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.8. Equipos de acondicionamiento de aire</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.9. Herramientas para el Hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.10. Refrigeración domestica</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+
+      <tr>
+        <td rowspan="10">2. Electrónica y equipos de telecomunicación</td>
+        <td>2.1. Antenas para telecomunicaciones</td>
+        <td><input type="number" class="input-cantidad"></td>
+        <td><input type="number" class="input-peso"></td>
+        <td><input type="text" class="input-observaciones"></td>
+      </tr>
+      <tr><td>2.2. Circuitos electrónicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.3. Componentes electrónicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.4. Computadores y equipos para tratamientos de datos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.5. Electrónica de consumo</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.6. Equipos de electrónica de potencia</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.7. Equipos de instrumentación y control</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.8. Equipos de telecomunicaciones</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.9. Equipos electro médicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.10. Periféricos, partes y tarjetas para computadoras e impresoras</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+
+      <tr>
+        <td rowspan="13">3. Maquinaria y equipo eléctrico</td>
+        <td>3.1. Cables y Conductores</td>
+        <td><input type="number" class="input-cantidad"></td>
+        <td><input type="number" class="input-peso"></td>
+        <td><input type="text" class="input-observaciones"></td>
+      </tr>
+      <tr><td>3.2. Equipo industrial</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.3. Equipo de control y protección</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.4. Equipo de iluminación</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.5. Equipos eléctricos e instalaciones para vehículos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.6. Grupos electrógenos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.7. Máquinas y aparatos de oficina</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.8. Motores y generadores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.9. Otros aparatos y sistemas</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.10. Piezas eléctricas</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.11. Pilas y acumuladores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.12. Refrigeración y equipos de acondicionamiento de aire industriales</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.13. Transformadores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+    </tbody>
+  </table>
+  
+  <!-- Total independiente para evitar duplicación en impresión -->
+  <div class="tabla-total">
+    <table class="formato-total">
+      <tr>
+        <td colspan="2" class="total-label">TOTAL</td>
+        <td class="total-cantidad"><input type="number" class="input-cantidad-total" readonly></td>
+        <td class="total-peso"><input type="number" class="input-peso-total" readonly></td>
+        <td class="total-observaciones"></td>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Botón para imprimir/guardar PDF -->
+  <div style="text-align: center; margin: 20px 0;">
+    <button id="downloadPDF" style="background: #5d913b; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+      <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+    </button>
+  </div>
+  
+  <div style="margin-top: 20px; padding: 10px;">
+    Nota: La entrega del certificado de tratamiento final está sujeta a la correcta y completa diligenciación de este formato. Los pesos registrados son aproximados y pueden variar
+al momento de la emisión del certificado correspondiente. Al diligenciar este formato, la entidad autoriza el tratamiento de sus datos personales de acuerdo con nuestras
+políticas de privacidad. Las solicitudes de certificados de disposición final deben solicitarse al correo electrónico: solucionesambientalesdg@gmail.com
+  </div>
+
+  <table class="tabla-firmas">
+    <tr>
+      <td class="firma-espacio"></td>
+      <td class="firma-espacio"></td>
+    </tr>
+    <tr>
+      <td>Nombre y Firma de quien entrega</td>
+      <td>Nombre y Firma de quien recibe</td>
+    </tr>
+  </table>
+
+  <div class="contacto-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-phone"></i>
+      <span style="margin-left: 10px;">321 334 26 09</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-envelope"></i>
+      <span style="margin-left: 10px;">solucionesambientalesdg@gmail.com</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-map-marker-alt"></i>
+      <span style="margin-left: 10px;">Parq. Indus. Cereales del Llano</span>
+    </div>
+  </div>
+</div>
+image.png
+<script>
+// Función para prevenir la entrada de 'e' en inputs numéricos
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener todos los inputs numéricos
+    const numericalInputs = document.querySelectorAll('input[type="number"]');
+    
+    numericalInputs.forEach(input => {
+        // Prevenir la entrada de 'e' y '-'
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'e' || e.key === 'E' || e.key === '-' || e.key === '+') {
+                e.preventDefault();
+            }
+        });
+
+        // Validar que solo se ingresen números
+        input.addEventListener('input', function() {
+            this.value = this.value.replace(/[eE]/g, '');
+            if (this.classList.contains('input-cantidad')) {
+                this.value = Math.abs(parseInt(this.value) || 0);
+            } else if (this.classList.contains('input-peso')) {
+                this.value = Math.abs(parseFloat(this.value) || 0);
+            } else if (this.classList.contains('form-input')) {
+                // Para NIT y Celular - solo números enteros positivos
+                this.value = Math.abs(parseInt(this.value) || 0);
+            }
+        });
+    });
+
+    // Validación para los campos de observaciones
+    const observacionesInputs = document.querySelectorAll('.input-observaciones');
+    observacionesInputs.forEach(input => {
+        input.maxLength = 50; // Asegurar el límite de 50 caracteres
+        
+        // Mostrar contador de caracteres
+        input.addEventListener('input', function() {
+            if (this.value.length > 50) {
+                this.value = this.value.substring(0, 50);
+            }
+        });
+    });
+
+    // Validación para campos de solo texto (nombres, cargos, persona responsable)
+    const textOnlyInputs = document.querySelectorAll('input[type="text"].form-input');
+    textOnlyInputs.forEach(input => {
+        // Identificar si es un campo que debe ser solo texto
+        const parentRow = input.closest('tr');
+        const labelCell = parentRow ? parentRow.querySelector('.label-cell') : null;
+        const labelText = labelCell ? labelCell.textContent.toLowerCase() : '';
+        
+        if (labelText.includes('nombre') || labelText.includes('cargo') || labelText.includes('persona responsable')) {
+            // Prevenir números y caracteres especiales no deseados
+            input.addEventListener('keydown', function(e) {
+                // Permitir teclas de control (backspace, delete, arrows, etc.)
+                if (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft' || 
+                    e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown' || 
+                    e.key === 'Tab' || e.key === 'Enter' || e.key === 'Escape') {
+                    return;
+                }
+                
+                // Prevenir números
+                if (e.key >= '0' && e.key <= '9') {
+                    e.preventDefault();
+                }
+                
+                // Prevenir caracteres especiales no deseados
+                const forbiddenChars = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '[', ']', '{', '}', '|', '\\', ':', ';', '"', "'", '<', '>', '?', '/', '`', '~'];
+                if (forbiddenChars.includes(e.key)) {
+                    e.preventDefault();
+                }
+            });
+            
+            // Filtrar contenido pegado o ingresado
+            input.addEventListener('input', function() {
+                // Permitir solo letras, espacios, puntos, comas, guiones y acentos
+                this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s\.\,\-]/g, '');
+            });
+        }
+    });
+
+    // Función para calcular totales
+    function calcularTotales() {
+        let totalCantidad = 0;
+        let totalPeso = 0;
+        
+        // Obtener todos los inputs de cantidad y peso
+        const cantidades = document.querySelectorAll('.input-cantidad:not([readonly])');
+        const pesos = document.querySelectorAll('.input-peso:not([readonly])');
+        
+        // Sumar cantidades
+        cantidades.forEach(input => {
+            totalCantidad += parseInt(input.value) || 0;
+        });
+        
+        // Sumar pesos
+        pesos.forEach(input => {
+            totalPeso += parseFloat(input.value) || 0;
+        });
+        
+        // Actualizar totales
+        document.querySelector('.input-cantidad-total').value = totalCantidad;
+        document.querySelector('.input-peso-total').value = totalPeso.toFixed(2);
+    }
+
+    // Agregar evento de cálculo a todos los inputs numéricos
+    document.querySelectorAll('.input-cantidad, .input-peso').forEach(input => {
+        input.addEventListener('input', calcularTotales);
+    });
+
+    // Función para imprimir/guardar como PDF
+    document.getElementById('downloadPDF').addEventListener('click', function() {
+        // Validar que hay datos en el formato - buscar el campo "Persona responsable"
+        const personaResponsableInput = document.querySelector('td.input-cell[colspan="3"] input.form-input');
+        if (!personaResponsableInput || !personaResponsableInput.value.trim()) {
+            alert('Por favor, complete el campo "Persona responsable" antes de imprimir el formato.');
+            return;
+        }
+        
+        // Mostrar instrucciones al usuario
+        const userConfirm = confirm(
+            'Se abrirá la ventana de impresión.\n\n' +
+            'Para guardar como PDF:\n' +
+            '1. En "Destino" selecciona "Guardar como PDF"\n' +
+            '2. Haz clic en "Guardar"\n' +
+            '3. Elige la ubicación y nombre del archivo\n\n' +
+            '¿Continuar?'
+        );
+        
+        if (userConfirm) {
+            // Usar la función nativa de impresión del navegador
+            window.print();
+        }
+    });
+});
+</script>
+
+</body>
