@@ -1872,6 +1872,16 @@ body {
 
 /* Optimizaciones específicas para móvil */
 @media (max-width: 768px) {
+  /* Prevenir overflow horizontal global */
+  body {
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+    max-width: 100%;
+  }
+  
   /* Encabezado optimizado para móvil */
   .nav-container {
     padding: 1rem 1rem 1rem 0;
@@ -1902,16 +1912,23 @@ body {
   .calculadora-flex {
     flex-direction: column;
     gap: 2rem;
+    padding: 0 0.5rem;
   }
   
   .calculadora-container {
     width: 100%;
     max-width: none;
+    padding: 1rem;
   }
   
   .calculadora-title {
     font-size: 1.5rem;
     text-align: center;
+  }
+  
+  .calculadora-marco {
+    max-width: 100%;
+    overflow-x: hidden;
   }
   
   .calculadora-grafico {
@@ -1920,11 +1937,64 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
   }
   
   .calculadora-grafico canvas {
     max-width: 280px;
     max-height: 280px;
+  }
+  
+  /* Sección de contacto optimizada para móvil */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .contact-form-card,
+  .contact-info-card {
+    padding: 1.5rem;
+    margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .contact-info {
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .contact-details {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .contact-value {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Mapa responsive */
+  .map-card {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .map-placeholder iframe {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none;
   }
   
   /* Métricas optimizadas para móvil */
@@ -1976,6 +2046,16 @@ body {
 }
 
 @media (max-width: 480px) {
+  /* Prevenir overflow horizontal en móviles pequeños */
+  body {
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding: 0 0.25rem;
+    max-width: 100%;
+  }
+  
   /* Encabezado extra pequeño */
   .nav-container {
     padding: 0.8rem 0.8rem 0.8rem 0;
@@ -2003,8 +2083,21 @@ body {
   }
   
   /* Calculadora extra pequeña */
+  .calculadora-flex {
+    padding: 0 0.25rem;
+    gap: 1.5rem;
+  }
+  
+  .calculadora-container {
+    padding: 0.8rem;
+  }
+  
   .calculadora-title {
     font-size: 1.3rem;
+  }
+  
+  .calculadora-grafico {
+    padding: 0.8rem;
   }
   
   .calculadora-grafico canvas {
@@ -2012,9 +2105,52 @@ body {
     max-height: 240px;
   }
   
+  /* Sección de contacto extra pequeña */
+  .contact-grid {
+    gap: 1rem;
+    padding: 0 0.25rem;
+  }
+  
+  .contact-form-card,
+  .contact-info-card {
+    padding: 1rem;
+  }
+  
+  .form-title,
+  .info-title {
+    font-size: 1.25rem;
+  }
+  
+  .contact-item {
+    gap: 0.6rem;
+  }
+  
+  .contact-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+  }
+  
+  .contact-icon i {
+    font-size: 1.25rem;
+  }
+  
+  /* Mapa más pequeño */
+  .map-placeholder {
+    height: 250px;
+  }
+  
   /* Métricas extra pequeñas */
+  .stats-container {
+    padding: 1.5rem 0.5rem;
+  }
+  
   .stats-title {
     font-size: 1.5rem;
+  }
+  
+  .stat-item {
+    padding: 1rem;
   }
   
   .stat-number {
@@ -2023,5 +2159,24 @@ body {
   
   .stat-label {
     font-size: 0.85rem;
+  }
+  
+  /* Carrusel de aliados optimizado para móvil */
+  .testimony-cards-carousel-viewport {
+    width: calc(100% - 1rem);
+    max-width: 280px;
+  }
+  
+  .testimony-card {
+    min-width: 260px;
+    max-width: 260px;
+  }
+  
+  .testimony-carousel-arrow {
+    display: none;
+  }
+  
+  .testimony-cards-carousel {
+    justify-content: center;
   }
 }
