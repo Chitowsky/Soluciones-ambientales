@@ -1872,6 +1872,32 @@ body {
   right: -60px;
 }
 
+/* Asegurar que el botón del menú móvil esté siempre visible */
+@media (max-width: 600px) {
+  .nav-container {
+    padding: 0.8rem 0.8rem 0.8rem 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .nav-brand {
+    margin-left: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    margin-right: 0.8rem;
+    padding: 0.4rem;
+    flex-shrink: 0;
+    position: relative;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+}
+
 /* Optimizaciones específicas para móvil */
 @media (max-width: 768px) {
   /* Prevenir overflow horizontal global */
@@ -1889,19 +1915,24 @@ body {
     padding: 1rem 1rem 1rem 0;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
   }
   
   .nav-brand {
     gap: 0.5rem;
-    margin-left: -1rem;
+    margin-left: -0.5rem;
     flex: 1;
+    min-width: 0;
   }
   
   .mobile-menu-btn {
     display: block;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     padding: 0.5rem;
     flex-shrink: 0;
+    position: relative;
+    right: 0;
   }
   
   .logo-image {
@@ -2070,23 +2101,28 @@ body {
   
   /* Encabezado extra pequeño */
   .nav-container {
-    padding: 0.8rem 0.8rem 0.8rem 0;
+    padding: 0.8rem 1rem 0.8rem 0;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
   }
   
   .nav-brand {
     gap: 0.3rem;
-    margin-left: -0.5rem;
+    margin-left: -0.25rem;
     flex: 1;
+    min-width: 0;
   }
   
   .mobile-menu-btn {
     display: block;
-    margin-right: 0.25rem;
+    margin-right: 0.8rem;
     padding: 0.4rem;
     flex-shrink: 0;
     font-size: 1.25rem;
+    position: relative;
+    right: 0;
   }
   
   .logo-image {
