@@ -816,27 +816,42 @@ document.addEventListener('DOMContentLoaded', function() {
   const rightBtn = document.getElementById('testimony-arrow-right');
   if (!carousel) return;
   const cards = Array.from(carousel.children);
-  const visibleCards = 3;
   let current = 0;
   let intervalId = null;
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function getVisibleCards() {
+    return isMobile() ? 1 : 3;
+  }
 
   function getCardWidth() {
     const card = cards[0];
     const width = card.getBoundingClientRect().width;
-    const gap = 40; // Debe coincidir con el CSS
+    const gap = isMobile() ? 20 : 40; // Gap menor en móvil
     return width + gap;
   }
 
   function updateCarousel(animate = true) {
     const cardWidth = getCardWidth();
+    const visibleCards = getVisibleCards();
+    
     carousel.style.transition = animate ? 'transform 0.5s cubic-bezier(.77,0,.18,1)' : 'none';
     carousel.style.transform = `translateX(-${current * cardWidth}px)`;
+    
+    // Asegurar que siempre inicie desde la primera tarjeta
+    if (current < 0) current = 0;
+    if (current >= cards.length - visibleCards + 1) current = cards.length - visibleCards;
+    
     // Deshabilita flechas si está al inicio o final
     if (leftBtn) leftBtn.disabled = current === 0;
     if (rightBtn) rightBtn.disabled = current >= cards.length - visibleCards;
   }
 
   function next() {
+    const visibleCards = getVisibleCards();
     if (current < cards.length - visibleCards) {
       current++;
       updateCarousel();
@@ -855,6 +870,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function startAuto() {
     intervalId = setInterval(() => {
+      const visibleCards = getVisibleCards();
       if (current < cards.length - visibleCards) {
         next();
       } else {
@@ -864,14 +880,24 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 4000);
   }
+  
   function stopAuto() {
     clearInterval(intervalId);
   }
+  
   carousel.addEventListener('mouseenter', stopAuto);
   carousel.addEventListener('mouseleave', startAuto);
-  window.addEventListener('resize', () => updateCarousel(false));
+  
+  window.addEventListener('resize', () => {
+    // Reiniciar el carrusel cuando cambia el tamaño de pantalla
+    current = 0;
+    setTimeout(() => updateCarousel(false), 100);
+  });
 
-  // Inicializa posición
-  setTimeout(() => updateCarousel(false), 50);
-  startAuto();
+  // Inicializa posición - asegurar que siempre inicie desde la primera tarjeta
+  current = 0;
+  setTimeout(() => {
+    updateCarousel(false);
+    startAuto();
+  }, 100);
 })();

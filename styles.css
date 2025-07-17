@@ -1879,22 +1879,36 @@ body {
     max-width: 320px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
   }
   
   .testimony-card {
     min-width: 300px;
     max-width: 300px;
+    flex-shrink: 0;
   }
   
   .testimony-carousel-arrow {
-    display: none;
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .testimony-carousel-arrow.left {
+    left: -45px;
+  }
+  
+  .testimony-carousel-arrow.right {
+    right: -45px;
   }
   
   .testimony-cards-carousel {
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px;
   }
   
   .testimony-modern {
@@ -2106,22 +2120,36 @@ body {
     max-width: 280px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
   }
   
   .testimony-card {
     min-width: 260px;
     max-width: 260px;
+    flex-shrink: 0;
   }
   
   .testimony-carousel-arrow {
-    display: none;
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .testimony-carousel-arrow.left {
+    left: -45px;
+  }
+  
+  .testimony-carousel-arrow.right {
+    right: -45px;
   }
   
   .testimony-cards-carousel {
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px;
   }
   
   .testimony-modern {
@@ -2269,20 +2297,34 @@ body {
     max-width: 280px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
   }
   
   .testimony-card {
     min-width: 260px;
     max-width: 260px;
+    flex-shrink: 0;
   }
   
   .testimony-carousel-arrow {
-    display: none;
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .testimony-carousel-arrow.left {
+    left: -45px;
+  }
+  
+  .testimony-carousel-arrow.right {
+    right: -45px;
   }
   
   .testimony-cards-carousel {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 20px;
   }
 }
