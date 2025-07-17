@@ -1882,6 +1882,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    padding-left: 1rem;
   }
   
   .testimony-card {
@@ -2123,6 +2124,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    padding-left: 1rem;
   }
   
   .testimony-card {
@@ -2300,6 +2302,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    padding-left: 1rem;
   }
   
   .testimony-card {
