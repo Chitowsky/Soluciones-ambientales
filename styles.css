@@ -109,6 +109,8 @@ body {
   color: #374151;
   position: relative;
   z-index: 1001;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .mobile-menu {
@@ -1928,7 +1930,7 @@ body {
   }
   
   .nav-brand {
-    margin-left: -0.2rem;
+    margin-left: 0;
     flex: 1;
     min-width: 0;
     max-width: calc(100% - 55px);
@@ -1937,6 +1939,7 @@ body {
   .mobile-menu-btn {
     display: block;
     margin-right: 0.4rem;
+    margin-left: auto;
     padding: 0.4rem;
     flex-shrink: 0;
     position: relative;
@@ -1971,7 +1974,7 @@ body {
   
   .nav-brand {
     gap: 0.3rem;
-    margin-left: -0.3rem;
+    margin-left: 0;
     flex: 1;
     min-width: 0;
     max-width: calc(100% - 60px);
@@ -1980,6 +1983,7 @@ body {
   .mobile-menu-btn {
     display: block;
     margin-right: 0.5rem;
+    margin-left: auto;
     padding: 0.5rem;
     flex-shrink: 0;
     position: relative;
@@ -2192,7 +2196,7 @@ body {
   
   .nav-brand {
     gap: 0.2rem;
-    margin-left: -0.2rem;
+    margin-left: 0;
     flex: 1;
     min-width: 0;
     max-width: calc(100% - 50px);
@@ -2201,6 +2205,7 @@ body {
   .mobile-menu-btn {
     display: block;
     margin-right: 0.3rem;
+    margin-left: auto;
     padding: 0.3rem;
     flex-shrink: 0;
     font-size: 1.2rem;
@@ -2355,12 +2360,13 @@ body {
   
   .nav-brand {
     gap: 0.1rem;
-    margin-left: -0.1rem;
+    margin-left: 0;
     max-width: calc(100% - 45px);
   }
   
   .mobile-menu-btn {
     margin-right: 0.2rem;
+    margin-left: auto;
     padding: 0.2rem;
     width: 36px;
     height: 36px;
