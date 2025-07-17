@@ -7,6 +7,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -14,6 +16,8 @@ body {
   line-height: 1.6;
   color: #333;
   background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .container {
@@ -1113,11 +1117,14 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .calculadora-container {
-  min-width: 800px;
+  min-width: 320px;
   width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   background: rgba(255,255,255,0.85);
   border-radius: 24px;
@@ -1173,6 +1180,8 @@ body {
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
   margin-top: 3rem;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .calculadora-lista {
@@ -1353,6 +1362,8 @@ body {
   justify-content: center;
   align-items: center; /* Cambiado de stretch a center para alinear verticalmente */
   flex-wrap: nowrap;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .calculadora-container {
   min-width: 320px;
@@ -1376,9 +1387,9 @@ body {
   margin-bottom: 0;
 }
 .calculadora-grafico {
-  min-width: 320px;
+  min-width: 280px;
   max-width: 400px;
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
