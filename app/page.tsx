@@ -100,7 +100,7 @@ export default function EWasteRecyclingWebsite() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-green-100">
-              <div className="flex flex-col space-y-2 pt-4">
+              <div className="flex flex-col space-y-2 pt-4 pr-4">
                 {[
                   { id: "home", label: "Home" },
                   { id: "about", label: "Who We Are" },
@@ -111,7 +111,7 @@ export default function EWasteRecyclingWebsite() {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left py-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
+                    className="text-right py-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
                   >
                     {item.label}
                   </button>
