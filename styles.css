@@ -1922,26 +1922,29 @@ body {
 /* Asegurar que el botón del menú móvil esté siempre visible */
 @media (max-width: 600px) {
   .nav-container {
-    padding: 0.8rem 0.8rem 0.8rem 0;
+    padding: 0.7rem 0.4rem 0.7rem 0;
     max-width: 100%;
     overflow: hidden;
   }
   
   .nav-brand {
-    margin-left: 0;
+    margin-left: -0.2rem;
     flex: 1;
     min-width: 0;
+    max-width: calc(100% - 55px);
   }
   
   .mobile-menu-btn {
     display: block;
-    margin-right: 0.8rem;
+    margin-right: 0.4rem;
     padding: 0.4rem;
     flex-shrink: 0;
     position: relative;
     right: 0;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px;
   }
 }
 
@@ -1959,7 +1962,7 @@ body {
   
   /* Encabezado optimizado para móvil */
   .nav-container {
-    padding: 1rem 1rem 1rem 0;
+    padding: 0.8rem 0.5rem 0.8rem 0;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
@@ -1967,35 +1970,41 @@ body {
   }
   
   .nav-brand {
-    gap: 0.5rem;
-    margin-left: -0.5rem;
+    gap: 0.3rem;
+    margin-left: -0.3rem;
     flex: 1;
     min-width: 0;
+    max-width: calc(100% - 60px);
   }
   
   .mobile-menu-btn {
     display: block;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     padding: 0.5rem;
     flex-shrink: 0;
     position: relative;
     right: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
   }
   
   .logo-image {
-    height: 4rem;
+    height: 3.5rem;
   }
   
   .brand-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.1;
   }
   
   .brand-text div:first-child {
-    font-size: 0.7em !important;
+    font-size: 0.65em !important;
   }
   
   .brand-text div:last-child {
-    font-size: 0.85em;
+    font-size: 0.75em;
   }
   
   /* Calculadora optimizada para móvil */
@@ -2174,7 +2183,7 @@ body {
   
   /* Encabezado extra pequeño */
   .nav-container {
-    padding: 0.8rem 1rem 0.8rem 0;
+    padding: 0.6rem 0.3rem 0.6rem 0;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
@@ -2182,36 +2191,42 @@ body {
   }
   
   .nav-brand {
-    gap: 0.3rem;
-    margin-left: -0.25rem;
+    gap: 0.2rem;
+    margin-left: -0.2rem;
     flex: 1;
     min-width: 0;
+    max-width: calc(100% - 50px);
   }
   
   .mobile-menu-btn {
     display: block;
-    margin-right: 0.8rem;
-    padding: 0.4rem;
+    margin-right: 0.3rem;
+    padding: 0.3rem;
     flex-shrink: 0;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     position: relative;
     right: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
   }
   
   .logo-image {
-    height: 3.5rem;
+    height: 3rem;
   }
   
   .brand-text {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    line-height: 1.0;
   }
   
   .brand-text div:first-child {
-    font-size: 0.65em !important;
+    font-size: 0.6em !important;
   }
   
   .brand-text div:last-child {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
   
   /* Calculadora extra pequeña */
@@ -2329,5 +2344,42 @@ body {
   .testimony-cards-carousel {
     justify-content: flex-start;
     gap: 20px;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 320px) {
+  .nav-container {
+    padding: 0.5rem 0.2rem 0.5rem 0;
+  }
+  
+  .nav-brand {
+    gap: 0.1rem;
+    margin-left: -0.1rem;
+    max-width: calc(100% - 45px);
+  }
+  
+  .mobile-menu-btn {
+    margin-right: 0.2rem;
+    padding: 0.2rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  
+  .logo-image {
+    height: 2.5rem;
+  }
+  
+  .brand-text {
+    font-size: 0.65rem;
+  }
+  
+  .brand-text div:first-child {
+    font-size: 0.55em !important;
+  }
+  
+  .brand-text div:last-child {
+    font-size: 0.65em;
   }
 }
