@@ -165,20 +165,82 @@ function initializeScrollEffects() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1"
-        entry.target.style.transform = "translateY(0)"
+        if (entry.target.classList.contains('stats-container')) {
+          entry.target.style.opacity = "1"
+          entry.target.style.transform = "translateY(0) scale(1)"
+        } else if (entry.target.classList.contains('stat-icon')) {
+          entry.target.style.opacity = "0.8"
+          entry.target.style.transform = "scale(1) rotate(0deg)"
+        } else {
+          entry.target.style.opacity = "1"
+          entry.target.style.transform = "translateY(0)"
+        }
+        
+        // Animar números de estadísticas
+        if (entry.target.classList.contains('stat-number')) {
+          setTimeout(() => animateNumber(entry.target), 500)
+        }
       }
     })
   }, observerOptions)
 
   // Observar elementos para animaciones
-  const animatedElements = document.querySelectorAll(".card, .benefit-card, .step")
+  const animatedElements = document.querySelectorAll(".card, .benefit-card, .step, .stat-number, .stat-icon, .stats-container")
   animatedElements.forEach((el) => {
-    el.style.opacity = "0"
-    el.style.transform = "translateY(30px)"
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    if (el.classList.contains('stats-container')) {
+      el.style.opacity = "0"
+      el.style.transform = "translateY(50px) scale(0.95)"
+      el.style.transition = "opacity 0.8s ease, transform 0.8s ease"
+    } else if (el.classList.contains('stat-icon')) {
+      el.style.opacity = "0"
+      el.style.transform = "scale(0) rotate(-180deg)"
+      el.style.transition = "opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s"
+    } else {
+      el.style.opacity = "0"
+      el.style.transform = "translateY(30px)"
+      el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    }
     observer.observe(el)
   })
+}
+
+// Animar números de estadísticas
+function animateNumber(element) {
+  const text = element.textContent
+  const hasPlus = text.includes('+')
+  const hasHash = text.includes('#')
+  const hasKg = text.includes('kg')
+  
+  let targetNumber = 0
+  if (hasHash) {
+    targetNumber = 1
+  } else {
+    targetNumber = parseInt(text.replace(/[^\d]/g, '')) || 0
+  }
+  
+  let current = 0
+  const increment = targetNumber / 50
+  const duration = 2000
+  const stepTime = duration / 50
+  
+  const timer = setInterval(() => {
+    current += increment
+    if (current >= targetNumber) {
+      current = targetNumber
+      clearInterval(timer)
+    }
+    
+    let displayValue = Math.floor(current)
+    if (hasHash) {
+      element.textContent = `#${displayValue}`
+    } else if (hasPlus && hasKg) {
+      element.textContent = `+${displayValue} kg`
+    } else if (hasPlus) {
+      element.textContent = `+${displayValue}`
+    } else {
+      element.textContent = displayValue
+    }
+  }, stepTime)
 }
 
 // Actualizar enlace activo en navegación
@@ -225,7 +287,7 @@ function initializeContactForm() {
 
     // Construir mensaje para WhatsApp
     const texto = `Hola, mi nombre es ${nombre}. Mi correo es ${email}. ${mensaje}`;
-    const numero = "573147588080"; // Número de WhatsApp en formato internacional sin +
+    const numero = "573213342609"; // Número de WhatsApp en formato internacional sin +
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 
     // Abrir WhatsApp en una nueva pestaña
