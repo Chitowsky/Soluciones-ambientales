@@ -807,6 +807,7 @@ body {
 .contact {
   padding: 5rem 1rem;
   background: #ffffff;
+  position: relative;
 }
 
 .contact-grid {
@@ -884,6 +885,8 @@ body {
   padding: 2rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   border: 1px solid #dcfce7;
+  position: relative;
+  z-index: 2;
 }
 
 .info-title {
@@ -3500,4 +3503,57 @@ body {
 }
 .noticia.fadein {
   animation: noticiaFadeInZoom 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.nina-contacto {
+  position: absolute;
+  top: -80px;
+  right: -110px;
+  width: 300px;
+  height: auto;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  transition: right 0.6s cubic-bezier(.68,-0.55,.27,1.55), top 0.6s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
+}
+
+.contact-info-card {
+  position: relative;
+  z-index: 2; /* Tarjeta encima de la niña */
+}
+
+#contactCard:hover ~ .nina-contacto,
+#contactCard:focus-within ~ .nina-contacto {
+  right: -240px;
+  top: -120px;
+  opacity: 1;
+}
+
+.contact-info {
+  position: relative;
+  overflow: visible;
+}
+
+.nina-contacto {
+  position: absolute;
+  top: -80px;
+  right: -110px;
+  width: 300px;
+  height: auto;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  transition: right 0.6s cubic-bezier(.68,-0.55,.27,1.55), top 0.6s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
+}
+
+#contactCard {
+  position: relative;
+  z-index: 20;
+}
+
+#contactCard:hover ~ .nina-contacto,
+#contactCard:focus-within ~ .nina-contacto {
+  right: -240px;
+  top: -120px;
+  opacity: 1;
 }
