@@ -83,15 +83,65 @@ function verificarPassword() {
   };
 }
 
-// Inicialización cuando el DOM está listo
-// Consolidada en un solo evento
-
+// Consolidar todos los DOMContentLoaded en uno solo y eliminar funciones no usadas y comentarios de ejemplo
 document.addEventListener("DOMContentLoaded", () => {
   initializeNavigation();
   initializeScrollEffects();
   initializeContactForm();
   initializeCarousel();
   initializeTestimonialCarousel();
+  // Efectos adicionales para iconos interactivos
+  const heroIcons = document.querySelectorAll(".icon-circle")
+  heroIcons.forEach((icon) => {
+    icon.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.1) rotate(5deg)"
+    })
+
+    icon.addEventListener("mouseleave", function () {
+      this.style.transform = "scale(1) rotate(0deg)"
+    })
+  })
+
+  // Efecto parallax sutil para el hero
+  window.addEventListener("scroll", () => {
+    const scrolled = window.pageYOffset
+    const heroContent = document.querySelector(".hero-content")
+    const heroIcons = document.querySelector(".hero-icons")
+
+    if (heroContent && heroIcons) {
+      heroContent.style.transform = `translateY(${scrolled * 0.1}px)`
+      heroIcons.style.transform = `translateY(${scrolled * 0.15}px)`
+    }
+  })
+
+  // Función para manejar redimensionamiento de ventana
+  window.addEventListener("resize", () => {
+    // Cerrar menú móvil si se redimensiona a desktop
+    if (window.innerWidth > 768 && isMenuOpen) {
+      const mobileMenu = document.getElementById("mobileMenu")
+      const menuIcon = document.getElementById("menuIcon")
+
+      isMenuOpen = false
+      mobileMenu.classList.remove("active")
+      mobileMenu.style.display = "none"
+      menuIcon.className = "fas fa-bars"
+    }
+  })
+
+  // Lazy loading para imágenes (si se agregan)
+  const images = document.querySelectorAll("img[data-src]")
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target
+        img.src = img.dataset.src
+        img.classList.remove("lazy")
+        imageObserver.unobserve(img)
+      }
+    })
+  })
+
+  images.forEach((img) => imageObserver.observe(img))
 });
 
 // Inicializar navegación
@@ -294,99 +344,6 @@ function initializeContactForm() {
     window.open(url, '_blank');
   });
 }
-
-// Efectos adicionales para iconos interactivos
-document.addEventListener("DOMContentLoaded", () => {
-  // Efecto hover para iconos del hero
-  const heroIcons = document.querySelectorAll(".icon-circle")
-  heroIcons.forEach((icon) => {
-    icon.addEventListener("mouseenter", function () {
-      this.style.transform = "scale(1.1) rotate(5deg)"
-    })
-
-    icon.addEventListener("mouseleave", function () {
-      this.style.transform = "scale(1) rotate(0deg)"
-    })
-  })
-
-  // Efecto parallax sutil para el hero
-  window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset
-    const heroContent = document.querySelector(".hero-content")
-    const heroIcons = document.querySelector(".hero-icons")
-
-    if (heroContent && heroIcons) {
-      heroContent.style.transform = `translateY(${scrolled * 0.1}px)`
-      heroIcons.style.transform = `translateY(${scrolled * 0.15}px)`
-    }
-  })
-})
-
-// Función para manejar redimensionamiento de ventana
-window.addEventListener("resize", () => {
-  // Cerrar menú móvil si se redimensiona a desktop
-  if (window.innerWidth > 768 && isMenuOpen) {
-    const mobileMenu = document.getElementById("mobileMenu")
-    const menuIcon = document.getElementById("menuIcon")
-
-    isMenuOpen = false
-    mobileMenu.classList.remove("active")
-    mobileMenu.style.display = "none"
-    menuIcon.className = "fas fa-bars"
-  }
-})
-
-// Función para agregar efectos de typing (opcional)
-function typeWriter(element, text, speed = 50) {
-  let i = 0
-  element.innerHTML = ""
-
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i)
-      i++
-      setTimeout(type, speed)
-    }
-  }
-
-  type()
-}
-
-// Inicializar efectos adicionales
-document.addEventListener("DOMContentLoaded", () => {
-  // Agregar efecto de contador para estadísticas (si se desea agregar)
-  function animateCounter(element, target, duration = 2000) {
-    let start = 0
-    const increment = target / (duration / 16)
-
-    function updateCounter() {
-      start += increment
-      if (start < target) {
-        element.textContent = Math.floor(start)
-        requestAnimationFrame(updateCounter)
-      } else {
-        element.textContent = target
-      }
-    }
-
-    updateCounter()
-  }
-
-  // Lazy loading para imágenes (si se agregan)
-  const images = document.querySelectorAll("img[data-src]")
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target
-        img.src = img.dataset.src
-        img.classList.remove("lazy")
-        imageObserver.unobserve(img)
-      }
-    })
-  })
-
-  images.forEach((img) => imageObserver.observe(img))
-})
 
 // Variables para el carrusel
 
@@ -683,6 +640,33 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.target === modalInfo) modalInfo.style.display = 'none';
     });
   }
+});
+
+// Modularización del manejo de modales de la calculadora
+function setupCalculadoraModal(radioValue, modalId, closeId) {
+  const radio = document.querySelector(`input[name="componente"][value="${radioValue}"]`);
+  const modal = document.getElementById(modalId);
+  const closeModal = document.getElementById(closeId);
+  if (radio && modal && closeModal) {
+    radio.addEventListener('change', function() {
+      if (this.checked) modal.style.display = 'flex';
+    });
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupCalculadoraModal('comp1', 'modal-temperatura', 'close-modal-temperatura');
+  setupCalculadoraModal('comp2', 'modal-monitores', 'close-modal-monitores');
+  setupCalculadoraModal('comp3', 'modal-lamparas', 'close-modal-lamparas');
+  setupCalculadoraModal('comp4', 'modal-grandes', 'close-modal-grandes');
+  setupCalculadoraModal('comp5', 'modal-pequenos', 'close-modal-pequenos');
+  setupCalculadoraModal('comp6', 'modal-informatica', 'close-modal-informatica');
 });
 
 // Referencia global al gráfico para poder actualizarlo

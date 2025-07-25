@@ -43,22 +43,23 @@ body {
 
 .nav-container {
   max-width: 1600px;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
+  margin: 0;
+  padding: 1.5rem 0 1.5rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
   position: relative;
   overflow: visible;
+  gap: 2.5rem;
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
   flex-shrink: 0;
-  margin-left: -4.5cm;
+  margin-left: 0;
 }
 
 .logo {
@@ -89,7 +90,7 @@ body {
 
 .nav-menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem;
   flex-shrink: 0;
   padding-right: 0;
 }
@@ -1021,14 +1022,6 @@ body {
   margin-bottom: 1rem;
   font-size: 1.5rem;
   text-align: left;
-}
-
-.footer-links,
-.footer-links-wrapper,
-ul.footer-links {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  transform: none !important;
 }
 
 .footer-links li {
@@ -3005,12 +2998,13 @@ ul.footer-links {
 
 /* Contenedor independiente para iconos sociales */
 .social-icons-container {
-  position: absolute;
-  top: 50%;
-  right: -6cm;
-  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  top: auto;
+  transform: none;
+  right: 0;
   z-index: 10;
-  margin-right: 2.5cm;
+  margin-right: 0;
 }
 
 /* Iconos de Redes Sociales */
@@ -3046,7 +3040,7 @@ ul.footer-links {
 /* Responsive para iconos sociales */
 @media (max-width: 1200px) {
   .social-icons-container {
-    right: -4cm;
+    right: 0;
   }
   
   .social-icons {
@@ -3207,21 +3201,23 @@ ul.footer-links {
 /* Responsive para el widget flotante */
 @media (max-width: 768px) {
   .whatsapp-widget {
-    bottom: 15px;
+    bottom: 75px;
+    right: 15px;
+    gap: 18px;
+  }
+  .instagram-widget {
+    bottom: 12px;
     right: 15px;
     gap: 10px;
   }
-  
   .whatsapp-text {
     font-size: 13px;
     padding: 6px 12px;
   }
-  
   .whatsapp-float {
     width: 55px;
     height: 55px;
   }
-  
   .whatsapp-float i {
     font-size: 22px;
   }
@@ -3229,21 +3225,23 @@ ul.footer-links {
 
 @media (max-width: 480px) {
   .whatsapp-widget {
-    bottom: 12px;
+    bottom: 62px;
+    right: 12px;
+    gap: 16px;
+  }
+  .instagram-widget {
+    bottom: 8px;
     right: 12px;
     gap: 8px;
   }
-  
   .whatsapp-text {
     font-size: 12px;
     padding: 5px 10px;
   }
-  
   .whatsapp-float {
     width: 50px;
     height: 50px;
   }
-  
   .whatsapp-float i {
     font-size: 20px;
   }
@@ -3683,4 +3681,13 @@ ul.footer-links {
 
 .footer-links {
   list-style: none;
+}
+
+@media (max-width: 768px) {
+  .about {
+    text-align: center;
+  }
+  .about .section-subtitle {
+    text-align: center;
+  }
 }
