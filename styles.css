@@ -3557,3 +3557,9 @@ body {
   top: -120px;
   opacity: 1;
 }
+
+@media (max-width: 600px) {
+  .nina-contacto {
+    display: none !important;
+  }
+}
