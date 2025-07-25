@@ -806,7 +806,7 @@ body {
 /* Contact Section */
 .contact {
   padding: 5rem 1rem;
-  background: linear-gradient(135deg, #f0fff4 0%, #f7ffee 100%);
+  background: #ffffff;
 }
 
 .contact-grid {
@@ -2781,7 +2781,7 @@ body {
 /* === Sección Aliados === */
 .aliados-section {
   padding: 8rem 0 10rem 0;
-  background: #ffffff;
+  background: #E7E7E7;
   text-align: center;
 }
 
@@ -3240,7 +3240,7 @@ body {
   background: #E7E7E7;
 }
 .noticias-section .section-title {
-  color: #222;
+  color: #6B8E23;
 }
 .noticias-section .section-subtitle {
   color: #444;
