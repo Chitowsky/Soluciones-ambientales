@@ -412,18 +412,6 @@ function initializeCarousel() {
   updateCarousel();
 }
 
-function changeSlide(direction) {
-  const slides = document.querySelectorAll(".carousel-slide");
-  const totalSlides = slides.length;
-  currentSlide += direction;
-  if (currentSlide >= totalSlides) {
-    currentSlide = 0;
-  } else if (currentSlide < 0) {
-    currentSlide = totalSlides - 1;
-  }
-  updateCarousel();
-}
-
 function goToSlide(slideIndex) {
   currentSlide = slideIndex;
   updateCarousel();
@@ -442,21 +430,14 @@ function updateCarousel() {
 
 function startAutoSlide() {
   slideInterval = setInterval(() => {
-    changeSlide(1);
+    currentSlide = (currentSlide + 1) % document.querySelectorAll('.carousel-slide').length;
+    updateCarousel();
   }, 5000); // Cambiar cada 5 segundos
 }
 
 function stopAutoSlide() {
   clearInterval(slideInterval);
 }
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft") {
-    changeSlide(-1);
-  } else if (e.key === "ArrowRight") {
-    changeSlide(1);
-  }
-});
 
 // Variables para el carrusel de testimonios
 
@@ -582,16 +563,6 @@ function startAutoTestimonial() {
 function stopAutoTestimonial() {
   clearInterval(testimonialInterval)
 }
-
-// Al final del archivo, exponer funciones globales para el carrusel principal
-window.changeSlide = changeSlide;
-window.goToSlide = goToSlide;
-
-// Mostrar ventana emergente debajo de la opción seleccionada en la calculadora
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Ya no es necesario manipular la visibilidad de las opciones base ni sublistado
-});
 
 // Modal para Aparato de intercambio de temperatura
 
