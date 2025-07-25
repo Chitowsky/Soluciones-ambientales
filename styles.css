@@ -3689,6 +3689,7 @@ body {
   }
   .about .section-subtitle {
     text-align: center;
+    transform: translateX(-1cm);
   }
 }
 
