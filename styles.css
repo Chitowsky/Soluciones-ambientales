@@ -3201,14 +3201,14 @@ body {
 /* Responsive para el widget flotante */
 @media (max-width: 768px) {
   .whatsapp-widget {
-    bottom: 75px;
-    right: 15px;
-    gap: 18px;
+    bottom: 75px !important;
+    right: 15px !important;
+    gap: 18px !important;
   }
   .instagram-widget {
-    bottom: 12px;
-    right: 15px;
-    gap: 10px;
+    bottom: 12px !important;
+    right: 15px !important;
+    gap: 10px !important;
   }
   .whatsapp-text {
     font-size: 13px;
@@ -3225,14 +3225,14 @@ body {
 
 @media (max-width: 480px) {
   .whatsapp-widget {
-    bottom: 62px;
-    right: 12px;
-    gap: 16px;
+    bottom: 62px !important;
+    right: 12px !important;
+    gap: 16px !important;
   }
   .instagram-widget {
-    bottom: 8px;
-    right: 12px;
-    gap: 8px;
+    bottom: 8px !important;
+    right: 12px !important;
+    gap: 8px !important;
   }
   .whatsapp-text {
     font-size: 12px;
@@ -3690,4 +3690,14 @@ body {
   .about .section-subtitle {
     text-align: center;
   }
+}
+
+.whatsapp-widget, .instagram-widget {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.whatsapp-text, .instagram-text {
+  text-align: right;
 }
