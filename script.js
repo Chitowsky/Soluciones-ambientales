@@ -963,3 +963,84 @@ document.addEventListener('DOMContentLoaded', function() {
     startAuto();
   }, 100);
 })();
+
+// === Modal de Noticia Ampliada ===
+document.addEventListener('DOMContentLoaded', function() {
+  const noticiasGrid = document.querySelector('.noticias-grid');
+  if (!noticiasGrid) return;
+
+  noticiasGrid.addEventListener('click', function(e) {
+    const card = e.target.closest('.noticia');
+    if (!card) return;
+
+    // Extraer datos de la tarjeta
+    const img = card.querySelector('.noticia-img');
+    const titulo = card.querySelector('.noticia-titulo');
+    const meta = card.querySelector('.noticia-meta');
+
+    // Texto de ejemplo para el modal
+    let textoEjemplo = '';
+    if (titulo.textContent.includes('Grand Canyon')) {
+      textoEjemplo = 'El Gran Cañón está considerando nuevas reglas para excursionistas principiantes, buscando mejorar la seguridad y la experiencia de los visitantes. Estas medidas podrían implementarse la próxima temporada.';
+    } else if (titulo.textContent.includes('National Forest')) {
+      textoEjemplo = 'El Acta de Administración de Senderos del Sistema Nacional de Bosques busca mejorar la conservación y el acceso a los senderos en todo el país.';
+    } else if (titulo.textContent.includes('Mercedes Benz')) {
+      textoEjemplo = 'Una reseña a fondo del Mercedes Benz CLS63 AMG, explorando su diseño, desempeño y tecnología avanzada.';
+    } else if (titulo.textContent.includes('Florida Propone')) {
+      textoEjemplo = 'Florida propone nuevas medidas para proteger a los osos, enfocándose en la educación y la prevención de conflictos con humanos.';
+    } else if (titulo.textContent.includes('Android')) {
+      textoEjemplo = 'Descubre los problemas más comunes de Android y aprende cómo solucionarlos fácilmente con estos consejos prácticos.';
+    } else {
+      textoEjemplo = 'Esta es una noticia destacada. Aquí puedes agregar el contenido completo de la noticia para que el usuario lo lea en detalle.';
+    }
+
+    // Crear overlay y modal
+    const overlay = document.createElement('div');
+    overlay.className = 'noticia-modal-overlay';
+    overlay.innerHTML = `
+      <div class="noticia-modal">
+        <button class="noticia-modal-close" title="Cerrar">&times;</button>
+        <img src="${img.src}" alt="${img.alt}" class="noticia-modal-img">
+        <div class="noticia-modal-contenido">
+          <h2 class="noticia-modal-titulo">${titulo.textContent}</h2>
+          <div class="noticia-modal-meta">${meta.innerHTML}</div>
+          <div class="noticia-modal-texto" style="margin-top:1.5em; color:#444; font-size:1.1em; line-height:1.7;">${textoEjemplo}</div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Cerrar al hacer click fuera o en el botón de cerrar
+    overlay.addEventListener('click', function(ev) {
+      if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
+        overlay.remove();
+      }
+    });
+    // Cerrar con Escape
+    document.addEventListener('keydown', function escListener(ev) {
+      if (ev.key === 'Escape') {
+        overlay.remove();
+        document.removeEventListener('keydown', escListener);
+      }
+    });
+  });
+});
+
+// Animación de entrada para las noticias base con Intersection Observer
+function animarNoticiasScrollReveal() {
+  const noticias = document.querySelectorAll('.noticia');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fadein');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5 // Aparece cuando la mitad de la tarjeta está visible
+  });
+  noticias.forEach(noticia => {
+    observer.observe(noticia);
+  });
+}
+document.addEventListener('DOMContentLoaded', animarNoticiasScrollReveal);
