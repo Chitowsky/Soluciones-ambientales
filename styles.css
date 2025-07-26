@@ -45,14 +45,153 @@ body {
 .nav-container {
   max-width: 1600px;
   margin: 0;
-  padding: 1.5rem 0 1.5rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   position: relative;
   overflow: visible;
   gap: 2.5rem;
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-left: auto; /* Empuja el menú hacia la derecha */
+}
+
+/* ===== CONDICIONAL PARA RESOLUCIÓN ESPECÍFICA ===== */
+@media (min-width: 1990px) {
+  .nav-container {
+    justify-content: space-between !important;
+    padding: 1.5rem 2rem !important;
+    max-width: 100% !important;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    gap: 2.5rem !important;
+    align-items: center !important;
+    margin-left: auto !important;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  .nav-link:hover {
+    color: #059669 !important;
+  }
+  
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom: 2px solid #059669 !important;
+  }
+  
+  .nav-link i {
+    font-size: 1rem !important;
+    color: #059669 !important;
+  }
+  
+  /* Ocultar menú hamburguesa y dropdown */
+  .dropdown-menu-container {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  /* Mostrar menú completo */
+  .nav-menu {
+    display: flex !important;
+  }
+  
+  /* Agregar contenido del menú dropdown al menú principal */
+  .nav-menu::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 0 1rem;
+  }
+  
+  /* Mostrar enlaces adicionales */
+  .nav-menu .dropdown-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+  }
+  
+  .nav-menu .dropdown-link:hover {
+    color: #059669 !important;
+  }
+  
+  .nav-menu .dropdown-link i {
+    font-size: 1rem !important;
+    color: #059669 !important;
+  }
+  
+  /* Mostrar iconos sociales */
+  .nav-menu .dropdown-social-icons {
+    display: flex !important;
+    gap: 0.5rem !important;
+    margin-left: 1rem !important;
+  }
+  
+  .nav-menu .dropdown-social-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 35px !important;
+    height: 35px !important;
+    background: #f8f9fa !important;
+    border-radius: 50% !important;
+    color: #065f46 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav-menu .dropdown-social-icon:hover {
+    background: #065f46 !important;
+    color: white !important;
+    transform: scale(1.1) !important;
+  }
+}
+
+/* ===== OCULTAR ELEMENTOS ADICIONALES EN RESOLUCIONES MENORES ===== */
+@media (max-width: 1989px) {
+  /* Ocultar enlaces adicionales del menú principal */
+  .nav-menu .dropdown-link {
+    display: none !important;
+  }
+  
+  /* Ocultar iconos sociales del menú principal */
+  .nav-menu .dropdown-social-icons {
+    display: none !important;
+  }
+  
+  /* Ocultar separador */
+  .nav-menu::after {
+    display: none !important;
+  }
 }
 
 /* Responsividad del header eliminada - usando solo estilos base */
@@ -104,7 +243,7 @@ body {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  min-width: 250px;
+  min-width: 220px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
@@ -119,18 +258,28 @@ body {
 }
 
 .dropdown-link {
-  display: block;
-  padding: 0.85rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   color: #333;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .dropdown-link:hover {
-  background-color: #f8f9fa;
-  color: #065f46;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #059669;
+}
+
+.dropdown-link i {
+  width: 18px;
+  text-align: center;
+  color: #059669;
+  font-size: 1.1rem;
 }
 
 .dropdown-divider {
@@ -167,11 +316,66 @@ body {
 }
 
 /* ===== RESPONSIVE INTELIGENTE ===== */
+/* Fase extra grande: pantallas muy grandes */
+@media (min-width: 1600px) {
+  .nav-container {
+    padding: 1.5rem 2rem !important;
+    gap: 2rem !important;
+    justify-content: space-between !important;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem !important;
+    padding-right: 8rem !important;
+    margin-left: 3rem !important;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem !important;
+  }
+  
+  .logo-image {
+    height: 8rem !important;
+  }
+  
+  .brand-text {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Fase grande: pantallas grandes */
+@media (max-width: 1599px) and (min-width: 1401px) {
+  .nav-container {
+    padding: 1.3rem 1.8rem !important;
+    gap: 1.8rem !important;
+    justify-content: space-between !important;
+  }
+  
+  .nav-menu {
+    gap: 1.3rem !important;
+    padding-right: 7rem !important;
+    margin-left: 2.5rem !important;
+  }
+  
+  .nav-link {
+    font-size: 1rem !important;
+  }
+  
+  .logo-image {
+    height: 7.5rem !important;
+  }
+  
+  .brand-text {
+    font-size: 2rem !important;
+  }
+}
+
 /* Primera fase: ajustar espaciado cuando el espacio se reduce */
 @media (max-width: 1400px) and (min-width: 1228px) {
   .nav-container {
-    padding: 1rem 1.5rem;
-    gap: 1.5rem;
+    padding: 1rem 1.5rem !important;
+    gap: 1.5rem !important;
+    justify-content: space-between !important;
   }
   
   .nav-menu {
@@ -433,20 +637,20 @@ body {
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #374151;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-  padding: 0.75rem 0;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
+  text-decoration: none !important;
+  color: #374151 !important;
+  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+  transition: all 0.2s ease !important;
+  padding: 0.75rem 0 !important;
+  border-bottom: 2px solid transparent !important;
+  white-space: nowrap !important;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #059669;
-  border-bottom-color: #059669;
+  color: #059669 !important;
+  border-bottom-color: #059669 !important;
 }
 
 .mobile-menu-btn {
@@ -2798,11 +3002,11 @@ body {
 @media (max-width: 768px) and (min-width: 481px) {
   /* Contenedor principal del header */
   .nav-container {
-    padding: 0.8rem 0.5rem; /* Padding generoso */
-    justify-content: space-between; /* Distribuye elementos */
-    align-items: center; /* Centra verticalmente */
-    max-width: 100%; /* Ocupa todo el ancho */
-    overflow: hidden; /* Evita desbordamiento */
+    padding: 0.8rem 0.5rem !important; /* Padding generoso */
+    justify-content: space-between !important; /* Distribuye elementos */
+    align-items: center !important; /* Centra verticalmente */
+    max-width: 100% !important; /* Ocupa todo el ancho */
+    overflow: hidden !important; /* Evita desbordamiento */
   }
   
   /* Contenedor del logo y texto de marca */
@@ -2877,11 +3081,11 @@ body {
   
   /* Encabezado optimizado para móvil */
   .nav-container {
-    padding: 0.8rem 0.5rem;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    overflow: hidden;
+    padding: 0.8rem 0.5rem !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
   
   .nav-brand {
@@ -3099,11 +3303,11 @@ body {
   
   /* Encabezado extra pequeño */
   .nav-container {
-    padding: 0.6rem 0.3rem;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    overflow: hidden;
+    padding: 0.6rem 0.3rem !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
   
   .nav-brand {
@@ -3267,7 +3471,8 @@ body {
 /* Ajuste para pantallas muy pequeñas */
 @media (max-width: 320px) {
   .nav-container {
-    padding: 0.5rem 0.2rem;
+    padding: 0.5rem 0.2rem !important;
+    justify-content: space-between !important;
   }
   
   .nav-brand {
