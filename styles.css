@@ -298,6 +298,46 @@ body {
   }
 }
 
+/* Quinta fase: pantallas muy pequeñas */
+@media (max-width: 600px) {
+  .nav-container {
+    padding: 0.6rem 0.8rem !important;
+  }
+  
+  .nav-brand {
+    max-width: calc(100% - 60px) !important;
+    gap: 0.3rem !important;
+  }
+  
+  .logo-image {
+    height: 3.5rem !important;
+  }
+  
+  .brand-text {
+    font-size: 1rem !important;
+  }
+}
+
+/* Sexta fase: pantallas extra pequeñas */
+@media (max-width: 450px) {
+  .nav-container {
+    padding: 0.4rem 0.6rem !important;
+  }
+  
+  .nav-brand {
+    max-width: calc(100% - 50px) !important;
+    gap: 0.2rem !important;
+  }
+  
+  .logo-image {
+    height: 2.8rem !important;
+  }
+  
+  .brand-text {
+    font-size: 0.85rem !important;
+  }
+}
+
 /* Ocultar menú desplegable en móviles tradicionales */
 @media (max-width: 768px) {
   .dropdown-menu-container {
