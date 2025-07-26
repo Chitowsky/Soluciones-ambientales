@@ -6,7 +6,7 @@
     <title>SOLUCIONES AMBIENTALES SAS</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=3.4">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Agrega Chart.js CDN en el head -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -31,7 +31,7 @@
                 <a href="#about" class="nav-link" data-section="about">Quiénes Somos</a>
                 <a href="#calculadora" class="nav-link" data-section="calculadora">Calculadora de CO2</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contacto</a>
-                <a href="#" class="nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Comienza a reciclar con nosotros</a>
+                <a href="#" class="nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Gestiona tus residuos con nosotros</a>
                 <a href="#" class="nav-link" onclick="verificarPassword()">Administrar</a>
             </div>
 
@@ -62,7 +62,7 @@
             <a href="#about" class="mobile-nav-link" data-section="about">Quiénes Somos</a>
             <a href="#calculadora" class="mobile-nav-link" data-section="calculadora">Calculadora de CO2</a>
             <a href="#contact" class="mobile-nav-link" data-section="contact">Contacto</a>
-            <a href="#" class="mobile-nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Comienza a reciclar con nosotros</a>
+            <a href="#" class="mobile-nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Gestiona tus residuos con nosotros</a>
             <a href="#" class="mobile-nav-link" onclick="verificarPassword()">Administrar</a>
             
             <!-- Iconos sociales para móvil -->
@@ -330,22 +330,46 @@
     
     <section id="aliados" class="aliados-section">
         <div class="container">
-            <h2 class="aliados-title">Nuestros Aliados</h2>
-            <div class="aliados-logos">
-                <div class="aliado-item">
-                    <img src="imagenes/aliados/gobernacion.png" alt="Gobernación del Meta" class="aliado-logo">
+            <div class="aliados-grupos">
+                <!-- Grupo 1: Empresas gestionadas -->
+                <div class="aliados-grupo">
+                    <h3 class="grupo-titulo">Empresas gestionadas</h3>
+                    <div class="aliados-carrusel">
+                        <div class="carrusel-container">
+                            <div class="carrusel-track">
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/gobernacion.png" alt="Gobernación del Meta" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/contraloria.png" alt="Contraloría del Meta" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/fiscalia.png" alt="Fiscalía general de la nación" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/consuerte.png" alt="Consuerte" class="aliado-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="aliado-item">
-                    <img src="imagenes/aliados/contraloria.png" alt="Contraloría del Meta" class="aliado-logo">
-                </div>
-                <div class="aliado-item">
-                    <img src="imagenes/aliados/consuerte.png" alt="Consuerte" class="aliado-logo">
-                </div>
-                <div class="aliado-item">
-                    <img src="imagenes/aliados/fiscalia.png" alt="Fiscalía general de la nación" class="aliado-logo">
-                </div>
-                <div class="aliado-item">
-                    <img src="imagenes/aliados/postobon.png" alt="Postobón" class="aliado-logo">
+                
+                <!-- Grupo 2: Aliados estratégicos -->
+                <div class="aliados-grupo">
+                    <h3 class="grupo-titulo">Aliados estratégicos</h3>
+                    <div class="aliados-logos">
+                        <div class="aliado-item">
+                            <img src="imagenes/aliados/postobon.png" alt="Postobón" class="aliado-logo">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -999,3 +999,47 @@ function animarNoticiasScrollReveal() {
   });
 }
 document.addEventListener('DOMContentLoaded', animarNoticiasScrollReveal);
+
+// === Carrusel de Aliados ===
+function initializeAliadosCarousel() {
+  const carruselTrack = document.querySelector('.carrusel-track');
+  if (!carruselTrack) return;
+
+  let currentSlide = 0;
+  const slides = carruselTrack.querySelectorAll('.carrusel-slide');
+  const totalSlides = slides.length;
+  let interval;
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const translateX = -currentSlide * 100;
+    carruselTrack.style.transform = `translateX(${translateX}%)`;
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 2500); // Cambia cada 0.5 segundos
+  }
+
+  function stopAutoSlide() {
+    if (interval) {
+      clearInterval(interval);
+    }
+  }
+
+  // Pausar el carrusel cuando el mouse está sobre él
+  const carruselContainer = document.querySelector('.aliados-carrusel');
+  if (carruselContainer) {
+    carruselContainer.addEventListener('mouseenter', stopAutoSlide);
+    carruselContainer.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  // Iniciar el carrusel automático
+  startAutoSlide();
+}
+
+// Inicializar el carrusel de aliados cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializeAliadosCarousel);

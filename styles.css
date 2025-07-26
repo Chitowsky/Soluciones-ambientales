@@ -2787,18 +2787,125 @@ body {
 
 /* === Sección Aliados === */
 .aliados-section {
-  padding: 8rem 0 10rem 0;
-  background: #E7E7E7;
+  padding: 4rem 0 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación de fondo para aliados */
+.aliados-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(107, 142, 35, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(107, 142, 35, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(107, 142, 35, 0.05) 0%, transparent 50%);
+  animation: aliadosBackground 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes aliadosBackground {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: scale(1.1) rotate(1deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(0.9) rotate(-1deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(1.05) rotate(0.5deg);
+    opacity: 0.8;
+  }
+}
+
+.aliados-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6B8E23, transparent);
+  z-index: 1;
 }
 
 .aliados-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #6B8E23;
   margin-bottom: 3rem;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 6px rgba(107, 142, 35, 0.15);
+  position: relative;
+}
+
+.aliados-title::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6B8E23, #8FBC8F, #6B8E23);
+  border-radius: 2px;
+}
+
+.aliados-grupos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.aliados-grupo {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+  max-width: 400px;
+  padding: 0;
+  margin: 0;
+}
+
+.grupo-titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #6B8E23;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
   letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(107, 142, 35, 0.1);
+}
+
+.grupo-titulo::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #6B8E23, #8FBC8F);
+  border-radius: 2px;
 }
 
 .aliados-logos {
@@ -2807,8 +2914,105 @@ body {
   align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.3) 0%, rgba(233, 236, 239, 0.3) 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(107, 142, 35, 0.02);
+  padding: 30px;
+}
+
+/* Carrusel para Empresas gestionadas */
+.aliados-carrusel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.3) 0%, rgba(233, 236, 239, 0.3) 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(107, 142, 35, 0.02);
+}
+
+.carrusel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.carrusel-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(107, 142, 35, 0.05) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carrusel-track {
+  display: flex;
+  transition: transform 0.2s ease-out;
+}
+
+.carrusel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.carrusel-slide::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(107, 142, 35, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.carrusel-slide .aliado-item {
+  flex: 1;
+  max-width: 300px;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 25px;
+  margin: 0;
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.carrusel-slide .aliado-item:hover {
+  transform: translateY(-5px);
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Regla específica para Consuerte en el carrusel */
+.carrusel-slide .aliado-item img[src*="consuerte.png"] {
+  height: 80px !important;
 }
 
 .aliado-item {
@@ -2816,6 +3020,10 @@ body {
   flex-direction: column;
   align-items: center;
   opacity: 1;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   transition: all 0.3s ease;
 }
 
@@ -2828,32 +3036,20 @@ body {
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .aliado-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(107, 142, 35, 0.3));
 }
 
-/* Tamaños individuales para cada aliado */
-.aliado-logo[src*="gobernacion.png"] {
-  height: 100px;
-}
-
-.aliado-logo[src*="contraloria.png"] {
-  height: 100px;
-}
-
-.aliado-logo[src*="consuerte.png"] {
-  height: 100px;
-}
-
-.aliado-logo[src*="fiscalia.png"] {
-  height: 100px;
-}
-
-.aliado-logo[src*="postobon.png"] {
-  height: 120px;
-}
+/* Tamaños de logos de aliados - Desktop */
+.aliado-logo[src*="gobernacion.png"] { height: 120px; }
+.aliado-logo[src*="contraloria.png"] { height: 100px; }
+.aliado-logo[src*="consuerte.png"] { height: 80px; }
+.aliado-logo[src*="fiscalia.png"] { height: 120px; }
+.aliado-logo[src*="postobon.png"] { height: 140px; }
 
 .aliado-name {
   font-size: 0.9rem;
@@ -2867,33 +3063,50 @@ body {
 /* Responsive para móviles */
 @media (max-width: 768px) {
   .aliados-section {
-    padding: 6rem 0 8rem 0;
+    padding: 3rem 0 5rem 0;
+  }
+  
+  .aliados-grupos {
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .aliados-grupo {
+    min-width: 280px;
+    max-width: 320px;
   }
   
   .aliados-logos {
     gap: 2rem;
+    padding: 25px;
   }
   
-  /* Tamaños individuales para tablet */
-  .aliado-logo[src*="gobernacion.png"] {
-    height: 80px;
+  .carrusel-slide {
+    gap: 0.5rem;
   }
   
-  .aliado-logo[src*="contraloria.png"] {
-    height: 80px;
+  .carrusel-slide .aliado-item {
+    max-width: 250px;
+    min-width: 220px;
+    padding: 35px 20px;
   }
   
-  .aliado-logo[src*="consuerte.png"] {
-    height: 80px;
+  /* Consuerte específico para tablet en carrusel */
+  .carrusel-slide .aliado-item img[src*="consuerte.png"] {
+    height: 30px !important;
   }
   
-  .aliado-logo[src*="fiscalia.png"] {
-    height: 80px;
+  .grupo-titulo {
+    font-size: 1.5rem;
   }
   
-  .aliado-logo[src*="postobon.png"] {
-    height: 95px;
-  }
+  /* Tamaños de logos de aliados - Tablet */
+  .aliado-logo[src*="gobernacion.png"] { height: 100px; }
+  .aliado-logo[src*="contraloria.png"] { height: 80px; }
+  .aliado-logo[src*="consuerte.png"] { height: 30px !important; }
+  .aliado-logo[src*="fiscalia.png"] { height: 100px; }
+  .aliado-logo[src*="postobon.png"] { height: 115px; }
   
   .aliados-title {
     font-size: 2rem;
@@ -2902,33 +3115,48 @@ body {
 
 @media (max-width: 480px) {
   .aliados-section {
-    padding: 5rem 0 6rem 0;
+    padding: 2rem 0 4rem 0;
+  }
+  
+  .aliados-grupos {
+    gap: 2rem;
+  }
+  
+  .aliados-grupo {
+    min-width: 240px;
+    max-width: 280px;
   }
   
   .aliados-logos {
     gap: 1.5rem;
+    padding: 20px;
   }
   
-  /* Tamaños individuales para móvil */
-  .aliado-logo[src*="gobernacion.png"] {
-    height: 65px;
+  .carrusel-slide {
+    gap: 0.3rem;
   }
   
-  .aliado-logo[src*="contraloria.png"] {
-    height: 65px;
+  .carrusel-slide .aliado-item {
+    max-width: 200px;
+    min-width: 180px;
+    padding: 30px 15px;
   }
   
-  .aliado-logo[src*="consuerte.png"] {
-    height: 65px;
+  /* Consuerte específico para móvil en carrusel */
+  .carrusel-slide .aliado-item img[src*="consuerte.png"] {
+    height: 25px !important;
   }
   
-  .aliado-logo[src*="fiscalia.png"] {
-    height: 65px;
+  .grupo-titulo {
+    font-size: 1.3rem;
   }
   
-  .aliado-logo[src*="postobon.png"] {
-    height: 80px;
-  }
+  /* Tamaños de logos de aliados - Móvil */
+  .aliado-logo[src*="gobernacion.png"] { height: 85px; }
+  .aliado-logo[src*="contraloria.png"] { height: 65px; }
+  .aliado-logo[src*="consuerte.png"] { height: 45px; }
+  .aliado-logo[src*="fiscalia.png"] { height: 85px; }
+  .aliado-logo[src*="postobon.png"] { height: 100px; }
   
   .aliados-title {
     font-size: 1.8rem;
