@@ -102,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  // Inicializar menú desplegable
+  initializeDropdownMenu();
+
   // Efecto parallax sutil para el hero
   window.addEventListener("scroll", () => {
     const scrolled = window.pageYOffset
@@ -1043,3 +1046,38 @@ function initializeAliadosCarousel() {
 
 // Inicializar el carrusel de aliados cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initializeAliadosCarousel);
+
+// Inicializar menú desplegable
+function initializeDropdownMenu() {
+  const dropdownBtn = document.getElementById("dropdownMenuBtn");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  let isDropdownOpen = false;
+
+  // Toggle menú desplegable
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    isDropdownOpen = !isDropdownOpen;
+    
+    if (isDropdownOpen) {
+      dropdownMenu.classList.add("active");
+    } else {
+      dropdownMenu.classList.remove("active");
+    }
+  });
+
+  // Cerrar menú al hacer click fuera
+  document.addEventListener("click", (e) => {
+    if (!dropdownMenu.contains(e.target) && !dropdownBtn.contains(e.target)) {
+      isDropdownOpen = false;
+      dropdownMenu.classList.remove("active");
+    }
+  });
+
+  // Cerrar menú al presionar Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isDropdownOpen) {
+      isDropdownOpen = false;
+      dropdownMenu.classList.remove("active");
+    }
+  });
+}

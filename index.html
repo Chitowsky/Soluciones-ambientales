@@ -6,7 +6,7 @@
     <title>SOLUCIONES AMBIENTALES SAS</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css?v=3.4">
+    <link rel="stylesheet" href="styles.css?v=7.8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Agrega Chart.js CDN en el head -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -21,7 +21,7 @@
                     <img src="imagenes/extras/logoo.png" alt="DG SOLUCIONES AMBIENTALES SAS Logo" class="logo-image">
                 </div>
                 <div class="brand-text">
-                    <div style="font-size: 1.2em;">SOLUCIONES AMBIENTALES SAS</div>
+                    <div>SOLUCIONES AMBIENTALES SAS</div>
                 </div>
             </div>
 
@@ -31,22 +31,32 @@
                 <a href="#about" class="nav-link" data-section="about">Quiénes Somos</a>
                 <a href="#calculadora" class="nav-link" data-section="calculadora">Calculadora de CO2</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contacto</a>
-                <a href="#" class="nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Gestiona tus residuos con nosotros</a>
-                <a href="#" class="nav-link" onclick="verificarPassword()">Administrar</a>
             </div>
 
-            <!-- Contenedor independiente para iconos sociales -->
-            <div class="social-icons-container">
-                <div class="social-icons">
-                    <a href="https://wa.me/573213342609" target="_blank" class="social-icon" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
+            <!-- Menú desplegable para opciones adicionales -->
+            <div class="dropdown-menu-container">
+                <button class="dropdown-menu-btn" id="dropdownMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="dropdown-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">
+                        Gestiona tus residuos
                     </a>
-                    <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" target="_blank" class="social-icon" title="Instagram">
-                        <i class="fab fa-instagram"></i>
+                    <a href="#" class="dropdown-link" onclick="verificarPassword()">
+                        Administrar
                     </a>
-                    <a href="https://www.facebook.com/share/15wj3MvUEK/" target="_blank" class="social-icon" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-social-icons">
+                        <a href="https://wa.me/573213342609" target="_blank" class="dropdown-social-icon" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" target="_blank" class="dropdown-social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/15wj3MvUEK/" target="_blank" class="dropdown-social-icon" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -56,14 +66,33 @@
             </button>
         </div>
 
-        <!-- Menú Móvil -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#home" class="mobile-nav-link" data-section="home">Inicio</a>
-            <a href="#about" class="mobile-nav-link" data-section="about">Quiénes Somos</a>
-            <a href="#calculadora" class="mobile-nav-link" data-section="calculadora">Calculadora de CO2</a>
-            <a href="#contact" class="mobile-nav-link" data-section="contact">Contacto</a>
-            <a href="#" class="mobile-nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">Gestiona tus residuos con nosotros</a>
-            <a href="#" class="mobile-nav-link" onclick="verificarPassword()">Administrar</a>
+                    <!-- Menú Móvil -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home" class="mobile-nav-link" data-section="home">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="#about" class="mobile-nav-link" data-section="about">
+                    <i class="fas fa-users"></i>
+                    Quiénes Somos
+                </a>
+                <a href="#calculadora" class="mobile-nav-link" data-section="calculadora">
+                    <i class="fas fa-calculator"></i>
+                    Calculadora de CO2
+                </a>
+                <a href="#contact" class="mobile-nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    Contacto
+                </a>
+                <div class="mobile-menu-divider"></div>
+                <a href="#" class="mobile-nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">
+                    <i class="fas fa-recycle"></i>
+                    Gestiona tus residuos
+                </a>
+                <a href="#" class="mobile-nav-link" onclick="verificarPassword()">
+                    <i class="fas fa-cog"></i>
+                    Administrar
+                </a>
             
             <!-- Iconos sociales para móvil -->
             <div class="mobile-social-icons">
