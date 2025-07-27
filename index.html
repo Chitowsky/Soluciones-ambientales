@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLUCIONES AMBIENTALES SAS</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css?v=10.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Agrega Chart.js CDN en el head -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+    <!-- Navegación Sticky -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <img src="imagenes/extras/logoo.png" alt="DG SOLUCIONES AMBIENTALES SAS Logo" class="logo-image">
+                </div>
+                <div class="brand-text">
+                    <div>SOLUCIONES AMBIENTALES SAS</div>
+                </div>
+            </div>
+
+            <!-- Navegación Desktop -->
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <i class="fas fa-users"></i>
+                    Quiénes Somos
+                </a>
+                <a href="#calculadora" class="nav-link" data-section="calculadora">
+                    <i class="fas fa-calculator"></i>
+                    Calculadora de CO2
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    Contacto
+                </a>
+                
+                <!-- Contenido del menú dropdown (visible en pantallas grandes) -->
+                <a href="#" class="dropdown-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">
+                    <i class="fas fa-recycle"></i>
+                    Gestiona tus residuos
+                </a>
+                <a href="#" class="dropdown-link" onclick="verificarPassword()">
+                    <i class="fas fa-cog"></i>
+                    Administrar
+                </a>
+                
+                <!-- Iconos sociales -->
+                <div class="dropdown-social-icons">
+                    <a href="https://wa.me/573213342609" target="_blank" class="dropdown-social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" target="_blank" class="dropdown-social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/15wj3MvUEK/" target="_blank" class="dropdown-social-icon" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Menú desplegable para opciones adicionales -->
+            <div class="dropdown-menu-container">
+                <button class="dropdown-menu-btn" id="dropdownMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="dropdown-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">
+                        <i class="fas fa-recycle"></i>
+                        Gestiona tus residuos
+                    </a>
+                    <a href="#" class="dropdown-link" onclick="verificarPassword()">
+                        <i class="fas fa-cog"></i>
+                        Administrar
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-social-icons">
+                        <a href="https://wa.me/573213342609" target="_blank" class="dropdown-social-icon" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" target="_blank" class="dropdown-social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/15wj3MvUEK/" target="_blank" class="dropdown-social-icon" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Menú Móvil -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#home" class="mobile-nav-link" data-section="home">
+                    <i class="fas fa-home"></i>
+                    Inicio
+                </a>
+                <a href="#about" class="mobile-nav-link" data-section="about">
+                    <i class="fas fa-users"></i>
+                    Quiénes Somos
+                </a>
+                <a href="#calculadora" class="mobile-nav-link" data-section="calculadora">
+                    <i class="fas fa-calculator"></i>
+                    Calculadora de CO2
+                </a>
+                <a href="#contact" class="mobile-nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    Contacto
+                </a>
+                <div class="mobile-menu-divider"></div>
+                <a href="#" class="mobile-nav-link" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdDm3SXi22_UDBoIbQ8n2vEcUFQG2b947cAlboWY9QErIQfVw/viewform', '_blank')">
+                    <i class="fas fa-recycle"></i>
+                    Gestiona tus residuos
+                </a>
+                <a href="#" class="mobile-nav-link" onclick="verificarPassword()">
+                    <i class="fas fa-cog"></i>
+                    Administrar
+                </a>
+            
+            <!-- Iconos sociales para móvil -->
+            <div class="mobile-social-icons">
+                <a href="https://wa.me/573213342609" target="_blank" class="mobile-social-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                                 <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" target="_blank" class="mobile-social-icon" title="Instagram">
+                     <i class="fab fa-instagram"></i>
+                     <span>Instagram</span>
+                 </a>
+                 <a href="https://www.facebook.com/share/15wj3MvUEK/" target="_blank" class="mobile-social-icon" title="Facebook">
+                     <i class="fab fa-facebook-f"></i>
+                     <span>Facebook</span>
+                 </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel1.png')"></div>
+                <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel2.png')"></div>
+                <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel3.png')"></div>
+            </div>
+        </div>
+
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Transformamos lo ordinario en
+                        <span class="gradient-text">extraordinario</span>
+                    </h1>
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators">
+            <button class="indicator active" data-slide="0"></button>
+            <button class="indicator" data-slide="1"></button>
+            <button class="indicator" data-slide="2"></button>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <!-- <button class="carousel-control prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-control next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button> -->
+    </section>
+
+    <!-- Sección Quiénes Somos -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p class="section-subtitle">
+                    La empresa está autorizada por Cormacarena (Resolución N. PS-GJ 1.2.6.23-2588) para el almacenamiento y tratamiento de residuos de aparatos eléctricos y electrónicos (RAEE) en el departamento del Meta. 
+                    Ofrecen servicios especializados para empresas, instituciones y comunidad en general, con el objetivo de asegurar una disposición adecuada de los residuos.
+                   
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon green-gradient">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="card-title">Nuestra Misión</h3>
+                        <p class="card-text">
+                            Revolucionar la gestión de residuos electrónicos proporcionando soluciones de reciclaje 
+                            convenientes, seguras y ambientalmente responsables.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon emerald-gradient">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="card-title">Nuestra Visión</h3>
+                        <p class="card-text">
+                            Un mundo donde los residuos electrónicos se eliminen completamente a través de prácticas 
+                            de reciclaje innovadoras y diseño tecnológico sostenible.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon teal-gradient">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3 class="card-title">¿Que hacemos con los RAEE recibidos?</h3>
+                        <p class="card-text">
+                            <ul style="text-align:left; margin: 0; padding-left: 1.2em;">
+                                <li>Descarga, pesaje y ubicación en el almacén.</li>
+                                <li>Separación y clasificación.</li>
+                                <li>Empaque y/o reempaque.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Noticias -->
+    <section id="noticias" class="noticias-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Noticias</h2>
+          <p class="section-subtitle">Actualidad, novedades y más sobre el mundo ambiental y tecnológico.</p>
+        </div>
+        <div class="noticias-grid">
+          <!-- Noticia principal -->
+          <div class="noticia noticia-principal">
+            <img src="imagenes/carruseles/carrusel1.png" alt="Noticia principal" class="noticia-img">
+            <div class="noticia-contenido">
+              <!-- <span class="noticia-categoria world">Mundo</span> -->
+              <h3 class="noticia-titulo">Grand Canyon Considera Cambios en las Reglas para Nuevos Excursionistas</h3>
+              <div class="noticia-meta">
+                <span class="noticia-fecha">08 Julio, 2016</span>
+                <span class="noticia-likes"><i class="fas fa-heart"></i> 356</span>
+                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 589</span>
+              </div>
+            </div>
+          </div>
+          <!-- Noticias secundarias -->
+          <div class="noticia noticia-secundaria">
+            <img src="imagenes/carruseles/carrusel2.png" alt="Noticia secundaria 1" class="noticia-img">
+            <div class="noticia-contenido">
+              <!-- <span class="noticia-categoria travel">Viajes</span> -->
+              <h3 class="noticia-titulo">National Forest System Trails Stewardship Act</h3>
+              <div class="noticia-meta">
+                <span class="noticia-fecha">12 Junio, 2016</span>
+                <span class="noticia-likes"><i class="fas fa-heart"></i> 106</span>
+                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 256</span>
+              </div>
+            </div>
+          </div>
+          <div class="noticia noticia-secundaria">
+            <img src="imagenes/carruseles/carrusel3.png" alt="Noticia secundaria 2" class="noticia-img">
+            <div class="noticia-contenido">
+              <!-- <span class="noticia-categoria design">Diseño</span> -->
+              <h3 class="noticia-titulo">Mercedes Benz CLS63 AMG Reseña a Fondo</h3>
+              <div class="noticia-meta">
+                <span class="noticia-fecha">22 Junio, 2016</span>
+                <span class="noticia-rating"><i class="fas fa-star"></i> 5.0</span>
+              </div>
+            </div>
+          </div>
+          <div class="noticia noticia-secundaria">
+            <img src="imagenes/carruseles/carrusel1.png" alt="Noticia secundaria 3" class="noticia-img">
+            <div class="noticia-contenido">
+              <!-- <span class="noticia-categoria sports">Deportes</span> -->
+              <h3 class="noticia-titulo">Florida Propone Medidas para Proteger a los Osos</h3>
+              <div class="noticia-meta">
+                <span class="noticia-fecha">28 Junio, 2016</span>
+                <span class="noticia-likes"><i class="fas fa-heart"></i> 952</span>
+                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 681</span>
+              </div>
+            </div>
+          </div>
+          <div class="noticia noticia-secundaria">
+            <img src="imagenes/carruseles/carrusel2.png" alt="Noticia secundaria 4" class="noticia-img">
+            <div class="noticia-contenido">
+              <!-- <span class="noticia-categoria business">Negocios</span> -->
+              <h3 class="noticia-titulo">Problemas comunes de Android y cómo solucionarlos</h3>
+              <div class="noticia-meta">
+                <span class="noticia-fecha">02 Julio, 2016</span>
+                <span class="noticia-likes"><i class="fas fa-heart"></i> 320</span>
+                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 2350</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Puedes agregar más noticias duplicando los bloques .noticia -->
+      </div>
+    </section>
+
+    <!-- Sección Calculadora -->
+    <section id="calculadora" class="calculadora">
+        <div class="calculadora-flex">
+            <div class="calculadora-container">
+                <h2 class="calculadora-title">
+                    CALCULADORA DE CO2
+                    <button id="info-calculadora-btn" class="info-btn" type="button" style="margin-left: 8px;">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </h2>
+                <div class="calculadora-input-row">
+                    <label for="componente" class="calculadora-label">ingrese el componente:</label>
+                </div>
+                <div class="calculadora-marco">
+                    <div class="calculadora-lista">
+                        <form>
+                            <div class="calculadora-opcion" id="opcion-comp1">
+                                <label>
+                                    <input type="radio" name="componente" value="comp1"> aparato de intercambio de temperatura</label>
+                            </div>
+                            <div class="calculadora-opcion">
+                                <label><input type="radio" name="componente" value="comp2"> monitores (superficie superior a 100 cm)</label>
+                            </div>
+                            <div class="calculadora-opcion">
+                                <label><input type="radio" name="componente" value="comp3"> lámparas</label>
+                            </div>
+                            <div class="calculadora-opcion">
+                                <label><input type="radio" name="componente" value="comp4"> grandes aparatos (una dimension exterior superior a 50 cm)</label>
+                            </div>
+                            <div class="calculadora-opcion">
+                                <label><input type="radio" name="componente" value="comp5"> pequeños aparatos (dimension exterior inferior a 50 cm)</label>
+                            </div>
+                            <div class="calculadora-opcion">
+                                <label><input type="radio" name="componente" value="comp6"> aparatos de informática y/o telecomunicaciones</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="calculadora-scrollbar"></div>
+                </div>
+            </div>
+            <div class="calculadora-grafico">
+                <canvas id="graficoPastel" width="500" height="500"></canvas>
+                <div id="co2-resultado" class="co2-resultado"></div>
+                <div class="grafico-leyenda">
+                    <span class="leyenda-item"><span class="color-box fabricacion"></span>Nueva</span>
+                    <span class="leyenda-item"><span class="color-box restauracion"></span>Restaurada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Estadísticas -->
+    <section id="how-it-works" class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stats-header">
+                    <h2 class="stats-title">NUESTRAS MÉTRICAS</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon">🏭</div>
+                        <h3 class="stat-number">+12000 kg</h3>
+                        <p class="stat-label">Kilogramos de RAEE recuperadas</p>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">🏆</div>
+                        <h3 class="stat-number">#1</h3>
+                        <p class="stat-label">Recolector de residuos electrónicos en el departamento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="aliados" class="aliados-section">
+        <div class="container">
+            <div class="aliados-grupos">
+                <!-- Grupo 1: Empresas gestionadas -->
+                <div class="aliados-grupo">
+                    <h3 class="grupo-titulo">Empresas gestionadas</h3>
+                    <div class="aliados-carrusel">
+                        <div class="carrusel-container">
+                            <div class="carrusel-track">
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/gobernacion.png" alt="Gobernación del Meta" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/contraloria.png" alt="Contraloría del Meta" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/fiscalia.png" alt="Fiscalía general de la nación" class="aliado-logo">
+                                    </div>
+                                </div>
+                                <div class="carrusel-slide">
+                                    <div class="aliado-item">
+                                        <img src="imagenes/aliados/consuerte.png" alt="Consuerte" class="aliado-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grupo 2: Aliados estratégicos -->
+                <div class="aliados-grupo">
+                    <h3 class="grupo-titulo">Aliados estratégicos</h3>
+                    <div class="aliados-logos">
+                        <div class="aliado-item">
+                            <img src="imagenes/aliados/postobon.png" alt="Postobón" class="aliado-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Necesitas asesoría?</h2>
+                <p class="section-subtitle">
+                    ¿Listo para comenzar a reciclar? Ponte en contacto con nuestro equipo hoy.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Formulario de Contacto -->
+                <div class="contact-form-card">
+                    <h3 class="form-title">Envíanos un mensaje</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Tu Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-textarea" placeholder="Tu Mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="form-button">Enviar Mensaje</button>
+                    </form>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="contact-info">
+                    <div class="contact-info-card" id="contactCard">
+                        <h3 class="info-title">Ponte en contacto</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <p class="contact-label">Email</p>
+                                <p class="contact-value"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=Solucionesambientalesdg@gmail.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Solucionesambientalesdg@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <p class="contact-label">Teléfono</p>
+                                <p class="contact-value"><a href="https://wa.me/573213342609" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+57 321 334 2609</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <p class="contact-label">Dirección</p>
+                                <p class="contact-value" style="text-align: left;">
+                                    BG BODEGA NO. 6 - PREDIO CEREALES DEL LLANO<br>
+                                    PARQUE INDUSTRIAL DEL LLANO S.A.S<br>
+                                    KILÓMETRO 3 MARGEN IZQUIERDA DE LA VÍA VILLAVICENCIO - ACACIAS<br>
+                                    Serramonte PARQUE INDUSTRIAL DEL LLANO S.A.S.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="imagenes/extras/niña.png" alt="Niña con lupa" class="nina-contacto" id="ninaContacto" />
+
+                    <!-- Mapa Placeholder -->
+                    <div class="map-card">
+                        <div class="map-placeholder">
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.8807149564876!2d-73.64706802683422!3d4.116967058796347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2e23f108d5d3%3A0x1166fe46b17ee76a!2sPARQUE%20INDUSTRIAL%20DEL%20LLANO%20S.A.S.!5e0!3m2!1ses!2sco!4v1752017776085!5m2!1ses!2sco"
+                             width="100%" 
+                             height="450" 
+                             style="border:0;" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="footer-logo" style="margin-bottom: 15px;">
+                        <img src="imagenes/extras/logo1.png" alt="Logo Soluciones" style="height: 200px; width: auto;">
+                    </div>
+                    <p class="footer-description" style="max-width: 400px; margin: 0;">
+                        Liderando el camino en el reciclaje sostenible de residuos electrónicos para un mañana más limpio.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Servicios</h4>
+                    <div class="footer-links-wrapper">
+                    <ul class="footer-links">
+                        <li>Recolección de Dispositivos</li>
+                        <li>Destrucción de Datos</li>
+                        <li>Recuperación de Materiales</li>
+                        <li>Certificación</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center;">
+                <p>&copy; 2025 Soluciones S.A.S. Todos los derechos reservados. Construyendo un futuro sostenible juntos.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Botón flotante de Instagram -->
+    <div class="instagram-widget">
+        <div class="instagram-text">visítanos</div>
+        <a href="https://www.instagram.com/solucionesambientales_dg?igsh=MW93aHJpZ2ZtejVxdw==" class="instagram-float" target="_blank" title="Visítanos en Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-text">¿Necesita ayuda?</div>
+        <a href="https://wa.me/573213342609" class="whatsapp-float" target="_blank" title="Contactanos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+
+<!-- Modal para Aparato de intercambio de temperatura -->
+<div id="modal-temperatura" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-temperatura">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Nevera <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Calefactor electrico <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Aire acondicionado doméstico <button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para Monitores (superficie superior a 100 cm) -->
+<div id="modal-monitores" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-monitores">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Monitor menor a 24" <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Pantalla (40" - 55") <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Aparato de superficie > 100 cm2<button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para Lámparas -->
+<div id="modal-lamparas" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-lamparas">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Bombillo LED o CFL (doméstico) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Lámpara grande (industrial / vial) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Linterna (manual / recargable) <button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para Grandes Aparatos -->
+<div id="modal-grandes" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-grandes">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Lavadora doméstica <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Equipo de audio (towers, amplificadores) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Aparato grande (> 50 cm, múltiples materiales) <button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para Pequeños Aparatos -->
+<div id="modal-pequenos" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-pequenos">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Herramienta eléctrica (taladros, lijadoras) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Mando a distancia / controles pequeños <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Aparato pequeño (< 50 cm, electrónico) <button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para Aparatos de Informática y/o Telecomunicaciones -->
+<div id="modal-informatica" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-informatica">&times;</span>
+    <h2>Clasificación</h2>
+    <ul class="modal-list">
+      <li>Computadores (portátiles, torres) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Equipos de red (routers, switches, módems) <button class="modal-select-btn">Seleccionar</button></li>
+      <li>Servidores y telecomunicaciones grandes<button class="modal-select-btn">Seleccionar</button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal de información de la calculadora -->
+<div id="modal-info-calculadora" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-info-calculadora">&times;</span>
+    <h2>¿Cómo funciona la calculadora?</h2>
+    <p>
+        Aquí puedes observar la diferencia entre cuantos KG's de CO2 produce crear un dispositivo nuevo o restaurar un dispositivo
+    </p>
+  </div>
+</div>
+
+<!-- Modal para contraseña de administración -->
+<div id="modal-password" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" id="close-modal-password">&times;</span>
+    <h2>Acceso de Administración</h2>
+    <p style="margin-bottom: 20px; color: #666;">Ingrese la contraseña para acceder al panel de administración:</p>
+    <div style="margin-bottom: 20px; position: relative;">
+      <input 
+        type="password" 
+        id="password-input" 
+        placeholder="Contraseña" 
+        style="width: 100%; padding: 12px 45px 12px 12px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 16px; outline: none;"
+      />
+      <i 
+        id="toggle-password" 
+        class="fas fa-eye" 
+        style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #64748b; cursor: pointer; font-size: 16px; transition: color 0.2s ease;"
+        onmouseover="this.style.color='#10b981'" 
+        onmouseout="this.style.color='#64748b'"
+      ></i>
+    </div>
+    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+      <button 
+        id="password-cancel" 
+        style="padding: 10px 20px; background: #f1f5f9; border: none; border-radius: 6px; color: #64748b; cursor: pointer; font-size: 14px;"
+      >
+        Cancelar
+      </button>
+      <button 
+        id="password-submit" 
+        style="padding: 10px 20px; background: linear-gradient(135deg, #10b981, #059669); border: none; border-radius: 6px; color: white; cursor: pointer; font-size: 14px;"
+      >
+        Ingresar
+      </button>
+    </div>
+    <div id="password-error" style="color: #ef4444; font-size: 14px; margin-top: 10px; display: none;">
+      Contraseña incorrecta. Intente nuevamente.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMATO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="formato.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="formato.js"></script>
+
+    <!-- Agrega Chart.js CDN en el head -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <img src="imagenes/extras/logoo.png" alt="DG SOLUCIONES AMBIENTALES SAS Logo" class="logo-image">
+                </div>
+                <span class="brand-text">FORMATO</span>
+            </div>
+
+            <!-- Navegación Desktop -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i> Volver al Inicio
+                </a>
+            </div>
+
+            <!-- Botón Menú Móvil -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-nav-link">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+    </nav>
+    
+<div class="formato-encuadre">
+  <!-- Sección de Encabezado con espacio para imagen y título -->
+  <div class="formato-header">
+    <div class="header-left">
+      <h1 class="formato-titulo">CONSTANCIA DE RECIBO DE RAEE</h1>
+    </div>
+    <div class="header-right" style="border-bottom: 0; margin-bottom: -2px;">
+      <div class="logo-space">
+        <img src="imagenes/extras/logoo.png" alt="Logo" class="formato-logo">
+        <div class="nit-text">NIT: 901778363-6</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Información del documento -->
+  <div class="documento-info">
+    <div class="doc-left">
+      <span class="doc-field">DG-FC-2025-F02-No:</span>
+    </div>
+    <div class="doc-right">
+      <span class="doc-field">Licencia Ambiental N° PS-GJ 1.2.6.23.2588 del 2023</span>
+    </div>
+  </div>
+
+  <!-- Sección de Datos del Usuario -->
+  <div class="datos-usuario-section">
+    <div class="datos-usuario-header">1. DATOS DEL USUARIO</div>
+    <table class="datos-usuario-table">
+      <tr>
+        <td class="label-cell">Nombre o Razón Social</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+        <td class="label-cell">Fecha</td>
+        <td class="input-cell"><input type="date" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Nit o identificación</td>
+        <td class="input-cell"><input type="number" class="form-input" min="0" onkeydown="return event.keyCode !== 69"></td>
+        <td class="label-cell">Ciudad</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Dirección</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+        <td class="label-cell">Celular</td>
+        <td class="input-cell"><input type="number" class="form-input" min="0" onkeydown="return event.keyCode !== 69"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Correo</td>
+        <td class="input-cell"><input type="email" class="form-input"></td>
+        <td class="label-cell">Cargo</td>
+        <td class="input-cell"><input type="text" class="form-input"></td>
+      </tr>
+      <tr>
+        <td class="label-cell">Persona responsable</td>
+        <td class="input-cell" colspan="3"><input type="text" class="form-input"></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Tabla RAEE -->
+  <table class="formato-raee">
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Subcategoría</th>
+        <th>Cantidad</th>
+        <th>Peso (kg)</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="10">1. Aparatos electrodomésticos</td>
+        <td>1.1. Cocinas y hornos</td>
+        <td><input type="number" class="input-cantidad" min="0" step="1" onkeydown="return event.keyCode !== 69"></td>
+        <td><input type="number" class="input-peso" min="0" step="0.01" onkeydown="return event.keyCode !== 69"></td>
+        <td><input type="text" class="input-observaciones" maxlength="50"></td>
+      </tr>
+      <tr><td>1.2. Enseres de audio y video</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.3. Enseres mayores del Hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.4. Enseres menores de calentamiento</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.5. Enseres menores de cocina</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.6. Enseres menores de hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.7. Enseres menores de personales</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.8. Equipos de acondicionamiento de aire</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.9. Herramientas para el Hogar</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>1.10. Refrigeración domestica</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+
+      <tr>
+        <td rowspan="10">2. Electrónica y equipos de telecomunicación</td>
+        <td>2.1. Antenas para telecomunicaciones</td>
+        <td><input type="number" class="input-cantidad"></td>
+        <td><input type="number" class="input-peso"></td>
+        <td><input type="text" class="input-observaciones"></td>
+      </tr>
+      <tr><td>2.2. Circuitos electrónicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.3. Componentes electrónicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.4. Computadores y equipos para tratamientos de datos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.5. Electrónica de consumo</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.6. Equipos de electrónica de potencia</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.7. Equipos de instrumentación y control</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.8. Equipos de telecomunicaciones</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.9. Equipos electro médicos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>2.10. Periféricos, partes y tarjetas para computadoras e impresoras</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+
+      <tr>
+        <td rowspan="13">3. Maquinaria y equipo eléctrico</td>
+        <td>3.1. Cables y Conductores</td>
+        <td><input type="number" class="input-cantidad"></td>
+        <td><input type="number" class="input-peso"></td>
+        <td><input type="text" class="input-observaciones"></td>
+      </tr>
+      <tr><td>3.2. Equipo industrial</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.3. Equipo de control y protección</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.4. Equipo de iluminación</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.5. Equipos eléctricos e instalaciones para vehículos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.6. Grupos electrógenos</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.7. Máquinas y aparatos de oficina</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.8. Motores y generadores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.9. Otros aparatos y sistemas</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.10. Piezas eléctricas</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.11. Pilas y acumuladores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.12. Refrigeración y equipos de acondicionamiento de aire industriales</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+      <tr><td>3.13. Transformadores</td><td><input type="number" class="input-cantidad"></td><td><input type="number" class="input-peso"></td><td><input type="text" class="input-observaciones"></td></tr>
+    </tbody>
+  </table>
+  
+  <!-- Total independiente para evitar duplicación en impresión -->
+  <div class="tabla-total">
+    <table class="formato-total">
+      <tr>
+        <td colspan="2" class="total-label">TOTAL</td>
+        <td class="total-cantidad"><input type="number" class="input-cantidad-total" readonly></td>
+        <td class="total-peso"><input type="number" class="input-peso-total" readonly></td>
+        <td class="total-observaciones"></td>
+      </tr>
+    </table>
+  </div>
+  
+  <!-- Botón para imprimir/guardar PDF -->
+  <div style="text-align: center; margin: 20px 0;">
+    <button id="downloadPDF" style="background: #5d913b; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+      <i class="fas fa-print"></i> Imprimir / Guardar como PDF
+    </button>
+  </div>
+  
+  <div style="margin-top: 20px; padding: 10px;">
+    Nota: La entrega del certificado de tratamiento final está sujeta a la correcta y completa diligenciación de este formato. Los pesos registrados son aproximados y pueden variar
+al momento de la emisión del certificado correspondiente. Al diligenciar este formato, la entidad autoriza el tratamiento de sus datos personales de acuerdo con nuestras
+políticas de privacidad. Las solicitudes de certificados de disposición final deben solicitarse al correo electrónico: solucionesambientalesdg@gmail.com
+  </div>
+
+  <table class="tabla-firmas">
+    <tr>
+      <td class="firma-espacio" id="firmaEntrega" onclick="abrirModalFirma('entrega')"></td>
+      <td class="firma-espacio" id="firmaRecibe" onclick="abrirModalFirma('recibe')"></td>
+    </tr>
+    <tr>
+      <td>Nombre y Firma de quien entrega</td>
+      <td>Nombre y Firma de quien recibe</td>
+    </tr>
+  </table>
+
+  <!-- Modal para firma digital -->
+  <div id="modalFirma" class="modal-firma" style="display: none;">
+    <div class="modal-firma-content">
+      <div class="modal-firma-header">
+        <h3 id="modalFirmaTitulo">Firma Digital</h3>
+        <button class="modal-firma-close" onclick="cerrarModalFirma()">&times;</button>
+      </div>
+      <div class="modal-firma-body">
+        <div class="firma-container">
+          <canvas id="firmaCanvas" width="400" height="200"></canvas>
+        </div>
+        <div class="firma-controls">
+          <button class="btn-firma btn-limpiar" onclick="limpiarFirma()">
+            <i class="fas fa-eraser"></i> Limpiar
+          </button>
+          <button class="btn-firma btn-guardar" onclick="guardarFirma()">
+            <i class="fas fa-save"></i> Guardar Firma
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contacto-info" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-phone"></i>
+      <span style="margin-left: 10px;">321 334 26 09</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-envelope"></i>
+      <span style="margin-left: 10px;">solucionesambientalesdg@gmail.com</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <i class="fas fa-map-marker-alt"></i>
+      <span style="margin-left: 10px;">Parq. Indus. Cereales del Llano</span>
+    </div>
+  </div>
+</div>
+
+</body>

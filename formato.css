@@ -1,0 +1,933 @@
+.formato-raee th {
+  border: 2px solid #000000;
+  background: #5d913b;
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Ajustes generales para todas las celdas */
+.formato-raee td {
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  background: #fff;
+  height: 2em;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.formato-raee input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.formato-raee td[rowspan] {
+  background: #a8d08d;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.formato-raee {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.formato-encuadre {
+  border: 2px solid #222;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 1400px;
+  margin: 10rem auto 2rem auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Réplica del encuadre con nombre diferente */
+.formato-encuadre-replica {
+  border: 2px solid #222;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  max-width: 1100px;
+  margin: 10rem auto 2rem auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Sección Datos del Usuario */
+.datos-usuario-section {
+  margin-bottom: 1.5rem;
+}
+
+.datos-usuario-header {
+  background: #a8d08d;
+  border: 2px solid #222;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.datos-usuario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.datos-usuario-table td {
+  border: 1.5px solid #222;
+  padding: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.label-cell {
+  background: #d9d9d9;
+  font-weight: 500;
+  width: 25%;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.input-cell {
+  width: 25%;
+  background: #fff;
+  font-size: 1.1rem;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  background: #f9f9f9;
+}
+
+/* Encabezado del Formato */
+.formato-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  background: #fff;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.header-left {
+  flex: 1;
+  padding: 3rem 1rem 1rem 1rem;
+}
+
+.formato-titulo {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  margin-top: -0.4rem;
+  margin-bottom: 1cm;
+  color: #000;
+}
+
+.header-right {
+  width: 254px;
+  text-align: center;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #000000;
+  border-bottom: none;
+  background: #fff;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-right::after {
+  display: none;
+}
+
+.header-right::before {
+  display: none;
+}
+
+.logo-space {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem;
+}
+
+.formato-logo {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  padding: 1rem;
+  padding-bottom: 0.1rem;
+}
+
+.nit-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+/* Información del documento */
+.documento-info {
+  display: table;
+  width: 100%;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #000000;
+  border-bottom: none;
+  padding: 0.5rem 0;
+  background: #fff;
+  font-size: 0.9rem;
+  margin-top: 0;
+  position: relative;
+}
+
+.doc-left {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  padding: 0 1rem;
+  border-right: 2px solid #000000;
+  vertical-align: middle;
+}
+
+.doc-right {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  padding: 0 1rem;
+  vertical-align: middle;
+}
+
+.doc-field {
+  font-weight: 500;
+}
+
+/* Control de ancho de la columna Categoría */
+.formato-raee th:nth-child(1),
+.formato-raee td:nth-child(1) {
+  width: 270px !important;
+  padding: 0.3em;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Subcategoría - ajustada */
+.formato-raee th:nth-child(2),
+.formato-raee td:nth-child(2) {
+  width: 30% !important;
+  padding: 0.3em;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
+
+/* Columnas Cantidad y Peso - muy estrechas */
+.formato-raee th:nth-child(3),
+.formato-raee td:nth-child(3),
+.formato-raee th:nth-child(4),
+.formato-raee td:nth-child(4) {
+  width: 8%;
+  white-space: nowrap;
+  text-align: center;
+  padding: 0.2em;
+  height: 2em;
+}
+
+.formato-raee td:nth-child(3) input,
+.formato-raee td:nth-child(4) input {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  margin: 0;
+  text-align: center;
+}
+
+.formato-raee td:nth-child(3) input::-webkit-outer-spin-button,
+.formato-raee td:nth-child(3) input::-webkit-inner-spin-button,
+.formato-raee td:nth-child(4) input::-webkit-outer-spin-button,
+.formato-raee td:nth-child(4) input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Columna Observaciones - ajustada */
+.formato-raee th:nth-child(5),
+.formato-raee td:nth-child(5) {
+  width: 30% !important;
+  padding: 0.5em;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.formato-raee td:nth-child(5) input {
+  width: 100%;
+  font-size: 0.9em;
+  padding: 0.2em;
+}
+
+.input-observaciones {
+  max-width: 100%;
+  font-family: inherit;
+}
+
+/* Forzar el ancho de la tabla completa */
+.formato-raee {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Estilos para la tabla de firmas */
+.tabla-firmas {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+.tabla-firmas td {
+  width: 50%;
+  text-align: center;
+  padding: 0.5rem;
+  background: #a8d08d;
+  border: 1.5px solid #000;
+  font-weight: bold;
+}
+
+.tabla-firmas .firma-espacio {
+  height: 100px;
+  background: white;
+  border-bottom: none;
+}
+
+/* Estilos para el total independiente (vista normal) */
+.tabla-total {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.formato-total {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  table-layout: fixed;
+}
+
+.total-label {
+  background: #a8d08d;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.total-cantidad,
+.total-peso {
+  background: #fff;
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  font-size: 0.9em;
+  text-align: center;
+  width: 8%;
+}
+
+.total-observaciones {
+  background: #fff;
+  border: 1.5px solid #000000;
+  padding: 0.3em;
+  font-size: 0.9em;
+  width: 30%;
+}
+
+.input-cantidad-total,
+.input-peso-total {
+  border: none;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== ESTILOS PARA EL MODAL DE FIRMA DIGITAL ===== */
+
+/* Modal principal */
+.modal-firma {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del modal */
+.modal-firma-content {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+/* Encabezado del modal */
+.modal-firma-header {
+  background: #5d913b;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-firma-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Botón de cerrar */
+.modal-firma-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-firma-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+/* Cuerpo del modal */
+.modal-firma-body {
+  padding: 20px;
+}
+
+/* Contenedor del canvas */
+.firma-container {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background: white;
+}
+
+/* Canvas de firma */
+#firmaCanvas {
+  display: block;
+  cursor: crosshair;
+  border-radius: 3px;
+}
+
+/* Controles de firma */
+.firma-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Botones de firma */
+.btn-firma {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-limpiar {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-limpiar:hover {
+  background: #5a6268;
+}
+
+.btn-guardar {
+  background: #5d913b;
+  color: white;
+}
+
+.btn-guardar:hover {
+  background: #4a7c2f;
+}
+
+/* Estilos para las áreas de firma */
+.firma-espacio {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.firma-espacio:hover {
+  background-color: #f8f9fa;
+}
+
+.firma-espacio.firma-guardada {
+  background-color: #e8f5e8;
+  border: 2px solid #5d913b;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modal-firma-content {
+    width: 95%;
+    margin: 10px;
+  }
+
+  #firmaCanvas {
+    width: 100%;
+    height: 150px;
+  }
+
+  .firma-controls {
+    flex-direction: column;
+  }
+
+  .btn-firma {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== ESTILOS PARA BOTÓN DE NAVEGACIÓN ===== */
+.nav-link[href="index.html"],
+.mobile-nav-link[href="index.html"] {
+  background: #5d913b !important;
+  color: #ffffff !important;
+  padding: 8px 16px !important;
+  border-radius: 5px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.nav-link[href="index.html"]:hover,
+.mobile-nav-link[href="index.html"]:hover {
+  background: #4a7a2f !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.nav-link[href="index.html"] i,
+.mobile-nav-link[href="index.html"] i {
+  color: #ffffff !important;
+  font-weight: bold !important;
+}
+
+/* ===== ESTILOS PARA IMPRESIÓN ===== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0.5in;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+  
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  .formato-encuadre, .formato-encuadre * {
+    visibility: visible;
+  }
+  
+  .formato-encuadre {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    transform: none !important;
+  }
+  
+  /* Ocultar elementos no necesarios */
+  #downloadPDF, .navbar, div[style*="text-align: center; margin: 20px 0;"] {
+    display: none !important;
+  }
+  
+  /* Encabezado */
+  .formato-header {
+    display: table !important;
+    width: 100% !important;
+    border: 2px solid #000000 !important;
+    border-collapse: collapse !important;
+    background: #fff !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .header-left {
+    display: table-cell !important;
+    width: calc(100% - 254px) !important;
+    padding: 15px 10px !important;
+    vertical-align: middle !important;
+    border-right: 2px solid #000000 !important;
+  }
+  
+  .formato-titulo {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: 0 !important;
+    color: #000 !important;
+    line-height: 1.1 !important;
+  }
+  
+  .header-right {
+    display: table-cell !important;
+    width: 254px !important;
+    text-align: center !important;
+    padding: 8px !important;
+    vertical-align: middle !important;
+    background: #fff !important;
+  }
+  
+  .logo-space {
+    display: block !important;
+    text-align: center !important;
+  }
+  
+  .formato-logo {
+    max-width: 120px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto 5px auto !important;
+  }
+  
+  .nit-text {
+    font-size: 10px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+  
+  /* Información del documento */
+  .documento-info {
+    display: table !important;
+    width: 100% !important;
+    border-left: 2px solid #000000 !important;
+    border-right: 2px solid #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+    border-top: 2px solid #000000 !important;
+    padding: 6px 0 !important;
+    background: #fff !important;
+    font-size: 10px !important;
+    page-break-inside: avoid !important;
+    margin: 0 !important;
+    position: relative !important;
+  }
+  
+  .doc-left {
+    display: table-cell !important;
+    width: 50% !important;
+    text-align: center !important;
+    padding: 0 10px !important;
+    border-right: 2px solid #000000 !important;
+  }
+  
+  .doc-right {
+    display: table-cell !important;
+    width: 50% !important;
+    text-align: center !important;
+    padding: 0 10px !important;
+  }
+  
+  .doc-field {
+    font-weight: 500 !important;
+  }
+  
+  /* Datos del usuario */
+  .datos-usuario-section {
+    margin: 10px 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .datos-usuario-header {
+    background: #a8d08d !important;
+    border: 2px solid #000 !important;
+    padding: 6px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+  
+  .datos-usuario-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+  }
+  
+  .datos-usuario-table tr {
+    page-break-inside: avoid !important;
+  }
+  
+  .datos-usuario-table td {
+    border: 1.5px solid #000 !important;
+    padding: 4px 6px !important;
+    font-size: 10px !important;
+    vertical-align: middle !important;
+    height: 25px !important;
+  }
+  
+  .label-cell {
+    background: #d9d9d9 !important;
+    font-weight: 500 !important;
+    width: 25% !important;
+  }
+  
+  .input-cell {
+    width: 25% !important;
+    background: #fff !important;
+  }
+  
+  .form-input {
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 1px !important;
+    font-size: 10px !important;
+    margin: 0 !important;
+  }
+  
+  /* Tabla RAEE */
+  .formato-raee {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    page-break-inside: auto !important;
+  }
+  
+  .formato-raee thead tr {
+    page-break-inside: avoid !important;
+  }
+  
+  .formato-raee th {
+    border: 2px solid #000000 !important;
+    background: #5d913b !important;
+    color: white !important;
+    padding: 6px 3px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    vertical-align: middle !important;
+  }
+  
+  .formato-raee td {
+    border: 1.5px solid #000000 !important;
+    padding: 3px !important;
+    background: #fff !important;
+    font-size: 9px !important;
+    vertical-align: middle !important;
+    height: 20px !important;
+  }
+  
+  .formato-raee td[rowspan] {
+    background: #a8d08d !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 3px !important;
+  }
+  
+  .formato-raee input {
+    border: none !important;
+    width: 100% !important;
+    background: transparent !important;
+    padding: 1px !important;
+    font-size: 9px !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+  
+  /* Tabla principal sin tfoot */
+  .formato-raee {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    page-break-inside: auto !important;
+    table-layout: fixed !important;
+  }
+  
+  /* Estilos para el total independiente */
+  .tabla-total {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  .formato-total {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    table-layout: fixed !important;
+  }
+  
+  .total-label {
+    background: #a8d08d !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    border: 2px solid #000000 !important;
+    padding: 6px 3px !important;
+    font-size: 10px !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .total-cantidad,
+  .total-peso {
+    background: #fff !important;
+    border: 1.5px solid #000000 !important;
+    padding: 3px !important;
+    font-size: 9px !important;
+    text-align: center !important;
+    width: 8% !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .total-observaciones {
+    background: #fff !important;
+    border: 1.5px solid #000000 !important;
+    padding: 3px !important;
+    font-size: 9px !important;
+    width: 30% !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .input-cantidad-total,
+  .input-peso-total {
+    border: none !important;
+    width: 100% !important;
+    background: transparent !important;
+    padding: 1px !important;
+    font-size: 9px !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-weight: bold !important;
+  }
+  
+  /* Tabla de firmas */
+  .tabla-firmas {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 15px 0 !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .tabla-firmas tr {
+    page-break-inside: avoid !important;
+  }
+  
+  .tabla-firmas td {
+    border: 1.5px solid #000 !important;
+    padding: 25px 8px 8px 8px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    width: 50% !important;
+  }
+  
+  .firma-espacio {
+    height: 35px !important;
+    border-bottom: none !important;
+  }
+  
+  /* Información de contacto */
+  .contacto-info {
+    display: table !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+    font-size: 9px !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .contacto-info > div {
+    display: table-cell !important;
+    width: 33.33% !important;
+    text-align: center !important;
+    padding: 0 5px !important;
+  }
+  
+  /* Nota */
+  div[style*="margin-top: 20px; padding: 10px;"] {
+    margin: 10px 0 !important;
+    padding: 8px !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+    text-align: justify !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+
