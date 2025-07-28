@@ -225,6 +225,176 @@ body {
   }
 }
 
+/* ===== CONDICIONAL PARA RESOLUCIÓN 2045px Y SUPERIOR ===== */
+@media (min-width: 2045px) {
+  .container {
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding: 0 4rem !important;
+    width: 100% !important;
+  }
+  
+  .navbar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .nav-container {
+    justify-content: center !important;
+    padding: 2rem 4rem !important;
+    max-width: 2400px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    overflow-x: visible !important;
+    gap: 4rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .nav-brand {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+    order: 1 !important;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    gap: 3rem !important;
+    align-items: center !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+    overflow: visible !important;
+    order: 2 !important;
+    justify-content: center !important;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+  }
+  
+  .nav-link:hover {
+    color: #059669 !important;
+  }
+  
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom: 2px solid #059669 !important;
+  }
+  
+  .nav-link i {
+    font-size: 1.1rem !important;
+    color: #059669 !important;
+  }
+  
+  /* Ocultar menú hamburguesa y dropdown */
+  .dropdown-menu-container {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  /* Mostrar menú completo */
+  .nav-menu {
+    display: flex !important;
+  }
+  
+  /* Agregar contenido del menú dropdown al menú principal */
+  .nav-menu::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 25px;
+    background-color: #ddd;
+    margin: 0 1.5rem;
+  }
+  
+  /* Mostrar enlaces adicionales */
+  .nav-menu .dropdown-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    padding: 0.6rem 1.2rem !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+  }
+  
+  .nav-menu .dropdown-link:hover {
+    color: #059669 !important;
+  }
+  
+  .nav-menu .dropdown-link i {
+    font-size: 1.1rem !important;
+    color: #059669 !important;
+  }
+  
+  /* Mostrar iconos sociales */
+  .nav-menu .dropdown-social-icons {
+    display: flex !important;
+    gap: 1rem !important;
+    margin-left: 2rem !important;
+    flex-shrink: 0 !important;
+    min-width: fit-content !important;
+  }
+  
+  .nav-menu .dropdown-social-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 45px !important;
+    height: 45px !important;
+    background: #f8f9fa !important;
+    border-radius: 50% !important;
+    color: #065f46 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    flex-shrink: 0 !important;
+    min-width: 45px !important;
+  }
+  
+  .nav-menu .dropdown-social-icon:hover {
+    background: #065f46 !important;
+    color: white !important;
+    transform: scale(1.1) !important;
+  }
+  
+  /* Asegurar que los iconos sociales no se corten */
+  .nav-menu .dropdown-social-icons {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  
+  .nav-menu .dropdown-social-icon i {
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+  }
+  
+  /* Asegurar que el dropdown no cause overflow en pantallas grandes */
+  .navbar {
+    overflow: visible !important;
+  }
+  
+  .nav-container {
+    overflow: visible !important;
+  }
+}
+
 @media (min-width: 1990px) {
   .nav-container {
     justify-content: flex-start !important;
