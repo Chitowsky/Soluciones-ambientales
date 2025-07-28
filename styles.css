@@ -1331,6 +1331,7 @@ body {
   color: white;
   margin-bottom: 2rem;
   line-height: 1.2;
+  text-align: center;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
