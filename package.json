@@ -1,0 +1,13 @@
+{
+  "name": "soluciones-ambientales",
+  "version": "1.0.0",
+  "description": "Sitio web de Soluciones Ambientales SAS",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Build completed'"
+  },
+  "keywords": ["environmental", "solutions", "website"],
+  "author": "Soluciones Ambientales SAS",
+  "license": "MIT"
+} 
