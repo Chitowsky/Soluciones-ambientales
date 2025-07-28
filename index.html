@@ -6,8 +6,17 @@
     <title>SOLUCIONES AMBIENTALES SAS</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css?v=13.0">
+    <link rel="stylesheet" href="styles.css?v=14.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS crítico inline como fallback -->
+    <style>
+        /* Fallback styles si el CSS externo no carga */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        .navbar { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .hero { min-height: 100vh; background: #f0fdf4; padding-top: 80px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    </style>
     <!-- Agrega Chart.js CDN en el head -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
@@ -574,7 +583,7 @@
         </a>
     </div>
 
-    <script src="script.js?v=13.0"></script>
+    <script src="script.js?v=14.0"></script>
 
 <!-- Modal para Aparato de intercambio de temperatura -->
 <div id="modal-temperatura" class="modal" style="display:none;">
