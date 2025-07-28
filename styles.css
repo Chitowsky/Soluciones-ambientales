@@ -1323,6 +1323,8 @@ body {
 .hero-content {
   animation: fadeInUp 1s ease-out;
   max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-title {
