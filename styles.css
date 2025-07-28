@@ -72,6 +72,26 @@ body {
     padding: 0 2rem !important;
   }
   
+  /* Asegurar que el texto en las secciones principales se mantenga centrado correctamente */
+  .about p,
+  .contact p,
+  .noticias-section p,
+  .section-subtitle,
+  .contact .section-subtitle,
+  .noticias-section .section-subtitle {
+    text-align: center !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Asegurar que las tarjetas se mantengan centradas */
+  .cards-grid {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+  
   .navbar {
     display: block !important;
   }
@@ -275,7 +295,26 @@ body {
     margin: 0 auto !important;
     padding: 0 4rem !important;
     width: 100% !important;
+  }
+  
+  /* Asegurar que el texto en las secciones principales se mantenga centrado correctamente */
+  .about p,
+  .contact p,
+  .noticias-section p,
+  .section-subtitle,
+  .contact .section-subtitle,
+  .noticias-section .section-subtitle {
     text-align: center !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Asegurar que las tarjetas se mantengan centradas */
+  .cards-grid {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
   }
   
   .cards-grid {
@@ -1523,14 +1562,14 @@ body {
   text-align: center !important;
 }
 
-/* Forzar centrado de todos los textos principales */
-.about p,
-.contact p,
-.noticias-section p,
-.section-subtitle,
-.contact .section-subtitle,
-.noticias-section .section-subtitle {
-  text-align: center !important;
+/* Clase específica para textos de contacto que deben estar a la izquierda */
+.contact-text-left {
+  text-align: left !important;
+}
+
+/* Clase específica para textos alineados a la izquierda */
+.left-text {
+  text-align: left !important;
 }
 
 /* About Section */
