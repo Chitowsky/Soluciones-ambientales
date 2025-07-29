@@ -936,15 +936,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const titulo = card.querySelector('.noticia-titulo');
     const meta = card.querySelector('.noticia-meta');
 
-    // Texto de ejemplo para el modal
+    // Determinar qué noticia es basándose en la imagen y posición
+    let noticiaTipo = '';
     let textoEjemplo = '';
-    if (titulo.textContent.includes('Somos tu mejor opción')) {
+    let tituloModal = '';
+    
+    if (card.classList.contains('noticia-principal')) {
+      noticiaTipo = 'principal';
+      tituloModal = 'Somos tu mejor opción para la gestión de tus RAEE, contáctanos.';
       textoEjemplo = 'Somos tu mejor opción para la gestión de tus RAEE, contáctanos. Ofrecemos servicios profesionales de reciclaje y disposición responsable de residuos electrónicos.';
-    } else if (titulo.textContent.includes('Pasos para reciclar')) {
+    } else if (img.src.includes('noticia3.png')) {
+      noticiaTipo = 'pasos';
+      tituloModal = 'Pasos para reciclar';
       textoEjemplo = '1. Completa el formulario virtual con la información requerida.\n\n2. Nos pondremos en contacto contigo para coordinar las fechas y condiciones para la recolección de tus residuos.\n\n3. Reúne todos tus RAEE en un lugar específico de tu hogar.\n\n4. Asegúrate de tener todo listo en el horario acordado para la recogida de tus residuos.';
-    } else if (titulo.textContent.includes('¿Qué puedes traer?')) {
+    } else if (img.src.includes('noticia2.jpg')) {
+      noticiaTipo = 'que-traer';
+      tituloModal = '¿Qué puedes traer?';
       textoEjemplo = 'Pilas-Baterías (de vehículos, motos y UPS), Bombillas (tubos fluorescentes, alumbrado público), Equipos electrónicos y de telecomunicaciónes, Medicamentos humanos y veterinarios.';
     } else {
+      noticiaTipo = 'default';
+      tituloModal = titulo ? titulo.textContent : 'Noticia';
       textoEjemplo = 'Esta es una noticia destacada. Aquí puedes agregar el contenido completo de la noticia para que el usuario lo lea en detalle.';
     }
 
@@ -956,8 +967,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <button class="noticia-modal-close" title="Cerrar">&times;</button>
         <img src="${img.src}" alt="${img.alt}" class="noticia-modal-img">
         <div class="noticia-modal-contenido">
-          <h2 class="noticia-modal-titulo">${titulo.textContent}</h2>
-          <div class="noticia-modal-meta">${meta.innerHTML}</div>
+          <h2 class="noticia-modal-titulo">${tituloModal}</h2>
           <div class="noticia-modal-texto" style="margin-top:1.5em; color:#444; font-size:1.1em; line-height:1.7;">${textoEjemplo}</div>
         </div>
       </div>
@@ -966,7 +976,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Modal creado y agregado al DOM');
     
     // Rotación de imágenes para el modal "Pasos para reciclar"
-    if (titulo.textContent.includes('Pasos para reciclar')) {
+    if (noticiaTipo === 'pasos') {
       const modalImg = overlay.querySelector('.noticia-modal-img');
       const imagenes = [
         'imagenes/noticias/noticia 2/1.png',
@@ -1003,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cerrar con Escape
     document.addEventListener('keydown', function escListener(ev) {
       if (ev.key === 'Escape') {
-        if (titulo.textContent.includes('Pasos para reciclar')) {
+        if (noticiaTipo === 'pasos') {
           // Limpiar el intervalo si existe
           if (typeof imageInterval !== 'undefined') {
             clearInterval(imageInterval);
