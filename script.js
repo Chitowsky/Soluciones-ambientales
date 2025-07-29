@@ -965,7 +965,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.innerHTML = `
       <div class="noticia-modal">
         <button class="noticia-modal-close" title="Cerrar">&times;</button>
-        <img src="${img.src}" alt="${img.alt}" class="noticia-modal-img">
+        <img src="${img.src}" alt="" class="noticia-modal-img">
         <div class="noticia-modal-contenido">
           <h2 class="noticia-modal-titulo">${tituloModal}</h2>
           <div class="noticia-modal-texto" style="margin-top:1.5em; color:#444; font-size:1.1em; line-height:1.7;">${textoEjemplo}</div>
@@ -979,14 +979,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (noticiaTipo === 'pasos') {
       const modalImg = overlay.querySelector('.noticia-modal-img');
       const imagenes = [
-        'imagenes/noticias/noticia 2/1.png',
-        'imagenes/noticias/noticia 2/2.png',
-        'imagenes/noticias/noticia 2/3.png',
-        'imagenes/noticias/noticia 2/4.png'
+        'imagenes/noticias/noticia 3.1/1.png',
+        'imagenes/noticias/noticia 3.1/2.png',
+        'imagenes/noticias/noticia 3.1/3.png',
+        'imagenes/noticias/noticia 3.1/4.png'
       ];
       let currentIndex = 0;
       
       console.log('Iniciando rotación de imágenes en modal para "Pasos para reciclar"');
+      
+      // Manejo de errores para las imágenes
+      modalImg.onerror = function() {
+        console.log('Error cargando imagen:', this.src);
+        // Si hay error, mantener la imagen original
+        this.src = img.src;
+      };
       
       const imageInterval = setInterval(() => {
         currentIndex = (currentIndex + 1) % imagenes.length;
@@ -1127,39 +1134,26 @@ function initializeDropdownMenu() {
 
 // Función para cambiar imágenes de la noticia "¿Qué puedes traer?"
 function initializeQuePuedesTraerImageRotation() {
-  // Buscar todas las noticias y encontrar la correcta
-  const noticias = document.querySelectorAll('.noticia');
-  let targetNoticia = null;
+  // Buscar la noticia por ID
+  const img = document.getElementById('noticia-cambiante');
   
-  noticias.forEach(noticia => {
-    const titulo = noticia.querySelector('.noticia-titulo');
-    if (titulo && titulo.textContent.includes('¿Qué puedes traer?')) {
-      targetNoticia = noticia;
-    }
-  });
-  
-  if (targetNoticia) {
-    const img = targetNoticia.querySelector('.noticia-img');
-    if (img) {
-      const imagenes = [
-        'imagenes/noticias/noticia2.jpg',
-        'imagenes/noticias/noticia2.1.jpg'
-      ];
-      let currentIndex = 0;
-      
-      console.log('Iniciando rotación de imágenes para "¿Qué puedes traer?"');
-      
-      // Cambiar imagen cada 3 segundos
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % imagenes.length;
-        img.src = imagenes[currentIndex];
-        console.log('Cambiando a imagen:', imagenes[currentIndex]);
-      }, 3000);
-    } else {
-      console.log('No se encontró la imagen en la noticia');
-    }
+  if (img) {
+    const imagenes = [
+      'imagenes/noticias/noticia2.jpg',
+      'imagenes/noticias/noticia2.1.jpg'
+    ];
+    let currentIndex = 0;
+    
+    console.log('Iniciando rotación de imágenes para la noticia cambiante');
+    
+    // Cambiar imagen cada 3 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % imagenes.length;
+      img.src = imagenes[currentIndex];
+      console.log('Cambiando a imagen:', imagenes[currentIndex]);
+    }, 3000);
   } else {
-    console.log('No se encontró la noticia "¿Qué puedes traer?"');
+    console.log('No se encontró la imagen con ID noticia-cambiante');
   }
 }
 
