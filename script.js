@@ -686,12 +686,12 @@ window.addEventListener('DOMContentLoaded', function() {
         datasets: [{
           data: [500, 100], // Valor inicial de ejemplo
           backgroundColor: [
-            'rgba(59, 130, 246, 0.8)', // Azul
-            'rgba(16, 185, 129, 0.8)'  // Verde
+            'rgba(65, 95, 38, 0.8)', // #415F26 - Verde oscuro
+            'rgba(107, 142, 35, 0.8)'  // #6B8E23 - Verde claro
           ],
           borderColor: [
-            'rgba(59, 130, 246, 1)',
-            'rgba(16, 185, 129, 1)'
+            'rgba(65, 95, 38, 1)', // #415F26
+            'rgba(107, 142, 35, 1)'  // #6B8E23
           ],
           borderWidth: 2
         }]
@@ -742,11 +742,11 @@ window.addEventListener('DOMContentLoaded', function() {
       const resultadoDiv = document.getElementById('co2-resultado');
       if (resultadoDiv) {
         resultadoDiv.innerHTML = `
-          <div style="font-size:2rem;font-weight:bold;color:#065f46">
-            ${datos.fabricacion} kg CO2 <span style="font-size:1.2rem;color:#059669;">Nueva</span>
+          <div style="font-size:2rem;font-weight:bold;color:#415F26">
+            ${datos.fabricacion} kg CO2 <span style="font-size:1.2rem;color:#6B8E23;">Nueva</span>
           </div>
-          <div style="font-size:2rem;font-weight:bold;color:#059669">
-            ${datos.restauracion} kg CO2 <span style="font-size:1.2rem;color:#065f46;">Restaurada</span>
+          <div style="font-size:2rem;font-weight:bold;color:#6B8E23">
+            ${datos.restauracion} kg CO2 <span style="font-size:1.2rem;color:#415F26;">Restaurada</span>
           </div>
         `;
       }
@@ -938,16 +938,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Texto de ejemplo para el modal
     let textoEjemplo = '';
-    if (titulo.textContent.includes('Grand Canyon')) {
-      textoEjemplo = 'El Gran Cañón está considerando nuevas reglas para excursionistas principiantes, buscando mejorar la seguridad y la experiencia de los visitantes. Estas medidas podrían implementarse la próxima temporada.';
-    } else if (titulo.textContent.includes('National Forest')) {
-      textoEjemplo = 'El Acta de Administración de Senderos del Sistema Nacional de Bosques busca mejorar la conservación y el acceso a los senderos en todo el país.';
-    } else if (titulo.textContent.includes('Mercedes Benz')) {
-      textoEjemplo = 'Una reseña a fondo del Mercedes Benz CLS63 AMG, explorando su diseño, desempeño y tecnología avanzada.';
-    } else if (titulo.textContent.includes('Florida Propone')) {
-      textoEjemplo = 'Florida propone nuevas medidas para proteger a los osos, enfocándose en la educación y la prevención de conflictos con humanos.';
-    } else if (titulo.textContent.includes('Android')) {
-      textoEjemplo = 'Descubre los problemas más comunes de Android y aprende cómo solucionarlos fácilmente con estos consejos prácticos.';
+    if (titulo.textContent.includes('Somos tu mejor opción')) {
+      textoEjemplo = 'Somos tu mejor opción para la gestión de tus RAEE, contáctanos. Ofrecemos servicios profesionales de reciclaje y disposición responsable de residuos electrónicos.';
+    } else if (titulo.textContent.includes('Pasos para reciclar')) {
+      textoEjemplo = '1. Completa el formulario virtual con la información requerida.\n\n2. Nos pondremos en contacto contigo para coordinar las fechas y condiciones para la recolección de tus residuos.\n\n3. Reúne todos tus RAEE en un lugar específico de tu hogar.\n\n4. Asegúrate de tener todo listo en el horario acordado para la recogida de tus residuos.';
+    } else if (titulo.textContent.includes('¿Qué puedes traer?')) {
+      textoEjemplo = 'Pilas-Baterías (de vehículos, motos y UPS), Bombillas (tubos fluorescentes, alumbrado público), Equipos electrónicos y de telecomunicaciónes, Medicamentos humanos y veterinarios.';
     } else {
       textoEjemplo = 'Esta es una noticia destacada. Aquí puedes agregar el contenido completo de la noticia para que el usuario lo lea en detalle.';
     }
@@ -967,16 +963,53 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     `;
     document.body.appendChild(overlay);
-
-    // Cerrar al hacer click fuera o en el botón de cerrar
-    overlay.addEventListener('click', function(ev) {
-      if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
-        overlay.remove();
-      }
-    });
+    console.log('Modal creado y agregado al DOM');
+    
+    // Rotación de imágenes para el modal "Pasos para reciclar"
+    if (titulo.textContent.includes('Pasos para reciclar')) {
+      const modalImg = overlay.querySelector('.noticia-modal-img');
+      const imagenes = [
+        'imagenes/noticias/noticia 2/1.png',
+        'imagenes/noticias/noticia 2/2.png',
+        'imagenes/noticias/noticia 2/3.png',
+        'imagenes/noticias/noticia 2/4.png'
+      ];
+      let currentIndex = 0;
+      
+      console.log('Iniciando rotación de imágenes en modal para "Pasos para reciclar"');
+      
+      const imageInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % imagenes.length;
+        modalImg.src = imagenes[currentIndex];
+        console.log('Cambiando imagen del modal a:', imagenes[currentIndex]);
+      }, 2000);
+      
+      // Limpiar el intervalo cuando se cierre el modal
+      overlay.addEventListener('click', function(ev) {
+        if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
+          clearInterval(imageInterval);
+          console.log('Intervalo de rotación de imágenes detenido');
+          overlay.remove();
+        }
+      });
+    } else {
+      // Cerrar al hacer click fuera o en el botón de cerrar (para otras noticias)
+      overlay.addEventListener('click', function(ev) {
+        if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
+          overlay.remove();
+        }
+      });
+    }
     // Cerrar con Escape
     document.addEventListener('keydown', function escListener(ev) {
       if (ev.key === 'Escape') {
+        if (titulo.textContent.includes('Pasos para reciclar')) {
+          // Limpiar el intervalo si existe
+          if (typeof imageInterval !== 'undefined') {
+            clearInterval(imageInterval);
+            console.log('Intervalo de rotación de imágenes detenido por Escape');
+          }
+        }
         overlay.remove();
         document.removeEventListener('keydown', escListener);
       }
@@ -1081,3 +1114,44 @@ function initializeDropdownMenu() {
     }
   });
 }
+
+// Función para cambiar imágenes de la noticia "¿Qué puedes traer?"
+function initializeQuePuedesTraerImageRotation() {
+  // Buscar todas las noticias y encontrar la correcta
+  const noticias = document.querySelectorAll('.noticia');
+  let targetNoticia = null;
+  
+  noticias.forEach(noticia => {
+    const titulo = noticia.querySelector('.noticia-titulo');
+    if (titulo && titulo.textContent.includes('¿Qué puedes traer?')) {
+      targetNoticia = noticia;
+    }
+  });
+  
+  if (targetNoticia) {
+    const img = targetNoticia.querySelector('.noticia-img');
+    if (img) {
+      const imagenes = [
+        'imagenes/noticias/noticia2.jpg',
+        'imagenes/noticias/noticia2.1.jpg'
+      ];
+      let currentIndex = 0;
+      
+      console.log('Iniciando rotación de imágenes para "¿Qué puedes traer?"');
+      
+      // Cambiar imagen cada 3 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % imagenes.length;
+        img.src = imagenes[currentIndex];
+        console.log('Cambiando a imagen:', imagenes[currentIndex]);
+      }, 3000);
+    } else {
+      console.log('No se encontró la imagen en la noticia');
+    }
+  } else {
+    console.log('No se encontró la noticia "¿Qué puedes traer?"');
+  }
+}
+
+// Inicializar la rotación de imágenes cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializeQuePuedesTraerImageRotation);

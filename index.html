@@ -6,7 +6,7 @@
     <title>SOLUCIONES AMBIENTALES SAS</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css?v=18">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- CSS crítico inline como fallback -->
     <style>
@@ -164,7 +164,6 @@
         <div class="hero-carousel">
             <div class="carousel-track">
                 <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel1.png')"></div>
-                <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel2.png')"></div>
                 <div class="carousel-slide" style="background-image: url('imagenes/carruseles/carrusel3.png')"></div>
             </div>
         </div>
@@ -186,7 +185,6 @@
         <div class="carousel-indicators">
             <button class="indicator active" data-slide="0"></button>
             <button class="indicator" data-slide="1"></button>
-            <button class="indicator" data-slide="2"></button>
         </div>
 
         <!-- Controles del carrusel -->
@@ -203,7 +201,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Quiénes Somos</h2>
-                <p class="section-subtitle">
+                <p class="section-subtitle about-subtitle">
                     La empresa está autorizada por Cormacarena (Resolución N. PS-GJ 1.2.6.23-2588) para el almacenamiento y tratamiento de residuos de aparatos eléctricos y electrónicos (RAEE) en el departamento del Meta. 
                     Ofrecen servicios especializados para empresas, instituciones y comunidad en general, con el objetivo de asegurar una disposición adecuada de los residuos.
                    
@@ -261,70 +259,59 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Noticias</h2>
-          <p class="section-subtitle">Actualidad, novedades y más sobre el mundo ambiental y tecnológico.</p>
+          <p class="section-subtitle noticias-subtitle">Actualidad, novedades y más sobre el mundo ambiental y tecnológico.</p>
         </div>
+        
+        <!-- Contenedor para textos de las tarjetas -->
+        <div class="noticias-textos-container">
+          <div class="noticia-texto-item">
+            <h3 class="noticia-texto-titulo">Somos tu mejor opción para la gestión de tus RAEE, contáctanos.</h3>
+            <p class="noticia-texto-fecha">08 Julio, 2017</p>
+          </div>
+          <div class="noticia-texto-item">
+            <h3 class="noticia-texto-titulo">Pasos para reciclar</h3>
+            <p class="noticia-texto-fecha">12 Junio, 2016</p>
+          </div>
+          <div class="noticia-texto-item">
+            <h3 class="noticia-texto-titulo">¿Qué puedes traer?</h3>
+            <p class="noticia-texto-fecha">22 Junio, 2016</p>
+          </div>
+        </div>
+        
         <div class="noticias-grid">
           <!-- Noticia principal -->
-          <div class="noticia noticia-principal">
-            <img src="imagenes/carruseles/carrusel1.png" alt="Noticia principal" class="noticia-img">
+          <div class="noticia noticia-principal" style="min-height: 280px;">
+            <img src="imagenes/noticias/reciclaje raee.png" alt="Noticia principal" class="noticia-img">
             <div class="noticia-contenido">
               <!-- <span class="noticia-categoria world">Mundo</span> -->
-              <h3 class="noticia-titulo">Grand Canyon Considera Cambios en las Reglas para Nuevos Excursionistas</h3>
+              <h3 class="noticia-titulo titulo-principal">Somos tu mejor opción para la gestión de tus RAEE, contáctanos.</h3>
               <div class="noticia-meta">
-                <span class="noticia-fecha">08 Julio, 2016</span>
-                <span class="noticia-likes"><i class="fas fa-heart"></i> 356</span>
-                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 589</span>
+                <span class="noticia-fecha">08 Julio, 2017</span>
               </div>
             </div>
           </div>
           <!-- Noticias secundarias -->
-          <div class="noticia noticia-secundaria">
-            <img src="imagenes/carruseles/carrusel2.png" alt="Noticia secundaria 1" class="noticia-img">
+          <div class="noticia noticia-secundaria" style="min-height: 250px; grid-row: span 2;">
+            <img src="imagenes/noticias/noticia3.png" alt="Noticia secundaria 1" class="noticia-img">
             <div class="noticia-contenido">
               <!-- <span class="noticia-categoria travel">Viajes</span> -->
-              <h3 class="noticia-titulo">National Forest System Trails Stewardship Act</h3>
+              <h3 class="noticia-titulo" style="display: none;">Pasos para reciclar</h3>
               <div class="noticia-meta">
                 <span class="noticia-fecha">12 Junio, 2016</span>
-                <span class="noticia-likes"><i class="fas fa-heart"></i> 106</span>
-                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 256</span>
               </div>
             </div>
           </div>
-          <div class="noticia noticia-secundaria">
-            <img src="imagenes/carruseles/carrusel3.png" alt="Noticia secundaria 2" class="noticia-img">
+          <div class="noticia noticia-secundaria" style="grid-row: span 2; min-height: 350px;">
+            <img src="imagenes/noticias/noticia2.jpg" alt="Noticia secundaria 2" class="noticia-img">
             <div class="noticia-contenido">
               <!-- <span class="noticia-categoria design">Diseño</span> -->
-              <h3 class="noticia-titulo">Mercedes Benz CLS63 AMG Reseña a Fondo</h3>
+              <h3 class="noticia-titulo">¿Qué puedes traer?</h3>
               <div class="noticia-meta">
                 <span class="noticia-fecha">22 Junio, 2016</span>
-                <span class="noticia-rating"><i class="fas fa-star"></i> 5.0</span>
               </div>
             </div>
           </div>
-          <div class="noticia noticia-secundaria">
-            <img src="imagenes/carruseles/carrusel1.png" alt="Noticia secundaria 3" class="noticia-img">
-            <div class="noticia-contenido">
-              <!-- <span class="noticia-categoria sports">Deportes</span> -->
-              <h3 class="noticia-titulo">Florida Propone Medidas para Proteger a los Osos</h3>
-              <div class="noticia-meta">
-                <span class="noticia-fecha">28 Junio, 2016</span>
-                <span class="noticia-likes"><i class="fas fa-heart"></i> 952</span>
-                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 681</span>
-              </div>
-            </div>
-          </div>
-          <div class="noticia noticia-secundaria">
-            <img src="imagenes/carruseles/carrusel2.png" alt="Noticia secundaria 4" class="noticia-img">
-            <div class="noticia-contenido">
-              <!-- <span class="noticia-categoria business">Negocios</span> -->
-              <h3 class="noticia-titulo">Problemas comunes de Android y cómo solucionarlos</h3>
-              <div class="noticia-meta">
-                <span class="noticia-fecha">02 Julio, 2016</span>
-                <span class="noticia-likes"><i class="fas fa-heart"></i> 320</span>
-                <span class="noticia-comentarios"><i class="fas fa-comment"></i> 2350</span>
-              </div>
-            </div>
-          </div>
+          
         </div>
         <!-- Puedes agregar más noticias duplicando los bloques .noticia -->
       </div>
@@ -457,7 +444,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">¿Necesitas asesoría?</h2>
-                <p class="section-subtitle left-text">
+                <p class="section-subtitle contact-subtitle left-text">
                     ¿Listo para comenzar a reciclar? Ponte en contacto con nuestro equipo hoy.
                 </p>
             </div>

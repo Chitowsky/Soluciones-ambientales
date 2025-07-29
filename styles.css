@@ -52,7 +52,7 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   position: relative;
-  overflow-x: auto;
+  overflow-x: hidden;
   gap: 2.5rem;
 }
 
@@ -67,7 +67,7 @@ body {
 /* ===== CONDICIONAL PARA RESOLUCIÓN ESPECÍFICA ===== */
 @media (min-width: 1995px) {
   .container {
-    max-width: 2000px !important;
+    max-width: 1800px !important;
     margin: 0 auto !important;
     padding: 0 2rem !important;
   }
@@ -76,7 +76,6 @@ body {
   .about p,
   .contact p,
   .noticias-section p,
-  .section-subtitle,
   .contact .section-subtitle,
   .noticias-section .section-subtitle {
     text-align: center !important;
@@ -249,28 +248,28 @@ body {
     padding: 5rem 0 !important;
   }
   .contact-grid {
-    max-width: 1600px !important;
+    max-width: 1200px !important;
     margin: 0 auto !important;
-    grid-template-columns: 1.2fr 1fr !important;
-    gap: 4rem !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem !important;
   }
   .contact-form-card,
   .contact-info-card {
-    padding: 2.5rem 2rem !important;
-    font-size: 1.1rem !important;
+    padding: 1.8rem 1.5rem !important;
+    font-size: 1rem !important;
   }
   .form-title,
   .info-title {
-    font-size: 1.8rem !important;
+    font-size: 1.4rem !important;
   }
   .form-input,
   .form-textarea {
-    font-size: 1rem !important;
-    padding: 1rem !important;
+    font-size: 0.95rem !important;
+    padding: 0.9rem !important;
   }
   .form-button {
-    font-size: 1.1rem !important;
-    padding: 0.9rem !important;
+    font-size: 1rem !important;
+    padding: 0.85rem !important;
   }
   .contact-label {
     font-size: 1rem !important;
@@ -285,11 +284,18 @@ body {
     margin: 0 auto !important;
   }
   
+  /* Alinear a la izquierda los textos de contacto en resoluciones grandes */
+  .contact-label,
+  .contact-value {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 
 }
 
 /* ===== CONDICIONAL PARA RESOLUCIÓN 2045px Y SUPERIOR ===== */
-@media (min-width: 2045px) {
+@media (min-width: 2060px) {
   .container {
     max-width: none !important;
     margin: 0 auto !important;
@@ -301,7 +307,6 @@ body {
   .about p,
   .contact p,
   .noticias-section p,
-  .section-subtitle,
   .contact .section-subtitle,
   .noticias-section .section-subtitle {
     text-align: center !important;
@@ -320,6 +325,25 @@ body {
   .cards-grid {
     max-width: 1200px !important;
     margin: 0 auto !important;
+  }
+  
+  /* Reglas específicas para contacto en 2045px */
+  .contact-grid {
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    grid-template-columns: 1.2fr 1fr !important;
+    gap: 4rem !important;
+  }
+  
+  .contact-form-card,
+  .contact-info-card {
+    padding: 2.5rem 2rem !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .form-title,
+  .info-title {
+    font-size: 1.8rem !important;
   }
   
   .navbar {
@@ -480,6 +504,14 @@ body {
   
   .nav-container {
     overflow: visible !important;
+  }
+  
+  /* Alinear a la izquierda los textos de contacto en resoluciones grandes */
+  .contact-label,
+  .contact-value {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -659,6 +691,7 @@ body {
   position: relative;
   display: inline-block;
   overflow: visible;
+  z-index: 99999;
 }
 
 .dropdown-menu-btn {
@@ -685,24 +718,32 @@ body {
 }
 
 .dropdown-menu {
-  position: fixed;
-  top: 80px;
-  right: 2rem;
+  position: fixed !important;
+  top: 80px !important;
+  right: 2rem !important;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   min-width: 220px;
-  z-index: 1001;
+  z-index: 99999 !important;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.3s ease;
+  pointer-events: auto;
+  isolation: isolate;
+  transform-origin: top right;
+  contain: layout style paint;
 }
 
 .dropdown-menu.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  z-index: 99999 !important;
+  position: fixed !important;
+  top: 80px !important;
+  right: 2rem !important;
 }
 
 .dropdown-link {
@@ -834,15 +875,21 @@ body {
     padding: 1.3rem 1.8rem !important;
     gap: 1.8rem !important;
     justify-content: space-between !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .nav-menu {
     gap: 1.3rem !important;
     margin-left: 2.5rem !important;
+    flex-shrink: 0 !important;
   }
   
   .nav-link {
     font-size: 1rem !important;
+    white-space: nowrap !important;
   }
   
   .logo-image {
@@ -854,6 +901,39 @@ body {
   }
 }
 
+/* Ajuste específico para el rango problemático 1401px-1403px */
+@media (min-width: 1401px) and (max-width: 1403px) {
+  .nav-container {
+    padding: 1rem 1.5rem !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .nav-menu {
+    gap: 0.8rem !important;
+    margin-left: 1rem !important;
+    flex-shrink: 1 !important;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.8rem !important;
+    white-space: nowrap !important;
+  }
+  
+  .logo-image {
+    height: 6rem !important;
+  }
+  
+  .brand-text {
+    font-size: 1.5rem !important;
+  }
+}
+
 /* Primera fase: ajustar espaciado cuando el espacio se reduce */
 @media (max-width: 1400px) and (min-width: 1280px) {
   .nav-container {
@@ -862,6 +942,8 @@ body {
     justify-content: space-between !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .nav-menu {
@@ -885,6 +967,8 @@ body {
     font-size: 1.3rem;
   }
 }
+
+
 
 /* Segunda fase: solo logo, título y menú móvil - TAMAÑO GRANDE */
 @media (max-width: 1279px) and (min-width: 1000px) {
@@ -1562,9 +1646,31 @@ body {
   text-align: center !important;
 }
 
-/* Clase específica para textos de contacto que deben estar a la izquierda */
-.contact-text-left {
-  text-align: left !important;
+/* Clases específicas para cada subtítulo */
+.about-subtitle {
+  /* Estilos específicos para el subtítulo de "Quiénes Somos" */
+  text-align: center !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 1rem !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.noticias-subtitle {
+  /* Estilos específicos para el subtítulo de "Noticias" */
+}
+
+.contact-subtitle {
+  /* Estilos específicos para el subtítulo de "¿Necesitas asesoría?" */
+  text-align: center !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 1rem !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 /* Clase específica para textos alineados a la izquierda */
@@ -1959,6 +2065,7 @@ body {
   font-weight: bold;
   color: #065f46;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .contact-item {
@@ -1987,6 +2094,7 @@ body {
   font-weight: 600;
   color: #065f46;
   margin-bottom: 0.25rem;
+  text-align: left;
 }
 
 .contact-value {
@@ -2163,6 +2271,30 @@ body {
 
   .section-subtitle {
     font-size: 1rem;
+  }
+
+  .about-subtitle {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 1rem !important;
+  }
+
+  .contact-subtitle.left-text {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 1rem !important;
+  }
+
+  .section-subtitle.contact-subtitle.left-text {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 1rem !important;
   }
 
   .contact-grid {
@@ -2610,16 +2742,16 @@ body {
   border: 2px solid #e5e7eb;
 }
 .color-box.fabricacion {
-  background: rgba(59, 130, 246, 0.8); /* Azul para Fabricación nueva */
+  background: rgba(65, 95, 38, 0.8); /* #415F26 - Verde oscuro para Fabricación nueva */
 }
 .color-box.restauracion {
-  background: rgba(16, 185, 129, 0.8); /* Verde para Restauración */
+  background: rgba(107, 142, 35, 0.8); /* #6B8E23 - Verde claro para Restauración */
 }
 
 .info-btn {
   background: none;
   border: none;
-  color: #10b981; /* Verde igual que Restauración */
+  color: #6B8E23; /* Verde claro igual que Restauración */
   font-size: 1em; /* Más pequeño */
   cursor: pointer;
   vertical-align: middle;
@@ -4122,6 +4254,7 @@ body {
   letter-spacing: 1px;
   position: relative;
   text-shadow: 0 2px 4px rgba(107, 142, 35, 0.1);
+  white-space: nowrap;
 }
 
 .grupo-titulo::after {
@@ -4327,6 +4460,7 @@ body {
   
   .grupo-titulo {
     font-size: 1.5rem;
+    white-space: nowrap;
   }
   
   /* Tamaños de logos de aliados - Tablet */
@@ -4377,6 +4511,7 @@ body {
   
   .grupo-titulo {
     font-size: 1.3rem;
+    white-space: nowrap;
   }
   
   /* Tamaños de logos de aliados - Móvil */
@@ -4689,6 +4824,47 @@ body {
   padding: 5rem 0 6rem 0;
   background: #E7E7E7;
 }
+
+/* Contenedor de textos de las tarjetas */
+.noticias-textos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.noticia-texto-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.noticia-texto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.noticia-texto-titulo {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.noticia-texto-fecha {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
 .noticias-section .section-title {
   color: #6B8E23;
 }
@@ -4725,11 +4901,32 @@ body {
 .noticia-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 1;
   transition: transform 0.3s;
+  background-color: #f8f9fa;
+  padding: 15px;
+}
+
+/* Estilos específicos para imágenes de noticias de reciclaje */
+.noticia-img[src*="reciclaje"] {
+  background-color: #ffffff;
+  padding: 20px;
+  object-fit: contain;
+}
+
+.noticia-img[src*="noticia3.png"] {
+  background-color: #ffffff;
+  padding: 25px;
+  object-fit: contain;
+}
+
+.noticia-img[src*="noticia2"] {
+  background-color: #ffffff;
+  padding: 20px;
+  object-fit: contain;
 }
 .noticia:hover .noticia-img {
   transform: scale(1.04);
@@ -4737,21 +4934,41 @@ body {
 .noticia-contenido {
   position: relative;
   z-index: 2;
-  padding: 2rem 2rem 1.5rem 2rem;
-  background: linear-gradient(0deg, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.08) 100%, rgba(0,0,0,0) 100%);
+  padding: 0;
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto;
 }
 .noticia-titulo {
   color: #fff;
-  font-size: 1.35rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
   line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+/* Título específico más pequeño */
+.titulo-principal {
+  font-size: 0.8rem !important;
+  width: 100%;
+  max-width: 100%;
 }
 .noticia-principal .noticia-titulo {
   font-size: 2rem;
+  width: 100%;
+  max-width: 100%;
 }
 .noticia-categoria {
   display: inline-block;
@@ -4774,8 +4991,8 @@ body {
   display: flex;
   align-items: center;
   gap: 1.2em;
-  font-size: 1rem;
-  color: #bdbdbd;
+  font-size: 0.8rem;
+  color: #fff;
   margin-top: 0.5em;
   flex-wrap: wrap;
 }
@@ -4789,8 +5006,8 @@ body {
   margin-right: 0.2em;
 }
 .noticia-meta .noticia-fecha {
-  font-size: 0.98em;
-  color: #bdbdbd;
+  font-size: 0.75em;
+  color: #fff;
   display: flex;
   align-items: center;
 }
@@ -4825,10 +5042,16 @@ body {
     min-height: 160px;
   }
   .noticia-contenido {
-    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
   }
   .noticia-principal .noticia-titulo {
     font-size: 1.3rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
   }
 }
 
@@ -4870,9 +5093,20 @@ body {
 }
 .noticia-modal-img {
   width: 100%;
-  max-height: 420px;
-  object-fit: cover;
+  max-height: 300px;
+  object-fit: contain;
   border-radius: 18px 18px 0 0;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* Estilos específicos para imágenes de pasos de reciclaje */
+.noticia-modal-img[src*="noticia 2/"] {
+  max-height: 250px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 30px;
+  border: 1px solid #e9ecef;
 }
 .noticia-modal-contenido {
   padding: 2.5rem 2.5rem 2rem 2.5rem;
@@ -5127,6 +5361,31 @@ body {
   .about .section-subtitle {
     text-align: center;
     transform: translateX(-1cm);
+  }
+
+  .about-subtitle {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 0.5rem !important;
+    transform: none !important;
+  }
+
+  .contact-subtitle.left-text {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .section-subtitle.contact-subtitle.left-text {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 0.5rem !important;
   }
 }
 
