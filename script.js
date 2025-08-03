@@ -928,35 +928,38 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!noticiasGrid) return;
 
   noticiasGrid.addEventListener('click', function(e) {
-    const card = e.target.closest('.noticia');
+    const card = e.target.closest('.noticia-card');
     if (!card) return;
 
     // Extraer datos de la tarjeta
-    const img = card.querySelector('.noticia-img');
+    const imagenDiv = card.querySelector('.noticia-imagen');
     const titulo = card.querySelector('.noticia-titulo');
-    const meta = card.querySelector('.noticia-meta');
 
-    // Determinar qué noticia es basándose en la imagen y posición
+    // Obtener la URL de la imagen desde el background-image
+    const backgroundImage = window.getComputedStyle(imagenDiv).backgroundImage;
+    const imageUrl = backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+
+    // Determinar qué noticia es basándose en las clases y contenido
     let noticiaTipo = '';
     let textoEjemplo = '';
     let tituloModal = '';
     
-    if (card.classList.contains('noticia-principal')) {
-      noticiaTipo = 'principal';
-      tituloModal = 'Somos tu mejor opción para la gestión de tus RAEE, contáctanos.';
-      textoEjemplo = 'Somos tu mejor opción para la gestión de tus RAEE, contáctanos. Ofrecemos servicios profesionales de reciclaje y disposición responsable de residuos electrónicos.';
-    } else if (img.src.includes('noticia3.png')) {
-      noticiaTipo = 'pasos';
-      tituloModal = 'Pasos para reciclar';
-      textoEjemplo = '1. Completa el formulario virtual con la información requerida.\n\n2. Nos pondremos en contacto contigo para coordinar las fechas y condiciones para la recolección de tus residuos.\n\n3. Reúne todos tus RAEE en un lugar específico de tu hogar.\n\n4. Asegúrate de tener todo listo en el horario acordado para la recogida de tus residuos.';
-    } else if (img.src.includes('noticia2.jpg')) {
-      noticiaTipo = 'que-traer';
-      tituloModal = '¿Qué puedes traer?';
-      textoEjemplo = 'Pilas-Baterías (de vehículos, motos y UPS), Bombillas (tubos fluorescentes, alumbrado público), Equipos electrónicos y de telecomunicaciónes, Medicamentos humanos y veterinarios.';
+    if (card.classList.contains('ANLA-card')) {
+      noticiaTipo = 'ANLA';
+      tituloModal = titulo ? titulo.textContent : 'Autoridad Nacional de Licencias Ambientales';
+      textoEjemplo = 'La ANLA es la autoridad ambiental nacional que evalúa y otorga licencias ambientales para proyectos, obras o actividades que puedan causar daños al medio ambiente. Trabajamos en conjunto con la ANLA para garantizar el cumplimiento de todas las normativas ambientales en nuestros procesos de gestión de RAEE.';
+    } else if (card.classList.contains('cormacarena-card')) {
+      noticiaTipo = 'cormacarena';
+      tituloModal = titulo ? titulo.textContent : 'Corporación Autónoma Regional del Meta';
+      textoEjemplo = 'CORMACARENA es la autoridad ambiental del departamento del Meta, encargada de la protección y conservación de los recursos naturales. Colaboramos estrechamente con CORMACARENA para asegurar que nuestras actividades de reciclaje y disposición de RAEE cumplan con los estándares ambientales regionales.';
+    } else if (card.classList.contains('resolucion-card')) {
+      noticiaTipo = 'resolucion';
+      tituloModal = titulo ? titulo.textContent : 'Resoluciones Ambientales';
+      textoEjemplo = 'Las resoluciones ambientales establecen los lineamientos y procedimientos para la gestión integral de residuos sólidos, incluyendo los RAEE. Nuestros procesos están alineados con las resoluciones vigentes para garantizar una gestión ambientalmente responsable.';
     } else {
       noticiaTipo = 'default';
       tituloModal = titulo ? titulo.textContent : 'Noticia';
-      textoEjemplo = 'Esta es una noticia destacada. Aquí puedes agregar el contenido completo de la noticia para que el usuario lo lea en detalle.';
+      textoEjemplo = 'Esta es una noticia destacada sobre nuestras actividades en gestión ambiental y reciclaje de RAEE. Contáctanos para más información sobre nuestros servicios profesionales.';
     }
 
     // Crear overlay y modal
@@ -965,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.innerHTML = `
       <div class="noticia-modal">
         <button class="noticia-modal-close" title="Cerrar">&times;</button>
-        <img src="${img.src}" alt="" class="noticia-modal-img">
+        <div class="noticia-modal-imagen ${noticiaTipo}-type" style="background-image: url('${imageUrl}')"></div>
         <div class="noticia-modal-contenido">
           <h2 class="noticia-modal-titulo">${tituloModal}</h2>
           <div class="noticia-modal-texto" style="margin-top:1.5em; color:#444; font-size:1.1em; line-height:1.7;">${textoEjemplo}</div>
@@ -975,58 +978,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(overlay);
     console.log('Modal creado y agregado al DOM');
     
-    // Rotación de imágenes para el modal "Pasos para reciclar"
-    if (noticiaTipo === 'pasos') {
-      const modalImg = overlay.querySelector('.noticia-modal-img');
-      const imagenes = [
-        'imagenes/noticias/noticia 3.1/1.png',
-        'imagenes/noticias/noticia 3.1/2.png',
-        'imagenes/noticias/noticia 3.1/3.png',
-        'imagenes/noticias/noticia 3.1/4.png'
-      ];
-      let currentIndex = 0;
-      
-      console.log('Iniciando rotación de imágenes en modal para "Pasos para reciclar"');
-      
-      // Manejo de errores para las imágenes
-      modalImg.onerror = function() {
-        console.log('Error cargando imagen:', this.src);
-        // Si hay error, mantener la imagen original
-        this.src = img.src;
-      };
-      
-      const imageInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % imagenes.length;
-        modalImg.src = imagenes[currentIndex];
-        console.log('Cambiando imagen del modal a:', imagenes[currentIndex]);
-      }, 2000);
-      
-      // Limpiar el intervalo cuando se cierre el modal
-      overlay.addEventListener('click', function(ev) {
-        if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
-          clearInterval(imageInterval);
-          console.log('Intervalo de rotación de imágenes detenido');
-          overlay.remove();
-        }
-      });
-    } else {
-      // Cerrar al hacer click fuera o en el botón de cerrar (para otras noticias)
-      overlay.addEventListener('click', function(ev) {
-        if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
-          overlay.remove();
-        }
-      });
-    }
+    // Cerrar al hacer click fuera o en el botón de cerrar
+    overlay.addEventListener('click', function(ev) {
+      if (ev.target === overlay || ev.target.classList.contains('noticia-modal-close')) {
+        overlay.remove();
+      }
+    });
+
     // Cerrar con Escape
     document.addEventListener('keydown', function escListener(ev) {
       if (ev.key === 'Escape') {
-        if (noticiaTipo === 'pasos') {
-          // Limpiar el intervalo si existe
-          if (typeof imageInterval !== 'undefined') {
-            clearInterval(imageInterval);
-            console.log('Intervalo de rotación de imágenes detenido por Escape');
-          }
-        }
         overlay.remove();
         document.removeEventListener('keydown', escListener);
       }

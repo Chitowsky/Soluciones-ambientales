@@ -1492,6 +1492,8 @@ body {
   padding: 0;
 }
 
+
+
 .hero-content {
   animation: fadeInUp 1s ease-out;
   max-width: 800px;
@@ -2333,6 +2335,8 @@ body {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
+
+
 }
 
 @media (max-width: 480px) {
@@ -2344,6 +2348,8 @@ body {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
+
+
 
   .carousel-control {
     width: 35px;
@@ -4699,7 +4705,7 @@ body {
 /* Widget flotante de WhatsApp */
 .whatsapp-widget {
   position: fixed;
-  bottom: 90px;
+  bottom: 160px;
   right: 20px;
   z-index: 1000;
   display: flex;
@@ -4717,6 +4723,14 @@ body {
   font-weight: 500;
   white-space: nowrap;
   animation: fadeInSlide 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.whatsapp-text i {
+  font-size: 12px;
+  color: #25D366;
 }
 
 /* Botón flotante de WhatsApp */
@@ -4773,18 +4787,21 @@ body {
 /* Responsive para el widget flotante */
 @media (max-width: 768px) {
   .whatsapp-widget {
-    bottom: 75px !important;
+    bottom: 145px !important;
     right: 15px !important;
     gap: 18px !important;
   }
   .instagram-widget {
-    bottom: 12px !important;
+    bottom: 75px !important;
     right: 15px !important;
     gap: 10px !important;
   }
   .whatsapp-text {
     font-size: 13px;
     padding: 6px 12px;
+  }
+  .whatsapp-text i {
+    font-size: 11px;
   }
   .whatsapp-float {
     width: 55px;
@@ -4797,18 +4814,21 @@ body {
 
 @media (max-width: 480px) {
   .whatsapp-widget {
-    bottom: 62px !important;
+    bottom: 132px !important;
     right: 12px !important;
     gap: 16px !important;
   }
   .instagram-widget {
-    bottom: 8px !important;
+    bottom: 67px !important;
     right: 12px !important;
     gap: 8px !important;
   }
   .whatsapp-text {
     font-size: 12px;
     padding: 5px 10px;
+  }
+  .whatsapp-text i {
+    font-size: 10px;
   }
   .whatsapp-float {
     width: 50px;
@@ -4825,274 +4845,205 @@ body {
   background: #E7E7E7;
 }
 
-
 .noticias-section .section-title {
   color: #6B8E23;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
 }
+
 .noticias-section .section-subtitle {
   color: #444;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
+
 .noticias-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  height: 800px;
 }
-.noticia {
+
+.noticia-card {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  min-height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  background: #222;
-}
-.noticia-principal {
-  grid-row: 1 / span 2;
-  grid-column: 1 / 2;
-  min-height: 100%;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 300px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
 }
 
-.noticia-principal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%);
-  z-index: 1;
-  pointer-events: none;
+.noticia-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
-.noticia-principal .noticia-img {
-  filter: brightness(1.02) contrast(1.05);
-  transition: filter 0.3s ease;
+.cormacarena-card {
+  background-color: #009BA3;
 }
 
-.noticia-principal:hover .noticia-img {
-  filter: brightness(1.05) contrast(1.08);
-}
-.noticia-secundaria {
-  min-height: 300px;
-  grid-column: 2 / 3;
+.cormacarena-card .noticia-contenido {
+  background-color: #fff !important;
 }
 
-.noticia-secundaria:nth-child(2) {
-  grid-row: 1 / 2;
+.resolucion-card {
+  background-color: #89D858;
 }
 
-.noticia-secundaria:nth-child(3) {
-  grid-row: 2 / 3;
+.resolucion-card .noticia-contenido {
+  background-color: #fff !important;
+}
+
+/* Estilos para las noticias ANLA2 con fondo verde claro */
+.ANLA-card {
+  background-color: #6be366cf; /* Verde claro suave */
+}
+
+.ANLA-card .noticia-contenido {
+  background-color: #fff !important;
 }
 
 
-.noticia-img {
+.noticia-imagen {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 1;
-  transition: transform 0.3s;
+  height: 180px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-/* Estilos específicos para imágenes de noticias */
-.noticia-img[src*="reciclaje"] {
-  object-fit: cover;
-}
-
-.noticia-img[src*="noticia3.png"] {
-  object-fit: cover;
-}
-
-.noticia-img[src*="noticia2"] {
-  object-fit: contain;
-  background-color: #F2EFF2;
-  padding: 15px;
-}
-.noticia:hover .noticia-img {
-  transform: scale(1.04);
-}
 .noticia-contenido {
-  position: relative;
-  z-index: 2;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 0 0 12px 12px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: auto;
-}
-
-.noticia-principal .noticia-contenido {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
-  backdrop-filter: blur(5px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  height: 120px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-.noticia-titulo {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-  width: 100%;
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 2rem 2rem 2rem;
+  justify-content: space-between;
 }
 
-/* Título específico más pequeño */
-.titulo-principal {
-  font-size: 2rem !important;
-  width: 100%;
-  max-width: 100%;
-}
-.noticia-principal .noticia-titulo {
-  font-size: 2.5rem;
-  width: 100%;
-  max-width: 100%;
-  color: #ffffff;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  text-align: center;
-  margin: 0;
-  position: static;
-  transform: none;
-}
-.noticia-categoria {
-  display: inline-block;
-  font-size: 0.95rem;
+.noticia-titulo {
+  color: #333;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 0.3em 1em;
-  border-radius: 6px;
-  margin-bottom: 1.1em;
-  color: #fff;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.noticia-categoria.world { background: #009688; }
-.noticia-categoria.travel { background: #e74c3c; }
-.noticia-categoria.design { background: #2980b9; }
-.noticia-categoria.sports { background: #e84393; }
-.noticia-categoria.business { background: #f1c40f; color: #222; }
+
 .noticia-meta {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  color: #fff;
-  margin-top: 0.5em;
+  color: #666;
 }
 
-.noticia-meta .noticia-fecha {
-  font-size: 0.75em;
-  color: #fff;
+.noticia-fecha {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.noticia-engagement {
+  display: flex;
+  gap: 1rem;
+}
+
+.engagement-item {
   display: flex;
   align-items: center;
+  gap: 0.3rem;
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.engagement-item i {
+  font-size: 0.7rem;
+}
+
+.engagement-item i.fa-heart {
+  color: #10b981;
+}
+
+.engagement-item i.fa-comment {
+  color: #3b82f6;
+}
+
+.engagement-item i.fa-star {
+  color: #f59e0b;
 }
 
 @media (max-width: 1024px) {
   .noticias-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-  }
-  .noticia-principal {
-    grid-row: 1 / span 2;
-    grid-column: 1 / 2;
-  }
-  .noticia-secundaria {
-    grid-column: 2 / 3;
+    gap: 1.5rem;
   }
 }
+
 @media (max-width: 768px) {
   .noticias-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1.5rem;
+  }
+  
+  .noticia-card {
     height: auto;
   }
-  .noticia-principal {
-    grid-row: 1 / span 2;
-    grid-column: 1 / 2;
-    min-height: 200px;
+  
+  .noticia-imagen {
+    height: 200px;
   }
-  .noticia-secundaria {
-    min-height: 140px;
-    grid-column: 2 / 3;
-  }
-  .noticia-secundaria:nth-child(2) {
-    grid-row: 1 / 2;
-  }
-  .noticia-secundaria:nth-child(3) {
-    grid-row: 2 / 3;
-  }
+  
   .noticia-contenido {
-    padding: 0;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: auto;
+    height: auto;
+    padding: 1rem;
   }
-  .noticia-principal .noticia-titulo {
-    font-size: 1.1rem;
-    width: 100%;
-    max-width: 100%;
-    padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+  
+  .noticia-titulo {
+    font-size: 0.9rem;
+  }
+  
+  .noticia-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .noticias-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-    gap: 1rem;
+  .noticias-section .section-title {
+    font-size: 2rem;
   }
-  .noticia-principal {
-    grid-row: auto;
-    grid-column: auto;
-    min-height: 180px;
-  }
-  .noticia-secundaria {
-    min-height: 120px;
-    grid-column: auto;
-  }
-  .noticia-secundaria:nth-child(2) {
-    grid-row: auto;
-  }
-  .noticia-secundaria:nth-child(3) {
-    grid-row: auto;
-  }
-  .noticia-principal .noticia-titulo {
+  
+  .noticias-section .section-subtitle {
     font-size: 1rem;
-    padding: 0.6rem 1rem 1rem 1rem;
+  }
+  
+  .noticia-card {
+    height: auto;
+  }
+  
+  .noticia-imagen {
+    height: 180px;
+  }
+  
+  .noticia-contenido {
+    padding: 0.8rem;
+  }
+  
+  .noticia-titulo {
+    font-size: 0.85rem;
   }
 }
 
@@ -5139,6 +5090,33 @@ body {
   border-radius: 18px 18px 0 0;
   background-color: #f8f9fa;
   padding: 20px;
+}
+
+.noticia-modal-imagen {
+  width: 100%;
+  height: 250px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px 18px 0 0;
+  padding: 20px;
+}
+
+/* Colores de fondo específicos para cada tipo de modal */
+.noticia-modal-imagen.anla-type {
+  background-color: #6be366cf; /* Verde claro para ANLA2 */
+}
+
+.noticia-modal-imagen.cormacarena-type {
+  background-color: #009BA3; /* Azul para Cormacarena */
+}
+
+.noticia-modal-imagen.resolucion-type {
+  background-color: #89D858; /* Púrpura para Resolución */
+}
+
+.noticia-modal-imagen.default-type {
+  background-color: rgba(144, 238, 144, 0.3); /* Verde claro para default */
 }
 
 /* Estilos específicos para imágenes de pasos de reciclaje */
@@ -5210,6 +5188,10 @@ body {
   }
   .noticia-modal-titulo {
     font-size: 1.2rem;
+  }
+  .noticia-modal-imagen {
+    height: 200px;
+    padding: 15px;
   }
 }
 
@@ -5308,7 +5290,7 @@ body {
 
 .instagram-widget {
   position: fixed;
-  bottom: 20px;
+  bottom: 90px;
   right: 20px;
   z-index: 1000;
   display: flex;
@@ -5326,6 +5308,14 @@ body {
   font-weight: 500;
   white-space: nowrap;
   animation: fadeInSlide 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.instagram-text i {
+  font-size: 12px;
+  color: #E4405F;
 }
 
 .instagram-float {
@@ -5353,6 +5343,62 @@ body {
   color: white;
 }
 
+/* ===== BOTÓN FLOTANTE DE FACEBOOK ===== */
+.facebook-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.facebook-text {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: fadeInSlide 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.facebook-text i {
+  font-size: 12px;
+  color: #1877F2;
+}
+
+.facebook-float {
+  width: 60px;
+  height: 60px;
+  background: #1877F2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.facebook-float:hover {
+  background: #166FE5;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(24, 119, 242, 0.6);
+}
+
+.facebook-float i {
+  font-size: 24px;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .instagram-widget {
     bottom: 75px;
@@ -5363,11 +5409,34 @@ body {
     font-size: 13px;
     padding: 6px 12px;
   }
+  .instagram-text i {
+    font-size: 11px;
+  }
   .instagram-float {
     width: 55px;
     height: 55px;
   }
   .instagram-float i {
+    font-size: 22px;
+  }
+  
+  .facebook-widget {
+    bottom: 130px;
+    right: 15px;
+    gap: 10px;
+  }
+  .facebook-text {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  .facebook-text i {
+    font-size: 11px;
+  }
+  .facebook-float {
+    width: 55px;
+    height: 55px;
+  }
+  .facebook-float i {
     font-size: 22px;
   }
 }
@@ -5382,11 +5451,34 @@ body {
     font-size: 12px;
     padding: 5px 10px;
   }
+  .instagram-text i {
+    font-size: 10px;
+  }
   .instagram-float {
     width: 50px;
     height: 50px;
   }
   .instagram-float i {
+    font-size: 20px;
+  }
+  
+  .facebook-widget {
+    bottom: 117px;
+    right: 12px;
+    gap: 8px;
+  }
+  .facebook-text {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  .facebook-text i {
+    font-size: 10px;
+  }
+  .facebook-float {
+    width: 50px;
+    height: 50px;
+  }
+  .facebook-float i {
     font-size: 20px;
   }
 }
@@ -5430,12 +5522,12 @@ body {
   }
 }
 
-.whatsapp-widget, .instagram-widget {
+.whatsapp-widget, .instagram-widget, .facebook-widget {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.whatsapp-text, .instagram-text {
+.whatsapp-text, .instagram-text, .facebook-text {
   text-align: right;
 }
