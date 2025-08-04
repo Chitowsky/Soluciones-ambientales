@@ -4498,6 +4498,118 @@ body {
   line-height: 1.3;
 }
 
+/* Responsive para pantallas medianas - cuando no hay espacio para 3 tarjetas */
+@media (max-width: 1319px) {
+  .aliados-grupos {
+    gap: 3rem;
+    padding: 0 1rem;
+  }
+  
+  .aliados-grupo {
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .grupo-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .aliados-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Tamaños de logos para pantallas entre 1024px y 1319px */
+  .aliado-logo[src*="gobernacion.png"] { height: 95px; }
+  .aliado-logo[src*="contraloria.png"] { height: 80px; }
+  .aliado-logo[src*="consuerte.png"] { 
+    height: 75px; 
+    width: 100%;
+    max-width: 170px;
+  }
+  .aliado-logo[src*="fiscalia.png"] { height: 95px; }
+  .aliado-logo[src*="postobon.png"] { 
+    height: 125px; 
+    width: 100%; 
+    max-width: 210px;
+  }
+  .aliado-logo[src*="ANLA2.png"] { 
+    height: 115px; 
+    width: 100%; 
+    max-width: 190px;
+  }
+  .aliado-logo[src*="cormacarena.png"] { 
+    height: 95px; 
+    width: 100%; 
+    max-width: 170px;
+  }
+  .aliado-logo[src*="resolucion2.png"] { 
+    height: 95px; 
+    width: 100%; 
+    max-width: 170px;
+  }
+}
+
+@media (max-width: 1131px) and (min-width: 1025px) {
+  .aliados-grupos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* Estilos para las dos primeras tarjetas */
+  .aliados-grupo:nth-child(1),
+  .aliados-grupo:nth-child(2) {
+    display: inline-block;
+    min-width: 250px;
+    max-width: 280px;
+    margin: 0 1rem;
+    float: left;
+  }
+  
+  /* Estilos para la tercera tarjeta */
+  .aliados-grupo:nth-child(3) {
+    display: block;
+    min-width: 250px;
+    max-width: 280px;
+    margin: 2rem auto 0 auto;
+    clear: both;
+    float: none;
+  }
+}
+
+/* Layout triangular para 1132px hasta 769px */
+@media (max-width: 1132px) and (min-width: 769px) {
+  .aliados-grupos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* Estilos para las dos tarjetas de arriba (Empresas Gestionadas y Complemento Ambiental) */
+  .aliados-grupo:nth-child(1),
+  .aliados-grupo:nth-child(3) {
+    display: inline-block;
+    min-width: 250px;
+    max-width: 280px;
+    margin: 0 1rem;
+    float: left;
+  }
+  
+  /* Estilos para la tarjeta de abajo (Aliados Estratégicos) */
+  .aliados-grupo:nth-child(2) {
+    display: block;
+    min-width: 250px;
+    max-width: 280px;
+    margin: 2rem auto 0 auto;
+    clear: both;
+    float: none;
+  }
+}
+
+
+
 /* Responsive para móviles */
 @media (max-width: 768px) {
   .aliados-section {
@@ -4732,6 +4844,71 @@ body {
   
   .aliados-title {
     font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .aliados-section {
+    padding: 1.5rem 0 3rem 0;
+  }
+  
+  .aliados-grupos {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .aliados-grupo {
+    min-width: 200px;
+    max-width: 240px;
+  }
+  
+  .aliados-logos {
+    gap: 1rem;
+    padding: 15px 10px;
+    min-height: 140px;
+  }
+  
+  .aliados-carrusel {
+    padding: 15px 10px;
+    min-height: 140px;
+  }
+  
+  .grupo-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .aliados-title {
+    font-size: 1.5rem;
+  }
+  
+  /* Tamaños de logos para pantallas muy pequeñas */
+  .aliado-logo[src*="gobernacion.png"] { height: 60px; }
+  .aliado-logo[src*="contraloria.png"] { height: 45px; }
+  .aliado-logo[src*="consuerte.png"] { 
+    height: 40px; 
+    width: 100%;
+    max-width: 100px;
+  }
+  .aliado-logo[src*="fiscalia.png"] { height: 60px; }
+  .aliado-logo[src*="postobon.png"] { 
+    height: 80px; 
+    width: 100%; 
+    max-width: 120px;
+  }
+  .aliado-logo[src*="ANLA2.png"] { 
+    height: 70px; 
+    width: 100%; 
+    max-width: 100px;
+  }
+  .aliado-logo[src*="cormacarena.png"] { 
+    height: 60px; 
+    width: 100%; 
+    max-width: 100px;
+  }
+  .aliado-logo[src*="resolucion2.png"] { 
+    height: 60px; 
+    width: 100%; 
+    max-width: 100px;
   }
 }
 
