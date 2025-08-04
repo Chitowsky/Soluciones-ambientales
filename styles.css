@@ -4286,7 +4286,8 @@ body {
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(107, 142, 35, 0.02);
-  padding: 30px;
+  padding: 30px 25px;
+  min-height: 220px;
 }
 
 /* Carrusel para Empresas gestionadas */
@@ -4294,12 +4295,13 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 0;
+  padding: 30px 25px;
   margin: 0;
   background: linear-gradient(135deg, rgba(248, 249, 250, 0.3) 0%, rgba(233, 236, 239, 0.3) 100%);
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(107, 142, 35, 0.02);
+  min-height: 220px;
 }
 
 .carrusel-container {
@@ -4355,15 +4357,16 @@ body {
 
 .carrusel-slide .aliado-item {
   flex: 1;
-  max-width: 300px;
-  min-width: 250px;
+  max-width: 100%;
+  min-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 25px;
+  padding: 0;
   margin: 0;
   width: 100%;
-  background: transparent;
+  height: 100%;
+  background: #E6E9E7;
   border-radius: 0;
   box-shadow: none;
   backdrop-filter: none;
@@ -4374,24 +4377,34 @@ body {
 .carrusel-slide .aliado-item:hover {
   transform: translateY(-5px);
   box-shadow: none;
-  background: transparent;
+  background: #E6E9E7;
 }
 
 /* Regla específica para Consuerte en el carrusel */
 .carrusel-slide .aliado-item img[src*="consuerte.png"] {
   height: 80px !important;
+  width: 100%;
+  max-width: 160px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .aliado-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   opacity: 1;
-  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+  background: #E6E9E7;
   border-radius: 0;
   box-shadow: none;
   border: none;
   transition: all 0.3s ease;
+  min-height: 150px;
 }
 
 .aliado-item:hover {
@@ -4404,6 +4417,8 @@ body {
   object-fit: contain;
   transition: all 0.3s ease;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  display: block;
+  margin: auto;
 }
 
 .aliado-logo:hover {
@@ -4412,11 +4427,67 @@ body {
 }
 
 /* Tamaños de logos de aliados - Desktop */
-.aliado-logo[src*="gobernacion.png"] { height: 120px; }
-.aliado-logo[src*="contraloria.png"] { height: 100px; }
-.aliado-logo[src*="consuerte.png"] { height: 80px; }
-.aliado-logo[src*="fiscalia.png"] { height: 120px; }
-.aliado-logo[src*="postobon.png"] { height: 140px; }
+.aliado-logo[src*="gobernacion.png"] { 
+  height: 100px; 
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: auto;
+}
+.aliado-logo[src*="contraloria.png"] { 
+  height: 80px; 
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: auto;
+}
+.aliado-logo[src*="consuerte.png"] { 
+  height: 80px; 
+  width: 100%;
+  max-width: 160px;
+  object-fit: contain;
+  object-position: center;
+}
+.aliado-logo[src*="fiscalia.png"] { 
+  height: 100px; 
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: auto;
+}
+.aliado-logo[src*="postobon.png"] { 
+  height: 130px; 
+  width: 100%; 
+  max-width: 220px;
+  object-fit: contain; 
+  object-position: center;
+}
+
+/* Tamaños para imágenes de Complemento Ambiental */
+.aliado-logo[src*="ANLA2.png"] { 
+  height: 120px; 
+  width: 100%; 
+  max-width: 200px;
+  object-fit: contain; 
+  object-position: center;
+}
+.aliado-logo[src*="cormacarena.png"] { 
+  height: 100px; 
+  width: 100%; 
+  max-width: 160px;
+  object-fit: contain; 
+  object-position: center;
+}
+.aliado-logo[src*="resolucion2.png"] { 
+  height: 100px; 
+  width: 100%; 
+  max-width: 160px;
+  object-fit: contain; 
+  object-position: center;
+}
 
 .aliado-name {
   font-size: 0.9rem;
@@ -4446,7 +4517,13 @@ body {
   
   .aliados-logos {
     gap: 2rem;
-    padding: 25px;
+    padding: 25px 20px;
+    min-height: 180px;
+  }
+  
+  .aliados-carrusel {
+    padding: 25px 20px;
+    min-height: 180px;
   }
   
   .carrusel-slide {
@@ -4454,14 +4531,24 @@ body {
   }
   
   .carrusel-slide .aliado-item {
-    max-width: 250px;
-    min-width: 220px;
-    padding: 35px 20px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 12px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    box-shadow: none;
+    border: none;
   }
   
   /* Consuerte específico para tablet en carrusel */
   .carrusel-slide .aliado-item img[src*="consuerte.png"] {
-    height: 30px !important;
+    height: 80px !important;
+    width: 100%;
+    max-width: 180px;
+    object-fit: contain;
+    object-position: center;
   }
   
   .grupo-titulo {
@@ -4470,11 +4557,61 @@ body {
   }
   
   /* Tamaños de logos de aliados - Tablet */
-  .aliado-logo[src*="gobernacion.png"] { height: 100px; }
-  .aliado-logo[src*="contraloria.png"] { height: 80px; }
-  .aliado-logo[src*="consuerte.png"] { height: 30px !important; }
-  .aliado-logo[src*="fiscalia.png"] { height: 100px; }
-  .aliado-logo[src*="postobon.png"] { height: 115px; }
+  .aliado-logo[src*="gobernacion.png"] { height: 80px; }
+  .aliado-logo[src*="contraloria.png"] { height: 65px; }
+  .aliado-logo[src*="consuerte.png"] { 
+    height: 65px !important; 
+    width: 100%;
+    max-width: 140px;
+    object-fit: contain;
+    object-position: center;
+  }
+  .aliado-logo[src*="fiscalia.png"] { height: 80px; }
+  .aliado-logo[src*="postobon.png"] { 
+    height: 110px; 
+    width: 100%; 
+    max-width: 180px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  
+  /* Altura consistente para todas las tarjetas - Tablet */
+  .aliado-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+    margin: 0;
+    background: white;
+    box-shadow: none;
+    border: none;
+  }
+  
+  /* Tamaños para imágenes de Complemento Ambiental - Tablet */
+  .aliado-logo[src*="ANLA2.png"] { 
+    height: 100px; 
+    width: 100%; 
+    max-width: 160px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  .aliado-logo[src*="cormacarena.png"] { 
+    height: 80px; 
+    width: 100%; 
+    max-width: 140px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  .aliado-logo[src*="resolucion2.png"] { 
+    height: 80px; 
+    width: 100%; 
+    max-width: 140px;
+    object-fit: contain; 
+    object-position: center;
+  }
   
   .aliados-title {
     font-size: 2rem;
@@ -4497,7 +4634,13 @@ body {
   
   .aliados-logos {
     gap: 1.5rem;
-    padding: 20px;
+    padding: 20px 15px;
+    min-height: 160px;
+  }
+  
+  .aliados-carrusel {
+    padding: 20px 15px;
+    min-height: 160px;
   }
   
   .carrusel-slide {
@@ -4505,14 +4648,24 @@ body {
   }
   
   .carrusel-slide .aliado-item {
-    max-width: 200px;
-    min-width: 180px;
-    padding: 30px 15px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 10px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    box-shadow: none;
+    border: none;
   }
   
   /* Consuerte específico para móvil en carrusel */
   .carrusel-slide .aliado-item img[src*="consuerte.png"] {
-    height: 25px !important;
+    height: 60px !important;
+    width: 100%;
+    max-width: 150px;
+    object-fit: contain;
+    object-position: center;
   }
   
   .grupo-titulo {
@@ -4521,11 +4674,61 @@ body {
   }
   
   /* Tamaños de logos de aliados - Móvil */
-  .aliado-logo[src*="gobernacion.png"] { height: 85px; }
-  .aliado-logo[src*="contraloria.png"] { height: 65px; }
-  .aliado-logo[src*="consuerte.png"] { height: 45px; }
-  .aliado-logo[src*="fiscalia.png"] { height: 85px; }
-  .aliado-logo[src*="postobon.png"] { height: 100px; }
+  .aliado-logo[src*="gobernacion.png"] { height: 70px; }
+  .aliado-logo[src*="contraloria.png"] { height: 55px; }
+  .aliado-logo[src*="consuerte.png"] { 
+    height: 50px; 
+    width: 100%;
+    max-width: 120px;
+    object-fit: contain;
+    object-position: center;
+  }
+  .aliado-logo[src*="fiscalia.png"] { height: 70px; }
+  .aliado-logo[src*="postobon.png"] { 
+    height: 100px; 
+    width: 100%; 
+    max-width: 160px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  
+  /* Altura consistente para todas las tarjetas - Móvil */
+  .aliado-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    background: white;
+    box-shadow: none;
+    border: none;
+  }
+  
+  /* Tamaños para imágenes de Complemento Ambiental - Móvil */
+  .aliado-logo[src*="ANLA2.png"] { 
+    height: 90px; 
+    width: 100%; 
+    max-width: 140px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  .aliado-logo[src*="cormacarena.png"] { 
+    height: 70px; 
+    width: 100%; 
+    max-width: 120px;
+    object-fit: contain; 
+    object-position: center;
+  }
+  .aliado-logo[src*="resolucion2.png"] { 
+    height: 70px; 
+    width: 100%; 
+    max-width: 120px;
+    object-fit: contain; 
+    object-position: center;
+  }
   
   .aliados-title {
     font-size: 1.8rem;
@@ -4814,12 +5017,17 @@ body {
 
 @media (max-width: 480px) {
   .whatsapp-widget {
-    bottom: 132px !important;
+    bottom: 125px !important;
     right: 12px !important;
     gap: 16px !important;
   }
   .instagram-widget {
-    bottom: 67px !important;
+    bottom: 60px !important;
+    right: 12px !important;
+    gap: 8px !important;
+  }
+  .facebook-widget {
+    bottom: 15px !important;
     right: 12px !important;
     gap: 8px !important;
   }
@@ -4885,7 +5093,7 @@ body {
 }
 
 .cormacarena-card {
-  background-color: #009BA3;
+  background-color: #00C4CC;
 }
 
 .cormacarena-card .noticia-contenido {
@@ -5400,10 +5608,30 @@ body {
 }
 
 @media (max-width: 768px) {
-  .instagram-widget {
-    bottom: 75px;
+  .whatsapp-widget {
+    bottom: 140px;
     right: 15px;
     gap: 10px;
+  }
+  .whatsapp-text {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  .whatsapp-text i {
+    font-size: 11px;
+  }
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+  }
+  .whatsapp-float i {
+    font-size: 22px;
+  }
+  
+  .instagram-widget {
+    bottom: 85px !important;
+    right: 15px !important;
+    gap: 10px !important;
   }
   .instagram-text {
     font-size: 13px;
@@ -5421,7 +5649,7 @@ body {
   }
   
   .facebook-widget {
-    bottom: 130px;
+    bottom: 20px;
     right: 15px;
     gap: 10px;
   }
@@ -5443,9 +5671,9 @@ body {
 
 @media (max-width: 480px) {
   .instagram-widget {
-    bottom: 62px;
-    right: 12px;
-    gap: 8px;
+    bottom: 69px !important;
+    right: 12px !important;
+    gap: 8px !important;
   }
   .instagram-text {
     font-size: 12px;
