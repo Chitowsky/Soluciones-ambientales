@@ -832,6 +832,21 @@ body {
   
   .nav-link {
     font-size: 1.1rem !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom-color: #059669 !important;
+  }
+  
+  .nav-link i {
+    color: #059669 !important;
   }
   
   .logo-image {
@@ -858,6 +873,21 @@ body {
   
   .nav-link {
     font-size: 1.1rem !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom-color: #059669 !important;
+  }
+  
+  .nav-link i {
+    color: #059669 !important;
   }
   
   .logo-image {
@@ -890,6 +920,21 @@ body {
   .nav-link {
     font-size: 1rem !important;
     white-space: nowrap !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom-color: #059669 !important;
+  }
+  
+  .nav-link i {
+    color: #059669 !important;
   }
   
   .logo-image {
@@ -957,6 +1002,21 @@ body {
     white-space: nowrap;
     padding: 0.5rem 0.7rem !important;
     margin: 0 0.2rem !important;
+    color: #374151 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border-bottom: 2px solid transparent !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: #059669 !important;
+    border-bottom-color: #059669 !important;
+  }
+  
+  .nav-link i {
+    color: #059669 !important;
   }
   
   .logo-image {
@@ -1542,6 +1602,68 @@ body {
 
 .hero-cta {
   animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Botón Gestiona tus residuos en hero para resolución 1989px */
+.hero-gestiona-btn {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 190px;
+  right: 40px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  padding: 24px 48px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Animación de pulso y brillo para el botón */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  }
+}
+
+.hero-gestiona-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  animation-play-state: paused;
+}
+
+.hero-gestiona-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.hero-gestiona-btn i {
+  font-size: 1.1rem;
+}
+
+/* Media query específica para resolución 1989px */
+@media (min-width: 1989px) {
+  .hero-gestiona-btn {
+    display: flex !important;
+  }
 }
 
 .cta-button {
