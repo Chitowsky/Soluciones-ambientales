@@ -1610,8 +1610,8 @@ body {
   position: absolute;
   top: 110px;
   right: 20px;
-  width: 320px;
-  height: 320px;
+  width: 260px;
+  height: 260px;
   cursor: pointer;
   z-index: 20;
   border-radius: 20px;
@@ -1635,13 +1635,8 @@ body {
   font-size: 1.1rem;
   font-weight: 800;
   text-align: center;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
   line-height: 1.2;
-  padding: 14px 24px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1670,8 +1665,6 @@ body {
 
 .hero-gestiona-btn:hover .btn-text {
   transform: translate(-50%, -50%) scale(1.08);
-  background: rgba(0, 0, 0, 0.8);
-  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .hero-gestiona-btn:active {
@@ -1686,16 +1679,15 @@ body {
 /* Pantallas grandes (1600px+) */
 @media (min-width: 1600px) {
   .hero-gestiona-btn {
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 320px;
     top: 120px;
     right: 40px;
   }
   
   .btn-text {
     font-size: 1.4rem;
-    padding: 20px 35px;
-    max-width: 320px;
+    max-width: 280px;
   }
   
   .text-line-1,
@@ -1707,16 +1699,15 @@ body {
 /* Pantallas muy grandes (1989px+) */
 @media (min-width: 1989px) {
   .hero-gestiona-btn {
-    width: 450px;
-    height: 450px;
+    width: 360px;
+    height: 360px;
     top: 130px;
     right: 50px;
   }
   
   .btn-text {
     font-size: 1.6rem;
-    padding: 25px 40px;
-    max-width: 380px;
+    max-width: 320px;
   }
   
   .text-line-1,
@@ -1728,32 +1719,30 @@ body {
 /* Pantallas medianas (1200px - 1599px) */
 @media (max-width: 1599px) and (min-width: 1200px) {
   .hero-gestiona-btn {
-    width: 300px;
-    height: 300px;
+    width: 240px;
+    height: 240px;
     top: 100px;
     right: 20px;
   }
   
   .btn-text {
     font-size: 1.1rem;
-    padding: 14px 22px;
-    max-width: 240px;
+    max-width: 200px;
   }
 }
 
 /* Pantallas pequeñas (768px - 1199px) */
 @media (max-width: 1199px) and (min-width: 768px) {
   .hero-gestiona-btn {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
     top: 80px;
     right: 15px;
   }
   
   .btn-text {
     font-size: 1rem;
-    padding: 12px 18px;
-    max-width: 200px;
+    max-width: 170px;
   }
   
   .text-line-1,
@@ -1765,21 +1754,43 @@ body {
 /* Móviles (hasta 767px) */
 @media (max-width: 767px) {
   .hero-gestiona-btn {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     top: 60px;
     right: 10px;
   }
   
   .btn-text {
-    font-size: 0.9rem;
-    padding: 10px 14px;
-    max-width: 160px;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    max-width: 130px;
   }
   
   .text-line-1,
   .text-line-2 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Móviles muy pequeños (hasta 543px) */
+@media (max-width: 543px) {
+  .hero-gestiona-btn {
+    width: 140px;
+    height: 140px;
+    top: 50px;
+    right: 8px;
+  }
+  
+  .btn-text {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+    max-width: 110px;
+    gap: 1px;
+  }
+  
+  .text-line-1,
+  .text-line-2 {
+    font-size: 0.65rem;
   }
 }
 
