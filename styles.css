@@ -134,17 +134,17 @@ body {
   }
   
   .nav-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom: 2px solid #059669 !important;
+    color: #415F26 !important;
+    border-bottom: 2px solid #415F26 !important;
   }
   
   .nav-link i {
     font-size: 1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Ocultar menú hamburguesa y dropdown */
@@ -185,12 +185,12 @@ body {
   }
   
   .nav-menu .dropdown-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-menu .dropdown-link i {
     font-size: 1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Mostrar iconos sociales */
@@ -210,7 +210,7 @@ body {
     height: 40px !important;
     background: #f8f9fa !important;
     border-radius: 50% !important;
-    color: #065f46 !important;
+    color: #415F26 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     flex-shrink: 0 !important;
@@ -218,7 +218,7 @@ body {
   }
   
   .nav-menu .dropdown-social-icon:hover {
-    background: #065f46 !important;
+    background: #415F26 !important;
     color: white !important;
     transform: scale(1.1) !important;
   }
@@ -397,17 +397,17 @@ body {
   }
   
   .nav-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom: 2px solid #059669 !important;
+    color: #415F26 !important;
+    border-bottom: 2px solid #415F26 !important;
   }
   
   .nav-link i {
     font-size: 1.1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Ocultar menú hamburguesa y dropdown */
@@ -448,12 +448,12 @@ body {
   }
   
   .nav-menu .dropdown-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-menu .dropdown-link i {
     font-size: 1.1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Mostrar iconos sociales */
@@ -473,7 +473,7 @@ body {
     height: 45px !important;
     background: #f8f9fa !important;
     border-radius: 50% !important;
-    color: #065f46 !important;
+    color: #415F26 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     flex-shrink: 0 !important;
@@ -481,7 +481,7 @@ body {
   }
   
   .nav-menu .dropdown-social-icon:hover {
-    background: #065f46 !important;
+    background: #415F26 !important;
     color: white !important;
     transform: scale(1.1) !important;
   }
@@ -557,17 +557,17 @@ body {
   }
   
   .nav-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom: 2px solid #059669 !important;
+    color: #415F26 !important;
+    border-bottom: 2px solid #415F26 !important;
   }
   
   .nav-link i {
     font-size: 1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Ocultar menú hamburguesa y dropdown */
@@ -608,12 +608,12 @@ body {
   }
   
   .nav-menu .dropdown-link:hover {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .nav-menu .dropdown-link i {
     font-size: 1rem !important;
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   /* Mostrar iconos sociales */
@@ -633,7 +633,7 @@ body {
     height: 40px !important;
     background: #f8f9fa !important;
     border-radius: 50% !important;
-    color: #065f46 !important;
+    color: #415F26 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     flex-shrink: 0 !important;
@@ -641,7 +641,7 @@ body {
   }
   
   .nav-menu .dropdown-social-icon:hover {
-    background: #065f46 !important;
+    background: #415F26 !important;
     color: white !important;
     transform: scale(1.1) !important;
   }
@@ -761,13 +761,13 @@ body {
 
 .dropdown-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
-  color: #059669;
+  color: #415F26;
 }
 
 .dropdown-link i {
   width: 18px;
   text-align: center;
-  color: #059669;
+  color: #415F26;
   font-size: 1.1rem;
 }
 
@@ -792,14 +792,14 @@ body {
   height: 40px;
   background: #f8f9fa;
   border-radius: 50%;
-  color: #065f46;
+  color: #415F26;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1.1rem;
 }
 
 .dropdown-social-icon:hover {
-  background: #065f46;
+  background: #415F26;
   color: white;
   transform: scale(1.1);
 }
@@ -841,12 +841,12 @@ body {
   
   .nav-link:hover,
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom-color: #059669 !important;
+    color: #415F26 !important;
+    border-bottom-color: #415F26 !important;
   }
   
   .nav-link i {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .logo-image {
@@ -882,12 +882,12 @@ body {
   
   .nav-link:hover,
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom-color: #059669 !important;
+    color: #415F26 !important;
+    border-bottom-color: #415F26 !important;
   }
   
   .nav-link i {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .logo-image {
@@ -929,12 +929,12 @@ body {
   
   .nav-link:hover,
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom-color: #059669 !important;
+    color: #415F26 !important;
+    border-bottom-color: #415F26 !important;
   }
   
   .nav-link i {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .logo-image {
@@ -1011,12 +1011,12 @@ body {
   
   .nav-link:hover,
   .nav-link.active {
-    color: #059669 !important;
-    border-bottom-color: #059669 !important;
+    color: #415F26 !important;
+    border-bottom-color: #415F26 !important;
   }
   
   .nav-link i {
-    color: #059669 !important;
+    color: #415F26 !important;
   }
   
   .logo-image {
@@ -1207,14 +1207,14 @@ body {
   height: 40px;
   background: #f8f9fa;
   border-radius: 50%;
-  color: #065f46;
+  color: #415F26;
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 1.1rem;
 }
 
 .mobile-social-icon:hover {
-  background: #065f46;
+  background: #415F26;
   color: white;
   transform: scale(1.1);
 }
@@ -1257,7 +1257,7 @@ body {
 .brand-text {
   font-size: 1.7rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   white-space: nowrap;
   margin-left: 0.5rem;
 }
@@ -1282,8 +1282,8 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #059669 !important;
-  border-bottom-color: #059669 !important;
+  color: #415F26 !important;
+  border-bottom-color: #415F26 !important;
 }
 
 .mobile-menu-btn {
@@ -1321,13 +1321,13 @@ body {
 
 .mobile-nav-link:hover {
   background-color: rgba(0, 0, 0, 0.05);
-  color: #059669;
+  color: #415F26;
 }
 
 .mobile-nav-link i {
   width: 18px;
   text-align: center;
-  color: #059669;
+  color: #415F26;
   font-size: 1.1rem;
 }
 
@@ -1419,7 +1419,7 @@ body {
 .author-name {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 0.25rem;
 }
 
@@ -1792,7 +1792,7 @@ body {
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981, #415F26);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -1807,7 +1807,7 @@ body {
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: linear-gradient(135deg, #415F26, #047857);
   transform: scale(1.05);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
@@ -1883,7 +1883,7 @@ body {
 .section-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1.5rem;
 }
 
@@ -2060,7 +2060,7 @@ body {
 }
 
 .green-gradient {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981, #415F26);
 }
 
 .emerald-gradient {
@@ -2079,7 +2079,7 @@ body {
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1rem;
 }
 
@@ -2127,15 +2127,15 @@ body {
 }
 
 .green-dark-gradient {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: linear-gradient(135deg, #415F26, #047857);
 }
 
 .emerald-dark-gradient {
-  background: linear-gradient(135deg, #059669, #0d9488);
+  background: linear-gradient(135deg, #415F26, #0d9488);
 }
 
 .teal-dark-gradient {
-  background: linear-gradient(135deg, #0d9488, #059669);
+  background: linear-gradient(135deg, #0d9488, #415F26);
 }
 
 .benefit-icon i {
@@ -2146,7 +2146,7 @@ body {
 .benefit-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 0.75rem;
 }
 
@@ -2175,7 +2175,7 @@ body {
 .step-icon {
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981, #415F26);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2201,7 +2201,7 @@ body {
   right: -0.5rem;
   width: 2rem;
   height: 2rem;
-  background: #059669;
+  background: #415F26;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2214,7 +2214,7 @@ body {
 .step-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 0.75rem;
 }
 
@@ -2247,7 +2247,7 @@ body {
 .form-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1.5rem;
 }
 
@@ -2278,7 +2278,7 @@ body {
 }
 
 .form-button {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981, #415F26);
   color: white;
   border: none;
   padding: 0.75rem;
@@ -2289,7 +2289,7 @@ body {
 }
 
 .form-button:hover {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: linear-gradient(135deg, #415F26, #047857);
   transform: scale(1.05);
 }
 
@@ -2312,7 +2312,7 @@ body {
 .info-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -2335,13 +2335,13 @@ body {
 }
 
 .contact-icon i {
-  color: #059669;
+  color: #415F26;
   font-size: 1.5rem;
 }
 
 .contact-label {
   font-weight: 600;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 0.25rem;
   text-align: left;
 }
@@ -2370,13 +2370,13 @@ body {
 
 .map-placeholder i {
   font-size: 3rem;
-  color: #059669;
+  color: #415F26;
   margin-bottom: 0.5rem;
 }
 
 .map-title {
   font-weight: 600;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 0.25rem;
 }
 
@@ -2418,7 +2418,7 @@ body {
 }
 
 .footer-logo-icon i {
-  color: #065f46;
+  color: #415F26;
   font-size: 1.25rem;
 }
 
@@ -2649,7 +2649,7 @@ body {
 .mapa h3 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -2694,7 +2694,7 @@ body {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -2711,7 +2711,7 @@ body {
 
 .calculadora-label {
   font-size: 1.15rem;
-  color: #059669;
+  color: #415F26;
   font-weight: 600;
   text-align: center;
   width: 100%;
@@ -2789,7 +2789,7 @@ body {
   border: 1.5px solid #10b981;
   border-radius: 10px;
   font-size: 1.08rem;
-  color: #065f46;
+  color: #415F26;
   background: #f8fafc;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.06);
@@ -2797,7 +2797,7 @@ body {
 }
 
 .calculadora-cantidad:focus {
-  border-color: #059669;
+  border-color: #415F26;
   box-shadow: 0 0 0 3px #a7f3d0;
   outline: none;
 }
@@ -2853,7 +2853,7 @@ body {
   top: 1rem;
   right: 1.2rem;
   font-size: 2rem;
-  color: #059669;
+  color: #415F26;
   cursor: pointer;
   font-weight: bold;
   transition: color 0.2s;
@@ -2864,7 +2864,7 @@ body {
 
 .modal-content h2 {
   text-align: center;
-  color: #065f46;
+  color: #415F26;
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
   font-weight: 700;
@@ -2891,7 +2891,7 @@ body {
 }
 
 .modal-select-btn {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #10b981, #415F26);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -2904,7 +2904,7 @@ body {
   margin-left: auto;
 }
 .modal-select-btn:hover {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, #415F26, #10b981);
   transform: scale(1.07);
 }
 
@@ -3142,15 +3142,15 @@ body {
 }
 .testimony-card.purple {
   background: #bbf7d0;
-  color: #065f46;
+  color: #415F26;
 }
 .testimony-card.orange {
   background: #d1fae5;
-  color: #065f46;
+  color: #415F26;
 }
 .testimony-card.gray {
   background: #e0f2f1;
-  color: #065f46;
+  color: #415F26;
 }
 .testimony-percent {
   font-size: 2.5rem;
@@ -3168,7 +3168,7 @@ body {
 .testimony-text {
   font-size: 1.18rem;
   font-weight: 600;
-  color: #065f46;
+  color: #415F26;
   text-align: center;
   margin-bottom: 0;
   letter-spacing: 0.5px;
@@ -3522,7 +3522,7 @@ body {
   transform: translateX(-50%) scaleX(0);
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #10b981, #059669, #10b981);
+  background: linear-gradient(90deg, #10b981, #415F26, #10b981);
   border-radius: 2px;
   transition: transform 0.4s ease;
   transform-origin: center;
