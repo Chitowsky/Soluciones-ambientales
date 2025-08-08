@@ -4721,6 +4721,13 @@ body {
   object-fit: contain; 
   object-position: center;
 }
+.aliado-logo[src*="anla.png"] { 
+  height: 120px; 
+  width: 100%; 
+  max-width: 200px;
+  object-fit: contain; 
+  object-position: center;
+}
 .aliado-logo[src*="cormacarena.png"] { 
   height: 100px; 
   width: 100%; 
@@ -4780,6 +4787,11 @@ body {
     max-width: 210px;
   }
   .aliado-logo[src*="ANLA2.png"] { 
+    height: 115px; 
+    width: 100%; 
+    max-width: 190px;
+  }
+  .aliado-logo[src*="anla.png"] { 
     height: 115px; 
     width: 100%; 
     max-width: 190px;
@@ -4957,6 +4969,13 @@ body {
     object-fit: contain; 
     object-position: center;
   }
+  .aliado-logo[src*="anla.png"] { 
+    height: 100px; 
+    width: 100%; 
+    max-width: 160px;
+    object-fit: contain; 
+    object-position: center;
+  }
   .aliado-logo[src*="cormacarena.png"] { 
     height: 80px; 
     width: 100%; 
@@ -5074,6 +5093,13 @@ body {
     object-fit: contain; 
     object-position: center;
   }
+  .aliado-logo[src*="anla.png"] { 
+    height: 90px; 
+    width: 100%; 
+    max-width: 140px;
+    object-fit: contain; 
+    object-position: center;
+  }
   .aliado-logo[src*="cormacarena.png"] { 
     height: 70px; 
     width: 100%; 
@@ -5143,6 +5169,11 @@ body {
     max-width: 120px;
   }
   .aliado-logo[src*="ANLA2.png"] { 
+    height: 70px; 
+    width: 100%; 
+    max-width: 100px;
+  }
+  .aliado-logo[src*="anla.png"] { 
     height: 70px; 
     width: 100%; 
     max-width: 100px;
