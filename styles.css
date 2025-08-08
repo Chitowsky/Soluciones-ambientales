@@ -1615,13 +1615,15 @@ body {
   cursor: pointer;
   z-index: 20;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 .recycle-gif {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   object-fit: cover;
   border-radius: 25px;
 }
@@ -1632,29 +1634,26 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 700;
   text-align: center;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
   line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
   width: auto;
-  max-width: 220px;
+  z-index: 2;
 }
 
 .text-line-1 {
   display: block;
-  font-size: 1.1rem;
+  font-size: inherit;
   font-weight: 800;
+  margin-bottom: 1px;
   white-space: nowrap;
 }
 
 .text-line-2 {
   display: block;
-  font-size: 1.1rem;
+  font-size: inherit;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -1684,15 +1683,14 @@ body {
     top: 120px;
     right: 40px;
   }
-  
+
   .btn-text {
     font-size: 1.4rem;
-    max-width: 280px;
   }
   
-  .text-line-1,
-  .text-line-2 {
-    font-size: 1.4rem;
+  .recycle-gif {
+    width: 65%;
+    height: 65%;
   }
 }
 
@@ -1704,15 +1702,14 @@ body {
     top: 130px;
     right: 50px;
   }
-  
+
   .btn-text {
     font-size: 1.6rem;
-    max-width: 320px;
   }
-  
-  .text-line-1,
-  .text-line-2 {
-    font-size: 1.6rem;
+
+  .recycle-gif {
+    width: 62%;
+    height: 62%;
   }
 }
 
@@ -1724,10 +1721,14 @@ body {
     top: 100px;
     right: 20px;
   }
-  
+
   .btn-text {
     font-size: 1.1rem;
-    max-width: 200px;
+  }
+
+  .recycle-gif {
+    width: 68%;
+    height: 68%;
   }
 }
 
@@ -1739,15 +1740,14 @@ body {
     top: 80px;
     right: 15px;
   }
-  
+
   .btn-text {
-    font-size: 1rem;
-    max-width: 170px;
+    font-size: 1.0rem;
   }
-  
-  .text-line-1,
-  .text-line-2 {
-    font-size: 1rem;
+
+  .recycle-gif {
+    width: 70%;
+    height: 70%;
   }
 }
 
@@ -1759,16 +1759,15 @@ body {
     top: 60px;
     right: 10px;
   }
-  
+
   .btn-text {
-    font-size: 0.75rem;
-    padding: 8px 12px;
-    max-width: 130px;
+    font-size: 0.95rem;
+    padding: 6px 10px;
   }
-  
-  .text-line-1,
-  .text-line-2 {
-    font-size: 0.75rem;
+
+  .recycle-gif {
+    width: 72%;
+    height: 72%;
   }
 }
 
@@ -1780,17 +1779,15 @@ body {
     top: 50px;
     right: 8px;
   }
-  
+
   .btn-text {
-    font-size: 0.65rem;
-    padding: 6px 10px;
-    max-width: 110px;
-    gap: 1px;
+    font-size: 0.9rem;
+    padding: 4px 8px;
   }
-  
-  .text-line-1,
-  .text-line-2 {
-    font-size: 0.65rem;
+
+  .recycle-gif {
+    width: 74%;
+    height: 74%;
   }
 }
 
