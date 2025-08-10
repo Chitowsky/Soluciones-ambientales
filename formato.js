@@ -6,6 +6,9 @@ let firmasGuardadas = {};
 
 // Función para prevenir la entrada de 'e' en inputs numéricos
 document.addEventListener('DOMContentLoaded', function() {
+    // Configurar campos editables del documento
+    configurarCamposDocumento();
+    
     // Obtener todos los inputs numéricos
     const numericalInputs = document.querySelectorAll('input[type="number"]');
     
@@ -113,6 +116,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Función para imprimir/guardar como PDF
     document.getElementById('downloadPDF').addEventListener('click', function() {
+        // Validar campos del documento primero
+        if (!validarCamposDocumento()) {
+            return;
+        }
+        
         // Validar que hay datos en el formato - buscar el campo "Persona responsable"
         const personaResponsableInput = document.querySelector('td.input-cell[colspan="3"] input.form-input');
         if (!personaResponsableInput || !personaResponsableInput.value.trim()) {
@@ -270,4 +278,122 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         cerrarModalFirma();
     }
-}); 
+});
+
+// ===== FUNCIONES PARA CAMPOS EDITABLES DEL DOCUMENTO =====
+
+function configurarCamposDocumento() {
+    const f02Input = document.getElementById('f02-input');
+    const documentSuffixInput = document.getElementById('document-suffix');
+    
+    if (f02Input) {
+        // Configurar el campo F02
+        f02Input.addEventListener('input', function() {
+            // Convertir a mayúsculas y limitar a 10 caracteres
+            this.value = this.value.toUpperCase().substring(0, 10);
+            
+            // Permitir solo letras y números
+            this.value = this.value.replace(/[^A-Z0-9]/g, '');
+            
+            // Ajustar el ancho del input según el contenido
+            ajustarAnchoInput(this);
+        });
+        
+        // Configurar eventos de foco
+        f02Input.addEventListener('focus', function() {
+            this.style.backgroundColor = '#f0fdf4';
+            this.style.borderBottomColor = '#10b981';
+        });
+        
+        f02Input.addEventListener('blur', function() {
+            this.style.backgroundColor = 'transparent';
+            this.style.borderBottomColor = '#333';
+            
+            // Si está vacío, restaurar valor por defecto
+            if (!this.value.trim()) {
+                this.value = 'F02';
+            }
+        });
+        
+        // Ajustar ancho inicial
+        ajustarAnchoInput(f02Input);
+    }
+    
+    if (documentSuffixInput) {
+        // Configurar el campo de sufijo del documento
+        documentSuffixInput.addEventListener('input', function() {
+            // Limitar a 20 caracteres
+            this.value = this.value.substring(0, 20);
+            
+            // Permitir letras, números, guiones y algunos caracteres especiales
+            this.value = this.value.replace(/[^A-Za-z0-9\-_./]/g, '');
+            
+            // Ajustar el ancho del input según el contenido
+            ajustarAnchoInput(this);
+        });
+        
+        // Configurar eventos de foco
+        documentSuffixInput.addEventListener('focus', function() {
+            this.style.backgroundColor = '#f0fdf4';
+            this.style.borderBottomColor = '#10b981';
+            this.placeholder = 'Ej: 001-2025';
+        });
+        
+        documentSuffixInput.addEventListener('blur', function() {
+            this.style.backgroundColor = 'transparent';
+            this.style.borderBottomColor = '#333';
+            this.placeholder = '';
+        });
+        
+        // Ajustar ancho inicial
+        ajustarAnchoInput(documentSuffixInput);
+    }
+}
+
+function ajustarAnchoInput(input) {
+    // Crear un elemento temporal para medir el texto
+    const tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.position = 'absolute';
+    tempSpan.style.fontSize = window.getComputedStyle(input).fontSize;
+    tempSpan.style.fontFamily = window.getComputedStyle(input).fontFamily;
+    tempSpan.style.fontWeight = window.getComputedStyle(input).fontWeight;
+    tempSpan.textContent = input.value || input.placeholder || 'A';
+    
+    document.body.appendChild(tempSpan);
+    const textWidth = tempSpan.offsetWidth;
+    document.body.removeChild(tempSpan);
+    
+    // Establecer un ancho mínimo y máximo
+    const minWidth = input.id === 'f02-input' ? 40 : 120;
+    const maxWidth = input.id === 'f02-input' ? 100 : 200;
+    const newWidth = Math.max(minWidth, Math.min(textWidth + 10, maxWidth));
+    
+    input.style.width = newWidth + 'px';
+}
+
+// Función para obtener el número completo del documento
+function getDocumentNumber() {
+    const f02Input = document.getElementById('f02-input');
+    const documentSuffixInput = document.getElementById('document-suffix');
+    
+    const f02Value = f02Input ? f02Input.value : 'F02';
+    const suffixValue = documentSuffixInput ? documentSuffixInput.value : '';
+    
+    return `DG-FC-2025-${f02Value}-No: ${suffixValue}`.trim();
+}
+
+// Función para validar que los campos del documento estén completos
+function validarCamposDocumento() {
+    const documentSuffixInput = document.getElementById('document-suffix');
+    
+    if (!documentSuffixInput || !documentSuffixInput.value.trim()) {
+        alert('Por favor, complete el campo del número de documento después de "No:"');
+        if (documentSuffixInput) {
+            documentSuffixInput.focus();
+        }
+        return false;
+    }
+    
+    return true;
+} 
